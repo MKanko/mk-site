@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import AdminHome from './components/admin/AdminHome'
+import Login from './components/admin/registrations/Login'
+import Signup from './components/admin/registrations/Signup'
+
 class App extends Component {
 
     constructor(props) {
@@ -47,9 +51,26 @@ class App extends Component {
             <div>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path='/admin/home' component={} />
-                        <Route exact path='/login' component={} />
-                        <Route exact path='signup' component={} />
+                        <Route 
+                            exact path='/admin/home'
+                            render={props => (
+                            <AdminHome {...props} loggedInStatus={this.state.isLoggedIn} />
+                            )} 
+                        />
+                        <Route 
+                            exact path='/login' 
+                            render={props => (
+                            <Login {...props} handleLogin={this.handleLogin}
+                            loggedInStatus={this.state.isLoggedIn} />
+                            )} 
+                        />
+                        <Route 
+                            exact path='/signup'
+                            render={props => (
+                            <Signup {...props} handleLogin={this.handleLogin}
+                            loggedInStatus={this.state.isLoggedIn} />
+                            )} 
+                        />
                     </Switch>
                 </BrowserRouter>
             </div>

@@ -13,6 +13,10 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        return this.props.loggedInStatus ? this.redirect() : null
+    }
+
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({
@@ -22,6 +26,39 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const { username, password } = this.state 
+
+        let user = {
+            username: username, 
+            password: password
+        }
+
+        axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+            .then(response => {
+                if (response.data.logged_in) {
+                    this.props.handleLogin(response.data)
+                    this.redirect()
+                } else {
+                    this.setState({
+                        errors: response.data.errors   
+                    })
+                }
+            })
+            .catch(error => console.log('api errors:', error))
+    }
+
+    redirect = () => {
+        this.props.history.push('/admin/home')
+    }
+
+    handleErrors = () => {
+        return (
+            <div>
+                <ul>
+                    {this.state.errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+            </div>
+        )
     }
 
     render() {
@@ -51,6 +88,9 @@ class Login extends Component {
 
                     <div>or <Link to='/signup'>sign up</Link></div>
                 </form>
+                <div>
+                    {this.state.errors ? this.handleErrors() : null}
+                </div>
             </div>
         )
     }
