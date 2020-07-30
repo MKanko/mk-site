@@ -54,7 +54,8 @@ class App extends Component {
                         <Route 
                             exact path='/admin/home'
                             render={props => (
-                            <AdminHome {...props} loggedInStatus={this.state.isLoggedIn} />
+                            <AdminHome {...props} loggedInStatus={this.state.isLoggedIn}
+                            handleLogout={this.handleLogout} />
                             )} 
                         />
                         <Route 
