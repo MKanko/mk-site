@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import AdminHome from './components/admin/AdminHome'
 import Login from './components/admin/registrations/Login'
@@ -49,7 +49,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <BrowserRouter>
+                <Router>
                     <Switch>
                         <Route 
                             exact path='/admin/home'
@@ -73,7 +73,7 @@ class App extends Component {
                             )} 
                         />
                     </Switch>
-                </BrowserRouter>
+                </Router>
             </div>
         )
     }
