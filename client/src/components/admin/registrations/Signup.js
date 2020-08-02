@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
 
 class Signup extends Component {
 
@@ -30,33 +30,17 @@ class Signup extends Component {
             password_confirmation: password_confirmation
         }
 
-        axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-            .then(response => {
-                if (response.data.status === 'created') {
-                    this.props.handleLogin(response.data)
-                    this.redirect()
-                } else {
-                    this.setState({
-                        errors: response.data.errors
-                    })
-                }
-            })
-            .catch(error => console.log('api errors:', error))
+        let next = {
+            redirect: this.redirect 
+        }
+        
+        this.props.location.query.signup(user, next)
     }
 
     redirect = () => {
         this.props.history.push('/admin/home')
     }
 
-    handleErrors = () => {
-        return (
-            <div>
-                <ul>
-                    {this.state.errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
-            </div>
-        )
-    }
 
     render() {
         const { username, password, password_confirmation} = this.state 
@@ -90,9 +74,7 @@ class Signup extends Component {
 
                     <button type="submit" placeholder="submit">Sign Up</button>
                 </form>
-                <div>
-                    {this.state.errors ? this.handleErrors() : null}
-                </div>
+                
             </div>
         )
     }
