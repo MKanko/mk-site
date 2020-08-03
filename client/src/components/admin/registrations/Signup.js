@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
 class Signup extends Component {
 
@@ -21,41 +20,18 @@ class Signup extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log(this.props)
         event.preventDefault()
         const { username, password, password_confirmation } = this.state
-
         let user = {
             username: username,
             password: password,
             password_confirmation: password_confirmation
         }
-
-        axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-            .then(response => {
-                if (response.data.status === 'created') {
-                    this.props.handleLogin(response.data)
-                    this.redirect()
-                } else {
-                    this.setState({
-                        errors: response.data.errors
-                    })
-                }
-            })
-            .catch(error => console.log('api errors:', error))
-    }
-
-    redirect = () => {
-        this.props.history.push('/admin/home')
-    }
-
-    handleErrors = () => {
-        return (
-            <div>
-                <ul>
-                    {this.state.errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
-            </div>
-        )
+        let next = {
+            redirect: () => this.props.history.push('/admin/home')
+        }       
+        this.props.location.query.signup(user, next)
     }
 
     render() {
@@ -90,9 +66,7 @@ class Signup extends Component {
 
                     <button type="submit" placeholder="submit">Sign Up</button>
                 </form>
-                <div>
-                    {this.state.errors ? this.handleErrors() : null}
-                </div>
+               
             </div>
         )
     }
