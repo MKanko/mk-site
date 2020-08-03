@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class Signup extends Component {
 
     constructor(props) {
@@ -21,26 +20,19 @@ class Signup extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log(this.props)
         event.preventDefault()
         const { username, password, password_confirmation } = this.state
-
         let user = {
             username: username,
             password: password,
             password_confirmation: password_confirmation
         }
-
         let next = {
-            redirect: this.redirect 
-        }
-        
+            redirect: () => this.props.history.push('/admin/home')
+        }       
         this.props.location.query.signup(user, next)
     }
-
-    redirect = () => {
-        this.props.history.push('/admin/home')
-    }
-
 
     render() {
         const { username, password, password_confirmation} = this.state 
@@ -74,7 +66,7 @@ class Signup extends Component {
 
                     <button type="submit" placeholder="submit">Sign Up</button>
                 </form>
-                
+               
             </div>
         )
     }

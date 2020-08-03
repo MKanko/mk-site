@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 class Login extends Component {
@@ -13,9 +13,9 @@ class Login extends Component {
         }
     }
 
-    componentDidMount() {
-        return this.props.loggedInStatus ? this.redirect() : null
-    }
+    // componentDidMount() {
+    //     return this.props.loggedInStatus ? this.redirect() : null
+    // }
 
     handleChange = (event) => {
         const { name, value } = event.target
@@ -25,6 +25,7 @@ class Login extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log(this.props)
         event.preventDefault()
         const { username, password } = this.state 
 
@@ -33,32 +34,11 @@ class Login extends Component {
             password: password
         }
 
-        axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
-            .then(response => {
-                if (response.data.logged_in) {
-                    this.props.handleLogin(response.data)
-                    this.redirect()
-                } else {
-                    this.setState({
-                        errors: response.data.errors   
-                    })
-                }
-            })
-            .catch(error => console.log('api errors:', error))
-    }
+        let next = {
+            redirect: () => this.props.history.push('/admin/home')
+        }
 
-    redirect = () => {
-        this.props.history.push('/admin/home')
-    }
-
-    handleErrors = () => {
-        return (
-            <div>
-                <ul>
-                    {this.state.errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
-            </div>
-        )
+        this.props.location.query.login(user, next)
     }
 
     render() {
@@ -88,9 +68,7 @@ class Login extends Component {
 
                     <div>or <Link to='/signup'>sign up</Link></div>
                 </form>
-                <div>
-                    {this.state.errors ? this.handleErrors() : null}
-                </div>
+                
             </div>
         )
     }
