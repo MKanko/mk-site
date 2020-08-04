@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Button, Container } from 'semantic-ui-react'
 
 import { signup, login, logout } from '../../actions'
 
@@ -16,11 +17,17 @@ class AdminHome extends Component {
     render() {
         return (
             <div>
-                <Link to={{pathname: '/login', query: {login: this.props.login}}}>Log In</Link>
-                <br></br>
-                <Link to={{pathname: '/signup', query: {signup: this.props.signup}}}>Sign Up</Link>
-                <br></br>
-                {this.props.manageAdmin.isLoggedIn ? <Link to='/logout' onClick={this.handleClick}>Log Out</Link> : null}
+                <Container textAlign='center'>
+                    <Button.Group vertical>
+                        <Button>
+                            <Link to={{pathname: '/login', query: {login: this.props.login}}}>Log In</Link>
+                        </Button>                      
+                        <Button>
+                            <Link to={{pathname: '/signup', query: {signup: this.props.signup}}}>Sign Up</Link>
+                        </Button>                      
+                        {this.props.manageAdmin.isLoggedIn ? <Button><Link to='/logout' onClick={this.handleClick}>Log Out</Link></Button> : null}
+                    </Button.Group>
+                </Container>               
             </div>
         )
     }
