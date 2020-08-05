@@ -22,10 +22,8 @@ export const login = (user, next) => async (dispatch) => {
 
 export const logout = (next) => async (dispatch) => {
     const response = await axios.delete('http://localhost:3001/logout', {withCredentials: true})
-    console.log(response)
     dispatch({type: 'LOGOUT', payload: response.data})
-    next.redirect()
-    
+    next.redirect()   
 }
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Container } from 'semantic-ui-react'
 
-import { signup, login, logout } from '../../actions'
+import { signup, login, logout } from '../actions'
 
 class AdminHome extends Component {
 
@@ -38,5 +38,13 @@ const mapStateToProps = (state) => {
         manageAdmin: state.manageAdmin
     }
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         signup: (user, next) => {dispatch(signup(user, next))},
+//         login: (user, next) => {dispatch(login(user, next))},
+//         logout: (user) => {dispatch(logout(user))}
+//     }
+// }
 
 export default connect(mapStateToProps, { signup, login, logout })(AdminHome)

@@ -1,4 +1,4 @@
-export default function manageAdminAccess(state = {isLoggedIn: false, user: {}}, action) {
+export default function manageAdmin(state = {isLoggedIn: false, user: {}}, action) {
     switch (action.type) {
         case 'SIGNUP':
             const success = action.payload.status === 'created'
