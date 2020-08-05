@@ -26,6 +26,11 @@ export const logout = (next) => async (dispatch) => {
     next.redirect()   
 }
 
+export const getHome = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/')
+    dispatch({type: 'GET_HOME', payload: response.data})
+}
+
 
 
 
