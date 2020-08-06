@@ -5,12 +5,14 @@ import AdminHome from './containers/AdminHomeContainer'
 import Login from './components/admin/registrations/Login'
 import Signup from './components/admin/registrations/Signup'
 import Home from './components/home/Home'
+import NavBar from './components/navigation/NavBar'
 
 class App extends Component { 
     
     render() {
         return (
             <div>
+                <NavBar />
                 <Router>
                     <Switch>
                         <Route exact path='/' component={Home} />

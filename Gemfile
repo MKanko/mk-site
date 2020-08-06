@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'dotenv-rails'
