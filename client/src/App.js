@@ -4,18 +4,29 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import AdminHome from './containers/AdminHomeContainer'
 import Login from './components/admin/registrations/Login'
 import Signup from './components/admin/registrations/Signup'
-import Home from './components/home/Home'
 import NavBar from './components/navigation/NavBar'
+import Home from './components/home/Home'
+import About from './components/about/About'
+import PortfolioContainer from './containers/PortfolioContainer'
+import BlogContainer from './containers/BlogContainer'
+import ResumeContainer from './containers/ResumeContainer'
+import ContactContainer from './containers/ContactContainer'
+
 
 class App extends Component { 
     
     render() {
         return (
             <div>
-                <NavBar />
                 <Router>
+                    <NavBar />
                     <Switch>
                         <Route exact path='/' component={Home} />
+                        <Route exact path='/about' component={About} />
+                        <Route exact path='/portfolio' component={PortfolioContainer} />
+                        <Route exact path='/blog' component={BlogContainer} />
+                        <Route exact path='/resume' component={ResumeContainer} />
+                        <Route exact path='/contact' component={ContactContainer} />
                         <Route exact path='/admin/home' component={AdminHome} />                           
                         <Route exact path='/login' component={Login} />                            
                         <Route exact path='/signup' component={Signup} />                           

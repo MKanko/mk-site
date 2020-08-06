@@ -27,26 +27,36 @@ class NavBar extends Component {
                         onClick={this.handleItemClick}
                     />
                     <Menu.Item
+                        as={Link}
+                        to='/about'
                         name='about'
                         active={activeItem === 'about'}
                         onClick={this.handleItemClick}
                     />
                     <Menu.Item
+                        as={Link}
+                        to='/portfolio'
                         name='portfolio'
                         active={activeItem === 'portfolio'}
                         onClick={this.handleItemClick}
                     />
                     <Menu.Item
+                        as={Link}
+                        to='/blog'
                         name='blog'
                         active={activeItem === 'blog'}
                         onClick={this.handleItemClick}
                     />
                     <Menu.Item
+                        as={Link}
+                        to='/resume'
                         name='resume'
                         active={activeItem === 'resume'}
                         onClick={this.handleItemClick}
                     />
                     <Menu.Item
+                        as={Link}
+                        to='/contact'
                         name='contact'
                         active={activeItem === 'contact'}
                         onClick={this.handleItemClick}
