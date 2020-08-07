@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Grid, Header } from 'semantic-ui-react'
 
 class EditHome extends Component {
 
@@ -19,17 +19,17 @@ class EditHome extends Component {
     }
 
     handleSubmit = (event) => {
-        preventDefault()
+        event.preventDefault()
         const { title, text_content, image } = this.state
-        let formData = {
+        let home = {
             title: title,
             text_content: text_content,
             image: image 
         }
         let next = {
-            redirect: () => this.props.history.push('/home')
+            redirect: () => this.props.history.push('/')
         }       
-        this.props.location.query.editHome(formData, next) 
+        this.props.location.query.editHome(home, next) 
         
     }
 
@@ -39,7 +39,7 @@ class EditHome extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h2' color='black' textAlign='center'>
+                        <Header as='h2' color='green' textAlign='center'>
                             Edit Home Data
                         </Header>
                         <Form onSubmit={this.handleSubmit}>

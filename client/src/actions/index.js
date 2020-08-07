@@ -32,6 +32,12 @@ export const getHome = () => async (dispatch) => {
     dispatch({type: 'GET_HOME', payload: response.data.data.attributes})
 }
 
+export const editHome = (home, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/home', {home})
+    dispatch({type: 'EDIT_HOME', payload: response.data.data.attributes})
+    next.redirect()
+}
+
 
 
 

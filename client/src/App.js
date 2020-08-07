@@ -11,6 +11,7 @@ import PortfolioContainer from './containers/PortfolioContainer'
 import BlogContainer from './containers/BlogContainer'
 import ResumeContainer from './containers/ResumeContainer'
 import ContactContainer from './containers/ContactContainer'
+import EditHome from './components/admin/home/EditHome'
 
 
 class App extends Component { 
@@ -29,7 +30,8 @@ class App extends Component {
                         <Route exact path='/contact' component={ContactContainer} />
                         <Route exact path='/admin/home' component={AdminHome} />                           
                         <Route exact path='/login' component={Login} />                            
-                        <Route exact path='/signup' component={Signup} />                           
+                        <Route exact path='/signup' component={Signup} />
+                        <Route exact path='/editHome' component={EditHome} />                           
                     </Switch>
                 </Router>
             </div>

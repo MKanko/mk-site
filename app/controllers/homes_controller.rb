@@ -15,12 +15,12 @@ class HomesController < ApplicationController
     end 
 
     def edit 
-        home = Home.find_by(id: params[:id])
+        home = Home.first
         render json: HomeSerializer.new(home)
     end 
 
     def update
-        home = Home.find_by(id: params[:id])
+        home = Home.first
         home.update(home_params)
         home.save 
         render json: HomeSerializer.new(home)
