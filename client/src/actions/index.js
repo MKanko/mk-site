@@ -38,6 +38,12 @@ export const editHome = (home, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getAbout = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/about')
+    dispatch({type: 'GET_ABOUT', payload: response.data.data.attributes})
+}
+
+
 
 
 
