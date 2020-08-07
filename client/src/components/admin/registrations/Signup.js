@@ -36,7 +36,7 @@ class Signup extends Component {
     }
 
     render() {
-        const { username, password, password_confirmation} = this.state 
+        const { username, password, password_confirmation } = this.state 
 
         return (
             <div>

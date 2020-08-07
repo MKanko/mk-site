@@ -22,10 +22,20 @@ export const login = (user, next) => async (dispatch) => {
 
 export const logout = (next) => async (dispatch) => {
     const response = await axios.delete('http://localhost:3001/logout', {withCredentials: true})
-    console.log(response)
     dispatch({type: 'LOGOUT', payload: response.data})
+    next.redirect()   
+}
+
+export const getHome = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/home')
+    console.log('response: ', response)
+    dispatch({type: 'GET_HOME', payload: response.data.data.attributes})
+}
+
+export const editHome = (home, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/home', {home})
+    dispatch({type: 'EDIT_HOME', payload: response.data.data.attributes})
     next.redirect()
-    
 }
 
 
