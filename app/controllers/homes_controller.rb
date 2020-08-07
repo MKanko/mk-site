@@ -27,7 +27,7 @@ class HomesController < ApplicationController
     end
 
     def destroy
-        home = Home.find_by(id: params[:id]).destroy 
+        home = Home.first.destroy 
     end 
 
     private

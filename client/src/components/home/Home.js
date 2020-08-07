@@ -11,7 +11,6 @@ class Home extends Component {
     }
 
     render() {
-        
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
