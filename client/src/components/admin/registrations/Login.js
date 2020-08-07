@@ -14,10 +14,6 @@ class Login extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     return this.props.loggedInStatus ? this.redirect() : null
-    // }
-
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({
@@ -80,30 +76,6 @@ class Login extends Component {
                     </Message>
                     </Grid.Column>
                 </Grid>
-                {/* <h3>Log In</h3>
-
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="username"
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="password"
-                        onChange={this.handleChange}
-                    />
-
-                    <button type="submit" placeholder="submit">Log In</button>
-
-                    <div>or </div>
-                </form>
-                */}
-                
             </div> 
         )
     }

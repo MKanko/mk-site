@@ -10,7 +10,9 @@ class ResumeContainer extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='purple' textAlign='center'>Welcome Mark's Totally Bitch'n Resume!</Header>
+                        <Header as='h1' color='orange' textAlign='center'>
+                            Resume Page
+                        </Header>
                     </Grid.Column>
                 </Grid>
             </div>

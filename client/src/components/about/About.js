@@ -10,7 +10,9 @@ class About extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='blue' textAlign='center'>Welcome to About Mark!</Header>
+                        <Header as='h1' color='purple' textAlign='center'>
+                            About Page
+                        </Header>
                     </Grid.Column>
                 </Grid>
             </div>

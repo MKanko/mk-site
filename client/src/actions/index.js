@@ -28,7 +28,8 @@ export const logout = (next) => async (dispatch) => {
 
 export const getHome = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/home')
-    dispatch({type: 'GET_HOME', payload: response.data})
+    console.log('response: ', response)
+    dispatch({type: 'GET_HOME', payload: response.data.data.attributes})
 }
 
 

@@ -10,7 +10,9 @@ class BlogContainer extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='yellow' textAlign='center'>Welcome to Mark's Blog!</Header>
+                        <Header as='h1' color='blue' textAlign='center'>
+                            Blog Page
+                        </Header>
                     </Grid.Column>
                 </Grid>
             </div>

@@ -10,7 +10,9 @@ class PortfolioContainer extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='orange' textAlign='center'>Welcome Mark's Portfolio!</Header>
+                        <Header as='h1' color='yellow' textAlign='center'>
+                            Portfolio Page
+                        </Header>
                     </Grid.Column>
                 </Grid>
             </div>
