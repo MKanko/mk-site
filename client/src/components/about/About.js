@@ -4,7 +4,6 @@ import { Header, Grid, Segment } from 'semantic-ui-react'
 
 import { getAbout } from '../../actions'
 
-
 class About extends Component {
 
     componentDidMount() {
@@ -31,6 +30,7 @@ class About extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('state:', state)
     return {
         title: state.manageAbout.about.title,
         text_content: state.manageAbout.about.text_content,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Grid, Header } from 'semantic-ui-react'
 
-class EditHome extends Component {
+class EditAbout extends Component {
 
     constructor(props) {
         super(props)
@@ -14,23 +14,22 @@ class EditHome extends Component {
 
     handleOnChange = (event) => {
         this.setState({
-          [event.target.name]: event.target.value  
+            [event.target.name]: event.target.value
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { title, text_content, image } = this.state
-        let home = {
-            title: title,
+        const { title, text_content, image } = this.state 
+        let about = {
+            title: title, 
             text_content: text_content,
-            image: image 
+            image: image
         }
         let next = {
-            redirect: () => this.props.history.push('/admin/home')
-        }       
-        this.props.location.query.editHome(home, next) 
-        
+            redirect: () => this.props.history.push('/admin/home') 
+        }
+        this.props.location.query.editAbout(about, next)
     }
 
     render() {
@@ -40,7 +39,7 @@ class EditHome extends Component {
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h2' color='green' textAlign='center'>
-                            Edit Home Data
+                            Edit About Data
                         </Header>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group widths='equal'>
@@ -78,4 +77,4 @@ class EditHome extends Component {
 
 }
 
-export default EditHome
+export default EditAbout

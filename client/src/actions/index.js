@@ -40,6 +40,7 @@ export const editHome = (home, next) => async (dispatch) => {
 
 export const getAbout = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/about')
+    console.log('response: ', response)
     dispatch({type: 'GET_ABOUT', payload: response.data.data.attributes})
 }
 

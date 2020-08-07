@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   
   resources :users, only: [:create, :show, :index]
   resource :home, except: [:index]
-  resources :about, except: [:index]
-  
+  resource :about, except: [:index]
+
 end
