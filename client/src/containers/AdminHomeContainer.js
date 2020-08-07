@@ -27,7 +27,7 @@ class AdminHome extends Component {
                                 <Button>
                                     <Link to={{pathname: '/signup', query: {signup: this.props.signup}}}><h3>Sign Up</h3></Link>
                                 </Button>
-                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/editHome', query: {editHome: this.props.editHome}}}><h3>Edit Home</h3></Link></Button> : null}                      
+                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}><h3>Edit Home</h3></Link></Button> : null}                      
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to='/logout' onClick={this.handleClick}><h3>Log Out</h3></Link></Button> : null}
                             </Button.Group>
                         </Container>
