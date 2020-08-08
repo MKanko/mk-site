@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Header, Segment } from 'semantic-ui-react'
 
+import { getPortfolio } from '../actions'
 
 class PortfolioContainer extends Component {
 
@@ -12,15 +13,18 @@ class PortfolioContainer extends Component {
     render() {
         return (
             <div>
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                    <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='yellow' textAlign='center'>
-                            {this.props.title}
-                        </Header>
-                        <Segment inverted secondary>
-                            {this.props.text_content}
-                        </Segment>
-                    </Grid.Column>
+                <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                    <Grid.Row columns={1}>
+                        <Grid.Column style={{ maxWidth: 450 }}>
+                            <Header as='h1' color='yellow' textAlign='center'>
+                                {this.props.title}
+                            </Header>
+                            <Segment inverted secondary>
+                                {this.props.text_content}
+                            </Segment>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <ProjectIndex />
                 </Grid>
             </div>
         )
@@ -29,6 +33,7 @@ class PortfolioContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         title: state.managePortfolio.portfolio.title,
         text_content: state.managePortfolio.portfolio.text_content,
