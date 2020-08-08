@@ -13,6 +13,7 @@ import ResumeContainer from './containers/ResumeContainer'
 import ContactContainer from './containers/ContactContainer'
 import EditHome from './components/admin/home/EditHome'
 import EditAbout from './components/admin/about/EditAbout'
+import EditPortfolio from './components/admin/portfolio/EditPortfolio'
 
 
 class App extends Component { 
@@ -28,10 +29,11 @@ class App extends Component {
                         <Route exact path='/about' component={About} />
                         <Route exact path='/about/edit' component={EditAbout} />
                         <Route exact path='/portfolio' component={PortfolioContainer} />
+                        <Route exact path='/portfolio/edit' component={EditPortfolio} />
                         <Route exact path='/blog' component={BlogContainer} />
                         <Route exact path='/resume' component={ResumeContainer} />
                         <Route exact path='/contact' component={ContactContainer} />
-                        
+
                         <Route exact path='/admin/home' component={AdminHome} />                           
                         <Route exact path='/login' component={Login} />                            
                         <Route exact path='/signup' component={Signup} />                           

@@ -3,7 +3,8 @@ import { Form, Grid, Header } from 'semantic-ui-react'
 
 class EditPortfolio extends Component {
 
-    constuctor() {
+    constructor(props) {
+        super(props)
         this.state = {
             title: '',
             text_content: '',
@@ -27,7 +28,7 @@ class EditPortfolio extends Component {
         let next = {
             redirect: () => this.props.history.push('/admin/home') 
         }
-        this.props.location.query.getPortfolio(portfolio, next)
+        this.props.location.query.editPortfolio(portfolio, next)
     }
 
     render() {
@@ -45,7 +46,7 @@ class EditPortfolio extends Component {
                                     label='Title'
                                     placeholder='Title'
                                     name='title'
-                                    value={title}
+                                    value={this.state.title}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input
@@ -53,7 +54,7 @@ class EditPortfolio extends Component {
                                     label='Image'
                                     placeholder='Image'
                                     name='image'
-                                    value={image}
+                                    value={this.state.image}
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
@@ -61,7 +62,7 @@ class EditPortfolio extends Component {
                                 label='Content'
                                 placeholder='Home page content...'
                                 name='text_content'
-                                value={text_content}
+                                value={this.state.text_content}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>
