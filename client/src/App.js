@@ -24,16 +24,17 @@ class App extends Component {
                     <NavBar />
                     <Switch>
                         <Route exact path='/' component={Home} />
+                        <Route exact path='/home/edit' component={EditHome} />
                         <Route exact path='/about' component={About} />
+                        <Route exact path='/about/edit' component={EditAbout} />
                         <Route exact path='/portfolio' component={PortfolioContainer} />
                         <Route exact path='/blog' component={BlogContainer} />
                         <Route exact path='/resume' component={ResumeContainer} />
                         <Route exact path='/contact' component={ContactContainer} />
+                        
                         <Route exact path='/admin/home' component={AdminHome} />                           
                         <Route exact path='/login' component={Login} />                            
-                        <Route exact path='/signup' component={Signup} />
-                        <Route exact path='/home/edit' component={EditHome} />
-                        <Route exact path='/about/edit' component={EditAbout} />                          
+                        <Route exact path='/signup' component={Signup} />                           
                     </Switch>
                 </Router>
             </div>

@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {getPortfolio: (portfolio) => {dispatch(getPortfolio(portfolio))}}
+    return {getPortfolio: () => {dispatch(getPortfolio())}}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PortfolioContainer)

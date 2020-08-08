@@ -50,6 +50,12 @@ export const editAbout = (about, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getPortfolio = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/portfolio')
+    console.log('response: ', response)
+    dispatch({type: 'GET_PORTFOLIO', payload: response.data.data.attributes})
+}
+
 
 
 
