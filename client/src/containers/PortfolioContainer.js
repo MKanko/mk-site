@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header, Grid } from 'semantic-ui-react'
+import { Grid, Header, Segment } from 'semantic-ui-react'
 
 
 class PortfolioContainer extends Component {
+
+    componentDidMount() {
+        this.props.getPortfolio()
+    }
 
     render() {
         return (
@@ -11,8 +15,11 @@ class PortfolioContainer extends Component {
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='yellow' textAlign='center'>
-                            Portfolio Page
+                            {this.props.title}
                         </Header>
+                        <Segment inverted secondary>
+                            {this.props.text_content}
+                        </Segment>
                     </Grid.Column>
                 </Grid>
             </div>
@@ -21,4 +28,16 @@ class PortfolioContainer extends Component {
 
 }
 
-export default connect(null)(PortfolioContainer)
+const mapStateToProps = (state) => {
+    return {
+        title: state.managePortfolio.portfolio.title,
+        text_content: state.managePortfolio.portfolio.text_content,
+        image: state.managePortfolio.portfolio.image
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {getPortfolio: (portfolio) => {dispatch(getPortfolio(portfolio))}}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioContainer)
