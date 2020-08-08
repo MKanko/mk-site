@@ -12,6 +12,7 @@ import BlogContainer from './containers/BlogContainer'
 import ResumeContainer from './containers/ResumeContainer'
 import ContactContainer from './containers/ContactContainer'
 import EditHome from './components/admin/home/EditHome'
+import EditAbout from './components/admin/about/EditAbout'
 
 
 class App extends Component { 
