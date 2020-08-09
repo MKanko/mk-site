@@ -30,7 +30,7 @@ class AdminHome extends Component {
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}><h3>Edit Home</h3></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout}}}><h3>Edit About</h3></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}><h3>Edit Portfolio</h3></Link></Button> : null}                     
-                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to='/logout' onClick={this.handleClick}><h3>Log Out</h3></Link></Button> : null}
+                                {this.props.manageAdmin.isLoggedIn ? <Button onClick={this.handleClick}><h3>Log Out</h3></Button> : null}
                             </Button.Group>
                         </Container>
                      </Grid.Column>
