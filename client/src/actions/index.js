@@ -45,10 +45,38 @@ export const getAbout = () => async (dispatch) => {
 }
 
 export const editAbout = (about, next) => async (dispatch) => {
-    const response = await axios.patch('http://localhost:3001/About', {about})
+    const response = await axios.patch('http://localhost:3001/about', {about})
     dispatch({type: 'EDIT_ABOUT', payload: response.data.data.attributes})
     next.redirect()
 }
+
+export const getPortfolio = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/portfolio')
+    console.log('response: ', response)
+    dispatch({type: 'GET_PORTFOLIO', payload: response.data.data.attributes})
+}
+
+export const editPortfolio = (portfolio, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/portfolio', {portfolio})
+    dispatch({type: 'EDIT_PORTFOLIO', payload: response.data.data.attributes})
+    next.redirect()
+}
+
+export const getProjects = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/projects')
+    console.log('response: ', response)
+    dispatch({type: 'GET_PROJECTS', payload: response.data.data})
+}
+
+export const editProject = (project, next) => async (dispatch) => {
+    console.log(project)
+    const response = await axios.patch(`http://localhost:3001/projects/${project.id}`, {project})
+    console.log('proj response:', response)
+    dispatch({type: 'EDIT_PROJECT', payload: response.data.data.attributes})
+    next.redirect()
+}
+
+
 
 
 

@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :index]
   resource :home, except: [:index]
   resource :about, except: [:index]
+  resource :portfolio, except: [:index]
+  resources :projects
 
 end
