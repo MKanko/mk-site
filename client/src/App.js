@@ -36,6 +36,7 @@ class App extends Component {
                         <Route path='/projects/:project' component={ProjectShow} />
                         <Route exact path='/project/edit' component={EditProject} />
                         <Route exact path='/blog' component={BlogContainer} />
+                        <Route path='/posts/:post' component={PostShow} />
                         <Route exact path='/resume' component={ResumeContainer} />
                         <Route exact path='/contact' component={ContactContainer} />
                         
