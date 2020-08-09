@@ -76,6 +76,12 @@ export const editProject = (project, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getBlog = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/blog')
+    console.log('response: ', response)
+    dispatch({type: 'GET_BLOG', payload: response.data.data.attributes})
+}
+
 
 
 
