@@ -16,6 +16,7 @@ import EditAbout from './components/admin/about/EditAbout'
 import EditPortfolio from './components/admin/portfolio/EditPortfolio'
 import EditProject from './components/admin/portfolio/project/EditProject'
 import ProjectShow from './components/project/ProjectShow'
+import PostShow from './components/post/PostShow'
 
 
 
