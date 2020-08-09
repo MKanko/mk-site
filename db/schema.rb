@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_004514) do
+ActiveRecord::Schema.define(version: 2020_08_09_211041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "abouts", force: :cascade do |t|
+    t.string "title"
+    t.text "text_content"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "text_content"
     t.string "image"
@@ -39,6 +47,16 @@ ActiveRecord::Schema.define(version: 2020_08_08_004514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text_content"
+    t.string "image"
+    t.bigint "blog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_posts_on_blog_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -57,5 +75,6 @@ ActiveRecord::Schema.define(version: 2020_08_08_004514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "posts", "blogs"
   add_foreign_key "projects", "portfolios"
 end
