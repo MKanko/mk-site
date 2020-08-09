@@ -62,7 +62,7 @@ class EditAbout extends Component {
                             </Form.Group>                         
                             <Form.TextArea 
                                 label='Content'
-                                placeholder='Home page content...'
+                                placeholder='About page content...'
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}

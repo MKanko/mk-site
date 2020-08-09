@@ -62,6 +62,22 @@ export const editPortfolio = (portfolio, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getProjects = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/projects')
+    console.log('response: ', response)
+    dispatch({type: 'GET_PROJECTS', payload: response.data.data})
+}
+
+export const editProject = (project, next) => async (dispatch) => {
+    console.log(project)
+    const response = await axios.patch(`http://localhost:3001/projects/${project.id}`, {project})
+    console.log('proj response:', response)
+    dispatch({type: 'EDIT_PROJECT', payload: response.data.data.attributes})
+    next.redirect()
+}
+
+
+
 
 
 

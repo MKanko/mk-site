@@ -6,10 +6,10 @@ class EditProject extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            description: '',
-            technical_detail: '',
-            image: ''
+            name: props.location.query.project.name,
+            description: props.location.query.project.description,
+            technical_detail: props.location.query.project.technical_detail,
+            image: props.location.query.project.image
         }
     }
 
@@ -25,7 +25,8 @@ class EditProject extends Component {
             name: this.state.name,
             description: this.state.description,
             technical_detail: this.state.technical_detail,
-            image: this.state.image
+            image: this.state.image,
+            id: this.props.location.query.project.id 
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
@@ -45,11 +46,19 @@ class EditProject extends Component {
                             <Form.Group widths='equal'>
                                 <Form.Input
                                     fluid
-                                    label='Title'
-                                    placeholder='Title'
-                                    name='title'
-                                    value={this.state.title}
+                                    label='Name'
+                                    placeholder='Name'
+                                    name='name'
+                                    value={this.state.name}
                                     onChange={this.handleOnChange}
+                                />
+                                <Form.Input
+                                    fluid
+                                    label='Technical Detail'
+                                    placeholder='Technical Detail'
+                                    name='technical_detail'
+                                    value={this.state.technical_detail}
+                                    onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
                                     fluid
@@ -61,10 +70,10 @@ class EditProject extends Component {
                                 />
                             </Form.Group>                         
                             <Form.TextArea 
-                                label='Content'
+                                label='Description'
                                 placeholder='Project page content...'
-                                name='text_content'
-                                value={this.state.text_content}
+                                name='description'
+                                value={this.state.description}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>

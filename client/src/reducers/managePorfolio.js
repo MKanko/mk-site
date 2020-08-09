@@ -5,6 +5,8 @@ export default function managePorfolio(state = {portfolio: {projects: []}}, acti
             return { ...state, portfolio: action.payload}
         case 'EDIT_PORTFOLIO':
             return { ...state, portfolio: action.payload}
+        case 'EDIT_PROJECT':
+            return { ...state, portfolio: {}}
 
         default:
             return state 
