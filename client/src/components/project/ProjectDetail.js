@@ -3,7 +3,7 @@ import { Grid, Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const ProjectDetail = (props) => {
-    console.log('detail props:', props)
+    // console.log('detail props:', props)
 
     return (
         <Grid.Column>

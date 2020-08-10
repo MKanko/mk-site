@@ -42,78 +42,47 @@ class Signup extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='black' textAlign='center'>
-                        Log-in to your account
-                    </Header>
-                    <Form size='large' onSubmit={this.handleSubmit}>
-                        <Segment stacked>
-                            <Form.Input 
-                                fluid 
-                                icon='user' 
-                                iconPosition='left' 
-                                placeholder='username'
-                                name='username'
-                                value={username}
-                                onChange={this.handleChange} 
-                            />
-                            <Form.Input
-                                fluid
-                                icon='lock'
-                                iconPosition='left'
-                                placeholder='Password'
-                                type='password'
-                                name='password'
-                                value={password}
-                                onChange={this.handleChange}
-                            />
-                            <Form.Input
-                                fluid
-                                icon='lock'
-                                iconPosition='left'
-                                type='password'
-                                placeholder='Password Confirmation'
-                                name='password_confirmation'
-                                value={password_confirmation}
-                                onChange={this.handleChange}
-                            />
-                            <Button color='grey' fluid size='large'>
-                                Login
-                            </Button>
-                        </Segment>
-                    </Form>
-                    {/* <Message>
-                        New to us? <a href='#'>Sign Up</a>
-                    </Message> */}
+                        <Header as='h2' color='black' textAlign='center'>
+                            Log-in to your account
+                        </Header>
+                        <Form size='large' onSubmit={this.handleSubmit}>
+                            <Segment stacked>
+                                <Form.Input 
+                                    fluid 
+                                    icon='user' 
+                                    iconPosition='left' 
+                                    placeholder='username'
+                                    name='username'
+                                    value={username}
+                                    onChange={this.handleChange} 
+                                />
+                                <Form.Input
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    name='password'
+                                    value={password}
+                                    onChange={this.handleChange}
+                                />
+                                <Form.Input
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    type='password'
+                                    placeholder='Password Confirmation'
+                                    name='password_confirmation'
+                                    value={password_confirmation}
+                                    onChange={this.handleChange}
+                                />
+                                <Button color='grey' fluid size='large'>
+                                    Login
+                                </Button>
+                            </Segment>
+                        </Form>
                     </Grid.Column>
                 </Grid>
-                {/* <h3>Sign Up</h3>
-
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="username"
-                        onChange={this.handleChange}
-                    />
-                    <input 
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="password"
-                        onChange={this.handleChange} 
-                    />
-                    <input 
-                        type="password"
-                        name="password_confirmation"
-                        value={password_confirmation}
-                        placeholder="password confirmation"
-                        onChange={this.handleChange}
-                    />
-
-                    <button type="submit" placeholder="submit">Sign Up</button>
-                </form> */}
-               
             </div>
         )
     }

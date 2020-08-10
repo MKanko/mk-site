@@ -3,7 +3,7 @@ import axios from 'axios'
 export const signup = (user, next) => async (dispatch) => {
         const response = await axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
         if (response.data.errors) {
-            console.log(response.data.errors)
+            // console.log(response.data.errors)
         } else {
             dispatch({type: 'SIGNUP', payload: response.data})
             next.redirect()
@@ -13,7 +13,7 @@ export const signup = (user, next) => async (dispatch) => {
 export const login = (user, next) => async (dispatch) => {
     const response = await axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
     if (response.data.errors) {
-        console.log(response.data.errors)
+        // console.log(response.data.errors)
     } else {
         dispatch({type: 'LOGIN', payload: response.data})
         next.redirect()
@@ -28,7 +28,7 @@ export const logout = (next) => async (dispatch) => {
 
 export const getHome = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/home')
-    console.log('response: ', response)
+    // console.log('response: ', response)
     dispatch({type: 'GET_HOME', payload: response.data.data.attributes})
 }
 
@@ -40,7 +40,7 @@ export const editHome = (home, next) => async (dispatch) => {
 
 export const getAbout = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/about')
-    console.log('response: ', response)
+    // console.log('response: ', response)
     dispatch({type: 'GET_ABOUT', payload: response.data.data.attributes})
 }
 
@@ -52,7 +52,7 @@ export const editAbout = (about, next) => async (dispatch) => {
 
 export const getPortfolio = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/portfolio')
-    console.log('response: ', response)
+    // console.log('response: ', response)
     dispatch({type: 'GET_PORTFOLIO', payload: response.data.data.attributes})
 }
 
@@ -64,15 +64,41 @@ export const editPortfolio = (portfolio, next) => async (dispatch) => {
 
 export const getProjects = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/projects')
-    console.log('response: ', response)
+    // console.log('response: ', response)
     dispatch({type: 'GET_PROJECTS', payload: response.data.data})
 }
 
 export const editProject = (project, next) => async (dispatch) => {
-    console.log(project)
+    // console.log(project)
     const response = await axios.patch(`http://localhost:3001/projects/${project.id}`, {project})
-    console.log('proj response:', response)
-    dispatch({type: 'EDIT_PROJECT', payload: response.data.data.attributes})
+    // console.log('proj response:', response)
+    dispatch({type: 'EDIT_PROJECT', payload: response.data.data})
+    next.redirect()
+}
+
+export const getBlog = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/blog')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_BLOG', payload: response.data.data.attributes})
+}
+
+export const editBlog = (blog, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/blog', {blog})
+    dispatch({type: 'EDIT_BLOG', payload: response.data.data.attributes})
+    next.redirect()
+}
+
+export const getPosts = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/posts')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_POSTS', payload: response.data.data})
+}
+
+export const editPost = (post, next) => async (dispatch) => {
+    // console.log(post)
+    const response = await axios.patch(`http://localhost:3001/posts/${post.id}`, {post})
+    // console.log('proj response:', response)
+    dispatch({type: 'EDIT_POST', payload: response.data.data})
     next.redirect()
 }
 
