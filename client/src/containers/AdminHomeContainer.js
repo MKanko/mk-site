@@ -3,12 +3,17 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Container, Grid } from 'semantic-ui-react'
 
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost } from '../actions'
 
 class AdminHome extends Component {
 
     componentDidMount() {
         this.props.getProjects()
+        this.props.getPosts()
+    }
+
+    genPostEditButtons = () => {
+        return this.props.posts.map(post => <Button key={post.id} ><Link to={{pathname: '/post/edit', query: {post: post.attributes, editPost: this.props.editPost}}}><h3>Edit {post.attributes.title}</h3></Link></Button>)
     }
 
     genEditButtons = () => {
@@ -39,7 +44,8 @@ class AdminHome extends Component {
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout}}}><h3>Edit About</h3></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}><h3>Edit Portfolio</h3></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? this.genEditButtons() : null}
-                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}><h3>Edit Blog</h3></Link></Button> : null}                     
+                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}><h3>Edit Blog</h3></Link></Button> : null}
+                                {this.props.manageAdmin.isLoggedIn ? this.genPostEditButtons() : null}                     
                                 {this.props.manageAdmin.isLoggedIn ? <Button onClick={this.handleClick}><h3>Log Out</h3></Button> : null}
                             </Button.Group>
                         </Container>
@@ -53,7 +59,8 @@ class AdminHome extends Component {
 const mapStateToProps = (state) => {
     return {
         manageAdmin: state.manageAdmin,
-        projects: state.manageProjects.projects
+        projects: state.manageProjects.projects,
+        posts: state.managePosts.posts 
     }
 }
 
@@ -67,8 +74,10 @@ const mapStateToProps = (state) => {
 //         editPortfolio: (portfolio, next) => {dispatch(editPortfolio(portfolio, next))},
 //         getProjects: () => {dispatch(getProjects())}, 
 //         editProject: (project, next) => {dispatch(editProject(project, next))},
-//         editBlog: () => {dispatch(editBlog())}
+//         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
+//         getPosts: () => {dispatch(getPosts())},
+//         editPost: (post, next) => {dispatch(editPost(post, next))}
 //     }
 // }
 
-export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog })(AdminHome)
+export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost })(AdminHome)
