@@ -4,10 +4,11 @@ import { Form, Grid, Header } from 'semantic-ui-react'
 class EditPost extends Component {
 
     constructor(props) {
+        // console.log('constprops:', props)
         super(props)
         this.state = {
-            name: props.location.query.post.title,
-            description: props.location.query.post.text_content,
+            title: props.location.query.post.title,
+            text_content: props.location.query.post.text_content,
             image: props.location.query.post.image
         }
     }
@@ -21,8 +22,8 @@ class EditPost extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         let post = {
-            name: this.state.title,
-            description: this.state.text_content,
+            title: this.state.title,
+            text_content: this.state.text_content,
             image: this.state.image,
             id: this.props.location.query.post.id 
         }
@@ -33,6 +34,7 @@ class EditPost extends Component {
     }
 
     render() {
+        // console.log('rendState:', this.state)
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>

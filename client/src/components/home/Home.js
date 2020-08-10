@@ -30,7 +30,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state: ', state)
+    // console.log('state: ', state)
     return {
         title: state.manageHome.home.title,
         text_content: state.manageHome.home.text_content,

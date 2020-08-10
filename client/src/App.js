@@ -18,8 +18,7 @@ import EditProject from './components/admin/portfolio/project/EditProject'
 import ProjectShow from './components/project/ProjectShow'
 import PostShow from './components/post/PostShow'
 import EditBlog from './components/admin/blog/EditBlog'
-
-
+import EditPost from './components/admin/blog/post/EditPost'
 
 class App extends Component { 
     
@@ -40,6 +39,7 @@ class App extends Component {
                         <Route exact path='/blog' component={BlogContainer} />
                         <Route exact path='/blog/edit' component={EditBlog} />
                         <Route path='/posts/:post' component={PostShow} />
+                        <Route exact path='/post/edit' component={EditPost} />
                         <Route exact path='/resume' component={ResumeContainer} />
                         <Route exact path='/contact' component={ContactContainer} />
                         

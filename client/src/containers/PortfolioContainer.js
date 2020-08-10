@@ -12,7 +12,7 @@ class PortfolioContainer extends Component {
     }
 
     render() {
-        console.log('props:', this.props)
+        // console.log('props:', this.props)
         return (
             <div>
                 <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -35,7 +35,7 @@ class PortfolioContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         title: state.managePortfolio.portfolio.title,
         text_content: state.managePortfolio.portfolio.text_content,
