@@ -82,6 +82,12 @@ export const getBlog = () => async (dispatch) => {
     dispatch({type: 'GET_BLOG', payload: response.data.data.attributes})
 }
 
+export const editBlog = (blog, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/blog', {blog})
+    dispatch({type: 'EDIT_BLOG', payload: response.data.data.attributes})
+    next.redirect()
+}
+
 
 
 
