@@ -88,6 +88,20 @@ export const editBlog = (blog, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getPosts = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/posts')
+    console.log('response: ', response)
+    dispatch({type: 'GET_POSTS', payload: response.data.data})
+}
+
+export const editPost = (post, next) => async (dispatch) => {
+    console.log(project)
+    const response = await axios.patch(`http://localhost:3001/posts/${post.id}`, {post})
+    console.log('proj response:', response)
+    dispatch({type: 'EDIT_POST', payload: response.data.data.attributes})
+    next.redirect()
+}
+
 
 
 
