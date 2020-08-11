@@ -5,19 +5,21 @@ import CategoryDetail from './CategoryDetail'
 
 const CategoryIndex = (props) => {
 
-    const genCats = (props) => {
-
-        const cats = props.categories
-        let catsRow 
-        let cats
+    const genCats = () => {
+        const cats = props.categories   
+        let catsRay
         let row 
         let rows = []
 
         for (let i = 0; i < cats.length; i++ ) {
             if (i % 2 === 0) {
-                catsRow = [cats[i], cats[i + 1]]
-                cats = catsRow.map(cat => <CategoryDetail cat={cat} />)    
-                row = <Grid.Row>{cats}</Grid.Row>
+                let catsRow = []
+                catsRow.push(cats[i])
+                if (cats[i + 1]) {
+                    catsRow.push(cats[i + 1])
+                }
+                catsRay = catsRow.map(cat => <CategoryDetail cat={cat} />)    
+                row = <Grid.Row>{catsRay}</Grid.Row>
                 rows.push(row)
             } 
         }

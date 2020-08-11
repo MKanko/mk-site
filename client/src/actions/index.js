@@ -102,6 +102,13 @@ export const editPost = (post, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getResume = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/resume')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_RESUME', payload: response.data.data.attributes})
+}
+
+
 
 
 
