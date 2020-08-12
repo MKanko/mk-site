@@ -6,6 +6,8 @@ import managePortfolio from './managePorfolio'
 import manageProjects from './manageProjects'
 import manageBlog from './manageBlog'
 import managePosts from './managePosts'
+import manageResume from './manageResume'
+import manageCategories from './manageCategories'
 
 
 export const rootReducer = combineReducers({
@@ -15,5 +17,7 @@ export const rootReducer = combineReducers({
     managePortfolio,
     manageProjects,
     manageBlog,
-    managePosts  
+    managePosts,
+    manageResume,
+    manageCategories   
 })

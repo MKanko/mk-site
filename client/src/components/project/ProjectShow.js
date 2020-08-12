@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid, Header, Segment} from 'semantic-ui-react'
 
 const ProjectShow = (props) => {
-console.log('show props:', props)
+// console.log('show props:', props)
     return (
         <div>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :projects
   resource :blog, except: [:index]
   resources :posts
-
+  resource :resume, except: [:index]
+  resources :categories
 end
