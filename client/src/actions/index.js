@@ -114,6 +114,20 @@ export const editResume = (resume, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getCategories = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/categories')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_CATEGORIES', payload: response.data.data})
+}
+
+export const editCategory = (category, next) => async (dispatch) => {
+    // console.log(post)
+    const response = await axios.patch(`http://localhost:3001/categories/${category.id}`, {category})
+    // console.log('proj response:', response)
+    dispatch({type: 'EDIT_CATEGORY', payload: response.data.data})
+    next.redirect()
+}
+
 
 
 

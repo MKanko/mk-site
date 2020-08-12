@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, Grid, Segment, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
 
 import CategoryIndex from '../components/category/CategoryIndex'
 import { getResume } from '../actions'

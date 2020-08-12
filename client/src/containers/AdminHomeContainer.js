@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Container, Grid } from 'semantic-ui-react'
 
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory } from '../actions'
 
 class AdminHome extends Component {
 
     componentDidMount() {
         this.props.getProjects()
         this.props.getPosts()
+        this.props.getCategories()
     }
 
     genPostEdit = () => {
@@ -66,7 +67,8 @@ const mapStateToProps = (state) => {
     return {
         manageAdmin: state.manageAdmin,
         projects: state.manageProjects.projects,
-        posts: state.managePosts.posts 
+        posts: state.managePosts.posts,
+        categories: state.manageCategories.categories  
     }
 }
 
@@ -87,4 +89,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume })(AdminHome)
+export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory })(AdminHome)

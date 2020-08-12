@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
+import { Grid, Header, Form } from 'semantic-ui-react'
 
 class EditCategory extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            title: '',
-            text_content: '',
-            image: ''
+            title: props.location.query.category.title,
+            text_content: props.location.query.category.text_content,
+            image: props.location.query.category.image
         }
     }
 
-    handelSubmit = (props) => {
+    handleOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
         event.preventDefault()
         let category = {
             title: this.state.title,
