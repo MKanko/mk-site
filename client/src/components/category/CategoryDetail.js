@@ -8,7 +8,8 @@ const CategoryDetail = (props) => {
         <Grid.Column width={8}>
             <Card centered style={{backgroundColor: 'grey' }}>
                 <Card.Content>
-                    <Card.Header>{props.cat.title}</Card.Header>
+                    <Card.Header>{props.category.title}</Card.Header>
+                    <Card.Description>{props.category.text_content}</Card.Description>
                 </Card.Content>
             </Card>
         </Grid.Column>

@@ -18,7 +18,7 @@ const CategoryIndex = (props) => {
                 if (cats[i + 1]) {
                     catsRow.push(cats[i + 1])
                 }
-                catsRay = catsRow.map(cat => <CategoryDetail cat={cat} />)    
+                catsRay = catsRow.map(cat => <CategoryDetail key={cat.id} category={cat} />)    
                 row = <Grid.Row>{catsRay}</Grid.Row>
                 rows.push(row)
             } 

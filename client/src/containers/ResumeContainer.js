@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header, Grid, Segment } from 'semantic-ui-react'
-import CategoryIndex from '../components/category/CategoryIndex'
+import { Header, Grid, Segment, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
+import CategoryIndex from '../components/category/CategoryIndex'
 import { getResume } from '../actions'
 
 class ResumeContainer extends Component {
@@ -23,33 +24,10 @@ class ResumeContainer extends Component {
                             <Segment inverted secondary>
                                 Hello World
                             </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
+                            <Button size='tiny'color='grey' href='/images/MKanko Resume.pdf'>Resume</Button>
+                        </Grid.Column>           
+                    </Grid.Row> 
                     <CategoryIndex categories={this.props.categories} />
-                    {/* <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Segment inverted secondary>
-                                Hello World
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Segment inverted secondary>
-                                Hello World
-                            </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Segment inverted secondary>
-                                Hello World
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Segment inverted secondary>
-                                Hello World
-                            </Segment>
-                        </Grid.Column>
-                    </Grid.Row> */}
                 </Grid>
             </div>
         )
