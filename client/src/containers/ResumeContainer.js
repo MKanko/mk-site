@@ -19,16 +19,17 @@ class ResumeContainer extends Component {
                     <Grid.Row columns={1}>
                         <Grid.Column style={{ maxWidth: 450 }}>
                             <Header as='h1' color='yellow' textAlign='center'>
-                                Hello World
+                                {this.props.title}
                             </Header>
                             <Segment inverted secondary>
-                                Hello World
+                                {this.props.text_content}
                             </Segment>
-                            <Button size='tiny'color='grey' href='/images/MKanko Resume.pdf'>Resume</Button>
+                            <Button style={{textAlign: 'center'}} size='mini'color='grey' href='/images/MKanko Resume.pdf'>Resume</Button>
                         </Grid.Column>           
                     </Grid.Row> 
-                    <CategoryIndex categories={this.props.categories} />
+                    <CategoryIndex categories={this.props.categories} /> 
                 </Grid>
+                
             </div>
         )
     }

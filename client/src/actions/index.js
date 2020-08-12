@@ -108,6 +108,12 @@ export const getResume = () => async (dispatch) => {
     dispatch({type: 'GET_RESUME', payload: response.data.data.attributes})
 }
 
+export const editResume = (resume, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/resume', {resume})
+    dispatch({type: 'EDIT_RESUME', payload: response.data.data.attributes})
+    next.redirect()
+}
+
 
 
 

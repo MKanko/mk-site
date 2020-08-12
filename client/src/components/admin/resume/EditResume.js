@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { Form, Grid, Header } from 'semantic-ui-react'
 
 class EditResume extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            title: props.location.query.post.title,
-            text_content: props.location.query.post.text_content 
+            title: '',
+            text_content: '' 
         }
     }
 
@@ -17,13 +18,14 @@ class EditResume extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log('submit props:', this.props)
         event.preventDefault()
         let resume = {
             title: this.state.title, 
             text_content: this.state.text_content
         }
         let next = {
-            redirect: this.props.history.push('/admin/home')
+            redirect: () => this.props.history.push('/admin/home')
         }
         this.props.location.query.editResume(resume, next)
     }
