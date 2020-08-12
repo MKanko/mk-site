@@ -1,4 +1,4 @@
 class ContactSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :phone, :email, :link_1, :link_2
+  attributes :name, :phone, :email, :link_1, :link_2, :title
 end
