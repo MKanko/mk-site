@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Grid, Header } from 'semantic-ui-react'
 
-class Contact extends Component {
+class EditContact extends Component {
 
     constructor(props) {
         super(props)
@@ -106,4 +106,4 @@ class Contact extends Component {
 
 }
 
-export default Contact 
+export default EditContact 

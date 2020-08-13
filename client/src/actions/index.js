@@ -134,6 +134,12 @@ export const getContact = () => async (dispatch) => {
     dispatch({type: 'GET_CONTACT', payload: response.data.data.attributes})
 }
 
+export const editContact = (contact, next) => async (dispatch) => {
+    const response = await axios.patch('http://localhost:3001/contact', {contact})
+    dispatch({type: 'EDIT_CONTACT', payload: response.data.data.attributes})
+    next.redirect()
+}
+
 
 
 
