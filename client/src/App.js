@@ -22,6 +22,7 @@ import EditResume from './components/admin/resume/EditResume'
 import EditCategory from './components/admin/resume/category/EditCategory'
 import Contact from './components/contact/Contact'
 import EditContact from './components/admin/contact/EditContact'
+// import PageEffect from './components/transition/PageEffect'
 
 class App extends Component { 
     
@@ -36,6 +37,9 @@ class App extends Component {
                         <Route exact path='/about' component={About} />
                         <Route exact path='/about/edit' component={EditAbout} />
                         <Route exact path='/portfolio' component={PortfolioContainer} />
+
+                        {/* <Route exact path='/portfolio' render={(props) => <PageEffect><PortfolioContainer { ...props } /></PageEffect>} /> */}
+
                         <Route exact path='/portfolio/edit' component={EditPortfolio} />
                         <Route path='/projects/:project' component={ProjectShow} />
                         <Route exact path='/project/edit' component={EditProject} />
