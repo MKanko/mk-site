@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Container, Grid } from 'semantic-ui-react'
 
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact } from '../actions'
 
 class AdminHome extends Component {
 
@@ -53,7 +53,8 @@ class AdminHome extends Component {
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}><p>Edit Blog</p></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? this.genPostEdit() : null} 
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}><p>Edit Resume</p></Link></Button> : null}
-                                {this.props.manageAdmin.isLoggedIn ? this.genCatEdit() : null}                    
+                                {this.props.manageAdmin.isLoggedIn ? this.genCatEdit() : null}
+                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}><p>Edit Contact</p></Link></Button> : null}                    
                                 {this.props.manageAdmin.isLoggedIn ? <Button onClick={this.handleClick}><p>Log Out</p></Button> : null}
                             </Button.Group>
                         </Container>
@@ -90,4 +91,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory })(AdminHome)
+export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact })(AdminHome)
