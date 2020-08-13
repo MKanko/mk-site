@@ -128,6 +128,12 @@ export const editCategory = (category, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getContact = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/contact')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_CONTACT', payload: response.data.data.attributes})
+}
+
 
 
 

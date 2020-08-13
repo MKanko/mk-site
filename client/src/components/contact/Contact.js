@@ -4,7 +4,7 @@ import { Header, Grid, Segment } from 'semantic-ui-react'
 
 import { getContact } from '../../actions'
 
-class About extends Component {
+class Contact extends Component {
 
     componentDidMount() {
         this.props.getContact()
@@ -19,11 +19,11 @@ class About extends Component {
                             {this.props.title}
                         </Header>
                         <Segment inverted secondary>
-                            {this.props.name}
-                            {this.props.phone}
-                            {this.props.email}
-                            {this.props.link_1}
-                            {this.props.link_2}
+                            <p>{this.props.name}</p>
+                            <p>{this.props.phone}</p>
+                            <p>{this.props.email}</p>
+                            <p><a href='https://www.linkedin.com/in/mark-kanko-a750b3177/'>{this.props.link_1}</a></p>
+                            <p><a href='https://github.com/MKanko'>{this.props.link_2}</a></p>
                         </Segment>
                     </Grid.Column>
                 </Grid>
@@ -33,7 +33,7 @@ class About extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state:', state)
+    console.log('contactstate:', state)
     return {
         title: state.manageContact.contact.title,
         name: state.manageContact.contact.name,
@@ -48,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
     return {getContact: () => {dispatch(getContact())}}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About)
+export default connect(mapStateToProps, mapDispatchToProps)(Contact)
