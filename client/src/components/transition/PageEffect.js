@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Transition, Grid, Container } from 'semantic-ui-react'
+import { Transition, Container } from 'semantic-ui-react'
 
 class PageEffect extends Component {
 
