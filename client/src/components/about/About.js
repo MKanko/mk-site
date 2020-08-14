@@ -22,20 +22,14 @@ class About extends Component {
 
     render() {
         return (
-            <div>              
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                    <Transition animation={'drop'} duration={2000} visible={this.state.visible}> 
-                        <Grid.Column style={{ maxWidth: 450 }}>
-                            <Header as='h1' color='purple' textAlign='center'>
-                                {this.props.title}
-                            </Header>
-                            <Segment inverted secondary>
-                                {this.props.text_content}
-                            </Segment>
-                        </Grid.Column>
-                    </Transition>  
-                </Grid>               
-            </div>
+            <Grid.Column style={{ maxWidth: 450 }}>
+                <Header as='h1' color='purple' textAlign='center'>
+                    {this.props.title}
+                </Header>
+                <Segment inverted secondary>
+                    {this.props.text_content}
+                </Segment>
+            </Grid.Column>
         )
     }
 
