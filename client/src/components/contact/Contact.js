@@ -12,7 +12,7 @@ class Contact extends Component {
 
     render() {
         return (
-            <>               
+            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h1' color='purple' textAlign='center'>
                         {this.props.title}
@@ -25,7 +25,7 @@ class Contact extends Component {
                         <p><a href='https://github.com/MKanko'>{this.props.link_2}</a></p>
                     </Segment>
                 </Grid.Column>
-            </>
+            </Grid>
         )
     }
 }

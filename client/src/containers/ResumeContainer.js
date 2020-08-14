@@ -13,7 +13,7 @@ class ResumeContainer extends Component {
 
     render() {
         return (
-            <>              
+            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='yellow' textAlign='center'>
@@ -26,7 +26,7 @@ class ResumeContainer extends Component {
                     </Grid.Column>           
                 </Grid.Row>                 
                 <CategoryIndex categories={this.props.categories} /> 
-            </>
+            </Grid>
         )
     }
 

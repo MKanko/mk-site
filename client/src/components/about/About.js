@@ -12,14 +12,16 @@ class About extends Component {
 
     render() {
         return (
-            <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as='h1' color='purple' textAlign='center'>
-                    {this.props.title}
-                </Header>
-                <Segment inverted secondary>
-                    {this.props.text_content}
-                </Segment>
-            </Grid.Column>
+            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h1' color='purple' textAlign='center'>
+                        {this.props.title}
+                    </Header>
+                    <Segment inverted secondary>
+                        {this.props.text_content}
+                    </Segment>
+                </Grid.Column>
+            </Grid>
         )
     }
 

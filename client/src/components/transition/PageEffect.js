@@ -20,9 +20,7 @@ class PageEffect extends Component {
         return (
             <Transition animation={this.props.animation} duration={this.props.duration} visible={this.state.visible} unmountOnHide={true} >      
                 <Container>
-                    <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                            {this.props.children}
-                    </Grid>
+                    {this.props.children}
                 </Container>
             </Transition>
         )

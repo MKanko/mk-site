@@ -13,7 +13,7 @@ class BlogContainer extends Component {
 
     render() {
         return (
-            <>               
+            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='yellow' textAlign='center'>
@@ -27,7 +27,7 @@ class BlogContainer extends Component {
                 <Grid.Row columns={3}>
                     <PostIndex posts={this.props.posts} />
                 </Grid.Row>
-            </>
+            </Grid>
         )
     }
 

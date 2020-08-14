@@ -14,7 +14,7 @@ class PortfolioContainer extends Component {
     render() {
         // console.log('props:', this.props)
         return (
-            <>                                      
+            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='yellow' textAlign='center'>
@@ -28,7 +28,7 @@ class PortfolioContainer extends Component {
                 <Grid.Row columns={3}>
                     <ProjectIndex projects={this.props.projects} />
                 </Grid.Row> 
-            </>       
+            </Grid>       
         )
     }
 
