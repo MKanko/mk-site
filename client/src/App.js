@@ -32,25 +32,70 @@ class App extends Component {
                 <Router>
                     <NavBar />
                     <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route exact path='/home/edit' component={EditHome} />
-                        <Route exact path='/about' component={About} />
-                        <Route exact path='/about/edit' component={EditAbout} />
-                        <Route exact path='/portfolio' component={PortfolioContainer} />
+                        <Route exact path='/' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <Home />
+                            </PageEffect>
+                        )} />
 
-                        {/* <Route exact path='/portfolio' render={(props) => <PageEffect><PortfolioContainer { ...props } /></PageEffect>} /> */}
+                        <Route exact path='/home/edit' component={EditHome} />
+
+                        <Route exact path='/about' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <About />
+                            </PageEffect>
+                        )} />
+
+                        <Route exact path='/about/edit' component={EditAbout} />
+
+                        <Route exact path='/portfolio' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <PortfolioContainer />
+                            </PageEffect>
+                        )} />
 
                         <Route exact path='/portfolio/edit' component={EditPortfolio} />
-                        <Route path='/projects/:project' component={ProjectShow} />
+
+                        <Route path='/projects/:project' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <ProjectShow />
+                            </PageEffect>
+                        )} />
+
                         <Route exact path='/project/edit' component={EditProject} />
-                        <Route exact path='/blog' component={BlogContainer} />
+
+                        <Route exact path='/blog' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <BlogContainer />
+                            </PageEffect>
+                        )} />
+
                         <Route exact path='/blog/edit' component={EditBlog} />
-                        <Route path='/posts/:post' component={PostShow} />
+
+                        <Route path='/posts/:post' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <PostShow />
+                            </PageEffect>
+                        )} />
+
                         <Route exact path='/post/edit' component={EditPost} />
-                        <Route exact path='/resume' component={ResumeContainer} />
+
+                        <Route exact path='/resume' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <ResumeContainer />
+                            </PageEffect>
+                        )} />
+
                         <Route exact path='/resume/edit' component={EditResume} />
+
                         <Route exact path='/category/edit' component={EditCategory}/>
-                        <Route exact path='/contact' component={Contact} />
+
+                        <Route exact path='/contact' render={() => (
+                            <PageEffect key={Date.now()}>
+                                <Contact />
+                            </PageEffect>
+                        )} />
+
                         <Route exact path='/contact/edit' component={EditContact} />                   
                         <Route exact path='/admin/home' component={AdminHome} />                           
                         <Route exact path='/login' component={Login} />                            
