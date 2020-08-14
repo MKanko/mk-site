@@ -24,7 +24,7 @@ class ResumeContainer extends Component {
                                 <Segment inverted secondary>
                                     {this.props.text_content}
                                 </Segment>
-                                <Button style={{textAlign: 'center'}} size='mini'color='grey' href='/images/MKanko Resume.pdf'>Resume</Button>
+                                <Button style={{textAlign: 'center'}} size='mini'color='grey' href='/images/MKanko Resume.pdf'>Download Resume</Button>
                             </Grid.Column>           
                         </Grid.Row>
                     </Transition>
