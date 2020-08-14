@@ -28,8 +28,7 @@ class ResumeContainer extends Component {
                             </Grid.Column>           
                         </Grid.Row>
                     </Transition>
-                    <CategoryIndex categories={this.props.categories} /> 
-                    
+                    <CategoryIndex categories={this.props.categories} />         
                 </Grid>
                 
             </div>
