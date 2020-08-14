@@ -22,9 +22,17 @@ import EditResume from './components/admin/resume/EditResume'
 import EditCategory from './components/admin/resume/category/EditCategory'
 import Contact from './components/contact/Contact'
 import EditContact from './components/admin/contact/EditContact'
-// import PageEffect from './components/transition/PageEffect'
+import PageEffect from './components/transition/PageEffect'
 
 class App extends Component { 
+
+    renderWithEffect = (props, Component, animation, duration) => {
+        return (
+            <PageEffect key={Date.now()} animation={animation} duration={duration}>
+                <Component {...props} />
+            </PageEffect>
+        )
+    }
     
     render() {
         return (
@@ -32,29 +40,44 @@ class App extends Component {
                 <Router>
                     <NavBar />
                     <Switch>
-                        <Route exact path='/' component={Home} />
+                        <Route exact path='/' render={(props) => (
+                            this.renderWithEffect(props, Home)
+                        )} />
+                        <Route exact path='/about' render={(props) => (
+                            this.renderWithEffect(props, About)
+                        )} />
+                        <Route exact path='/portfolio' render={(props) => (
+                            this.renderWithEffect(props, PortfolioContainer)
+                        )} />
+                        <Route path='/projects/:project' render={(props) => (
+                            this.renderWithEffect(props, ProjectShow, 'horizontal flip', 1500)
+                        )} />
+                        <Route exact path='/blog' render={(props) => (
+                            this.renderWithEffect(props, BlogContainer)
+                        )} />
+                        <Route path='/posts/:post' render={(props) => (
+                            this.renderWithEffect(props, PostShow, 'horizontal flip', 1500)
+                        )} />
+                        <Route exact path='/resume' render={(props) => (
+                            this.renderWithEffect(props, ResumeContainer)
+                        )} />
+                        <Route exact path='/contact' render={(props) => (
+                            this.renderWithEffect(props, Contact)
+                        )} />
+                                         
+                        <Route exact path='/admin/home' component={AdminHome} />                                                      
+                        <Route exact path='/signup' component={Signup} />
+                        <Route exact path='/login' component={Login} />
+
                         <Route exact path='/home/edit' component={EditHome} />
-                        <Route exact path='/about' component={About} />
                         <Route exact path='/about/edit' component={EditAbout} />
-                        <Route exact path='/portfolio' component={PortfolioContainer} />
-
-                        {/* <Route exact path='/portfolio' render={(props) => <PageEffect><PortfolioContainer { ...props } /></PageEffect>} /> */}
-
                         <Route exact path='/portfolio/edit' component={EditPortfolio} />
-                        <Route path='/projects/:project' component={ProjectShow} />
                         <Route exact path='/project/edit' component={EditProject} />
-                        <Route exact path='/blog' component={BlogContainer} />
                         <Route exact path='/blog/edit' component={EditBlog} />
-                        <Route path='/posts/:post' component={PostShow} />
                         <Route exact path='/post/edit' component={EditPost} />
-                        <Route exact path='/resume' component={ResumeContainer} />
                         <Route exact path='/resume/edit' component={EditResume} />
                         <Route exact path='/category/edit' component={EditCategory}/>
-                        <Route exact path='/contact' component={Contact} />
-                        <Route exact path='/contact/edit' component={EditContact} />                   
-                        <Route exact path='/admin/home' component={AdminHome} />                           
-                        <Route exact path='/login' component={Login} />                            
-                        <Route exact path='/signup' component={Signup} />                           
+                        <Route exact path='/contact/edit' component={EditContact} />                            
                     </Switch>
                 </Router>
             </div>
