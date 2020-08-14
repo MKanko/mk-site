@@ -1,23 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header, Grid, Segment, Transition } from 'semantic-ui-react'
+import { Header, Grid, Segment } from 'semantic-ui-react'
 
 import { getAbout } from '../../actions'
 
 class About extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: false
-        }
-    }
-
     componentDidMount() {
         this.props.getAbout()
-        this.setState({
-            visible: true 
-        })
     }
 
     render() {

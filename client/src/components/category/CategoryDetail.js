@@ -15,7 +15,6 @@ const CategoryDetail = (props) => {
             </Card>
         </Grid.Column>
     )
-
 }
 
 export default CategoryDetail

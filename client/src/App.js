@@ -22,9 +22,17 @@ import EditResume from './components/admin/resume/EditResume'
 import EditCategory from './components/admin/resume/category/EditCategory'
 import Contact from './components/contact/Contact'
 import EditContact from './components/admin/contact/EditContact'
-// import PageEffect from './components/transition/PageEffect'
+import PageEffect from './components/transition/PageEffect'
 
 class App extends Component { 
+
+    renderWithEffect = (props, Component, animation, duration) => {
+        return (
+            <PageEffect key={Date.now()} animation={animation} duration={duration}>
+                <Component {...props} />
+            </PageEffect>
+        )
+    }
     
     render() {
         return (
@@ -32,74 +40,44 @@ class App extends Component {
                 <Router>
                     <NavBar />
                     <Switch>
-                        <Route exact path='/' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <Home />
-                            </PageEffect>
+                        <Route exact path='/' render={(props) => (
+                            this.renderWithEffect(props, Home)
                         )} />
+                        <Route exact path='/about' render={(props) => (
+                            this.renderWithEffect(props, About)
+                        )} />
+                        <Route exact path='/portfolio' render={(props) => (
+                            this.renderWithEffect(props, PortfolioContainer)
+                        )} />
+                        <Route path='/projects/:project' render={(props) => (
+                            this.renderWithEffect(props, ProjectShow, 'horizontal flip', 1500)
+                        )} />
+                        <Route exact path='/blog' render={(props) => (
+                            this.renderWithEffect(props, BlogContainer)
+                        )} />
+                        <Route path='/posts/:post' render={(props) => (
+                            this.renderWithEffect(props, PostShow, 'horizontal flip', 1500)
+                        )} />
+                        <Route exact path='/resume' render={(props) => (
+                            this.renderWithEffect(props, ResumeContainer)
+                        )} />
+                        <Route exact path='/contact' render={(props) => (
+                            this.renderWithEffect(props, Contact)
+                        )} />
+                                         
+                        <Route exact path='/admin/home' component={AdminHome} />                                                      
+                        <Route exact path='/signup' component={Signup} />
+                        <Route exact path='/login' component={Login} />
 
                         <Route exact path='/home/edit' component={EditHome} />
-
-                        <Route exact path='/about' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <About />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/about/edit' component={EditAbout} />
-
-                        <Route exact path='/portfolio' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <PortfolioContainer />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/portfolio/edit' component={EditPortfolio} />
-
-                        <Route path='/projects/:project' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <ProjectShow />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/project/edit' component={EditProject} />
-
-                        <Route exact path='/blog' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <BlogContainer />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/blog/edit' component={EditBlog} />
-
-                        <Route path='/posts/:post' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <PostShow />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/post/edit' component={EditPost} />
-
-                        <Route exact path='/resume' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <ResumeContainer />
-                            </PageEffect>
-                        )} />
-
                         <Route exact path='/resume/edit' component={EditResume} />
-
                         <Route exact path='/category/edit' component={EditCategory}/>
-
-                        <Route exact path='/contact' render={() => (
-                            <PageEffect key={Date.now()}>
-                                <Contact />
-                            </PageEffect>
-                        )} />
-
-                        <Route exact path='/contact/edit' component={EditContact} />                   
-                        <Route exact path='/admin/home' component={AdminHome} />                           
-                        <Route exact path='/login' component={Login} />                            
-                        <Route exact path='/signup' component={Signup} />                           
+                        <Route exact path='/contact/edit' component={EditContact} />                            
                     </Switch>
                 </Router>
             </div>

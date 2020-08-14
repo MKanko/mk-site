@@ -16,13 +16,9 @@ class PageEffect extends Component {
         })
     }
 
-    componentWillUnmount() {
-        console.log('hit')
-    }
-
     render() {
         return (
-            <Transition animation={'drop'} duration={2500} visible={this.state.visible} unmountOnHide={true} >      
+            <Transition animation={this.props.animation} duration={this.props.duration} visible={this.state.visible} unmountOnHide={true} >      
                 <Container>
                     <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                             {this.props.children}
@@ -33,6 +29,11 @@ class PageEffect extends Component {
     }
 
 
+}
+
+PageEffect.defaultProps = {
+    animation: 'drop',
+    duration: 2500
 }
 
 export default PageEffect

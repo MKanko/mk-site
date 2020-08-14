@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Transition } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import CategoryDetail from './CategoryDetail'
 
@@ -19,7 +19,7 @@ const CategoryIndex = (props) => {
                     catsRow.push(cats[i + 1])
                 }
                 catsRay = catsRow.map(cat => <CategoryDetail key={cat.id} category={cat} />)    
-                row =  <Transition animation={'drop'} duration={2000} transitionOnMount><Grid.Row>{catsRay}</Grid.Row></Transition>
+                row = <Grid.Row>{catsRay}</Grid.Row>
                 rows.push(row)
             } 
         }
