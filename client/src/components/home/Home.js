@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header, Grid, Segment } from 'semantic-ui-react'
+import { Header, Grid, Segment, Image } from 'semantic-ui-react'
 
 import { getHome } from '../../actions'
 
@@ -17,6 +17,9 @@ class Home extends Component {
                     <Header as='h1' color='green' textAlign='center'>
                         {this.props.title}
                     </Header>
+                    {/* <Card centered style={{backgroundColor: 'grey' }}> */}
+                        <Image src={process.env.PUBLIC_URL + this.props.image} />
+                    {/* </Card> */}
                     <Segment inverted secondary>
                         {this.props.text_content}
                     </Segment>

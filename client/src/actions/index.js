@@ -70,8 +70,11 @@ export const getProjects = () => async (dispatch) => {
 
 export const editProject = (project, next) => async (dispatch) => {
     // console.log(project)
-    const response = await axios.patch(`http://localhost:3001/projects/${project.id}`, {project})
+    const projectId = project.id 
+    delete project.id 
+    const response = await axios.patch(`http://localhost:3001/projects/${projectId}`, {project})
     // console.log('proj response:', response)
+
     dispatch({type: 'EDIT_PROJECT', payload: response.data.data})
     next.redirect()
 }

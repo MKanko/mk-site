@@ -8,7 +8,7 @@ class EditProject extends Component {
         this.state = {
             name: props.location.query.project.name,
             description: props.location.query.project.description,
-            technical_detail: props.location.query.project.technical_detail,
+            technical_details: props.location.query.project.technical_details,
             image: props.location.query.project.image
         }
     }
@@ -19,12 +19,38 @@ class EditProject extends Component {
         })
     }
 
+    handleOnTechDetailChange = (index) => (event) => {
+        const newDetails = this.state.technical_details.map((techDetail, detailIndex) => {
+            if (index !== detailIndex) {
+                return techDetail
+            } else {
+                return event.target.value 
+            }
+        })
+        this.setState({
+            technical_details: newDetails
+        })
+    }
+
+    handleRemoveTechDetail = index => (event) => {
+        event.preventDefault()
+        this.setState({
+            technical_details: this.state.technical_details.filter((techDetail, detailIndex) => index !== detailIndex)})
+    }
+
+    handleAddTechDetail = (event) => {
+        event.preventDefault()
+        this.setState({
+            technical_details: this.state.technical_details.concat([''])
+        })
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
         let project = {
             name: this.state.name,
             description: this.state.description,
-            technical_detail: this.state.technical_detail,
+            technical_details: this.state.technical_details,
             image: this.state.image,
             id: this.props.location.query.project.id 
         }
@@ -42,8 +68,7 @@ class EditProject extends Component {
                         <Header as='h2' color='green' textAlign='center'>
                             Edit Project Data
                         </Header>
-                        <Form onSubmit={this.handleSubmit}>
-                            <Form.Group widths='equal'>
+                        <Form onSubmit={this.handleSubmit}>                         
                                 <Form.Input
                                     fluid
                                     label='Name'
@@ -52,14 +77,23 @@ class EditProject extends Component {
                                     value={this.state.name}
                                     onChange={this.handleOnChange}
                                 />
-                                <Form.Input
-                                    fluid
-                                    label='Technical Detail'
-                                    placeholder='Technical Detail'
-                                    name='technical_detail'
-                                    value={this.state.technical_detail}
-                                    onChange={this.handleOnChange} 
-                                />
+                                {this.state.technical_details.map((techDetail, index) => (
+                                    <Form.Group widths={'equal'}> 
+                                        <Form.Input 
+                                            fluid
+                                            placeholder='Technical Detail'
+                                            name='technical_details'
+                                            value={techDetail}
+                                            onChange={this.handleOnTechDetailChange(index)} 
+                                        />
+                                        <Form.Button size='mini' onClick={this.handleRemoveTechDetail(index)}>
+                                            Remove Detail
+                                        </Form.Button>
+                                    </Form.Group>
+                                ))}
+                                <Form.Button size='mini' onClick={this.handleAddTechDetail}>
+                                    Add Detail 
+                                </Form.Button>
                                 <Form.Input
                                     fluid
                                     label='Image'
@@ -67,8 +101,7 @@ class EditProject extends Component {
                                     name='image'
                                     value={this.state.image}
                                     onChange={this.handleOnChange} 
-                                />
-                            </Form.Group>                         
+                                />                              
                             <Form.TextArea 
                                 label='Description'
                                 placeholder='Project page content...'
@@ -76,7 +109,7 @@ class EditProject extends Component {
                                 value={this.state.description}
                                 onChange={this.handleOnChange}
                             />
-                            <Form.Button>Submit Update</Form.Button>
+                            <Form.Button size='mini'>Submit Update</Form.Button>
                         </Form>
                     </Grid.Column>
                 </Grid>
