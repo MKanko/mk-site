@@ -1,14 +1,15 @@
 class EmailsController < ApplicationController
 
     def new 
-        email = Email.new 
+        @email = Email.new 
     end 
 
     def create 
-        email = Email.new(params[:email])
+        @email = Email.new(params[:email])
 
-        if email.save
-            EmailsMailer.general_message(email).deliver
+        if @email.save
+            # EmailsMailer.general_message(email).deliver
+            EmailMailer.general_message(@email).deliver
             render json: {
                 :thanks
             }
