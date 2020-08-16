@@ -31,7 +31,7 @@ class EmailNew extends Component {
         let next = {
             redirect: this.props.location.history.push('/contact')
         }
-        this.props.location.query.createEmail(email, next)
+        this.props.createEmail(email, next)
     }
 
     render() {
