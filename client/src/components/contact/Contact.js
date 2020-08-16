@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Header, Grid, Segment } from 'semantic-ui-react'
 
 import { getContact, createEmail } from '../../actions'
+import EmailNew from '../email/EmailNew'
 
 class Contact extends Component {
 
@@ -13,7 +14,7 @@ class Contact extends Component {
     render() {
         return (
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 450 }}>
+                <Grid.Column style={{ maxWidth: 900 }}>
                     <Header as='h1' color='green' textAlign='center'>
                         {this.props.title}
                     </Header>
@@ -24,8 +25,8 @@ class Contact extends Component {
                         <p><a href='https://www.linkedin.com/in/mark-kanko-a750b3177/'>{this.props.link_1}</a></p>
                         <p><a href='https://github.com/MKanko'>{this.props.link_2}</a></p>
                     </Segment>
-                    <Segment>
-                        <EmailNew createEmail={this.props.createEmail} />
+                    <Segment inverted secondary>
+                        <EmailNew createEmail={this.props.createEmail} history={this.props.history} formStatus={this.props.formStatus} />
                     </Segment>
                 </Grid.Column>
             </Grid>
@@ -41,7 +42,8 @@ const mapStateToProps = (state) => {
         phone: state.manageContact.contact.phone,
         email: state.manageContact.contact.email,
         link_1: state.manageContact.contact.link_1,
-        link_2: state.manageContact.contact.link_2 
+        link_2: state.manageContact.contact.link_2,
+        formStatus: state.manageEmails.status 
     }
 }
 

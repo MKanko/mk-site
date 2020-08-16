@@ -9,6 +9,7 @@ import managePosts from './managePosts'
 import manageResume from './manageResume'
 import manageCategories from './manageCategories'
 import manageContact from './manageContact'
+import manageEmails from './manageEmails'
 
 
 export const rootReducer = combineReducers({
@@ -21,5 +22,6 @@ export const rootReducer = combineReducers({
     managePosts,
     manageResume,
     manageCategories,
-    manageContact    
+    manageContact,
+    manageEmails    
 })

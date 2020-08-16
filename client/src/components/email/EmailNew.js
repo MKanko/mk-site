@@ -21,6 +21,7 @@ class EmailNew extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log('emailProps:', this.props)
         event.preventDefault()
         let email = {
             name: this.state.name,
@@ -29,7 +30,7 @@ class EmailNew extends Component {
             message: this.state.message
         }
         let next = {
-            redirect: this.props.location.history.push('/contact')
+            redirect: () => this.props.history.push('/contact')
         }
         this.props.createEmail(email, next)
     }

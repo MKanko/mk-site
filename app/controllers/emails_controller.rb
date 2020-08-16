@@ -1,26 +1,26 @@
 class EmailsController < ApplicationController
 
-    def new 
-        @email = Email.new 
-    end 
-
     def create 
-        @email = Email.new(params[:email])
+        @email = Email.new(email_params)
 
         if @email.save
-            # EmailsMailer.general_message(email).deliver
             EmailMailer.general_message(@email).deliver
             render json: {
-                # status 200 message to user that email was sent successfully
+                error: false,
+                message: 'Your email was sent, thank you for your contact.'
             }
-        else 
+        else
             render json: {
-                # status 500 message with pointing to error - try again 
+                error: true,
+                message: 'Your email must have a valid email address, and must have message content.'
             }
         end 
     end 
 
-    def thanks 
+    private 
+
+    def email_params 
+        params.require(:email).permit(:name, :subject, :email, :message)
     end 
 
 end

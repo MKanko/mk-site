@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resource :resume, except: [:index]
   resources :categories
   resource :contact, except: [:index]
-  resources :emails
+  resources :emails, only: [:create]
 end
