@@ -33,7 +33,7 @@ class AdminHome extends Component {
     }
 
     render() {
-        console.log('adminhome props:', this.props)
+        // console.log('adminhome props:', this.props)
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
