@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, Grid, Segment } from 'semantic-ui-react'
 
-import { getContact } from '../../actions'
+import { getContact, createEmail } from '../../actions'
 
 class Contact extends Component {
 
@@ -24,6 +24,9 @@ class Contact extends Component {
                         <p><a href='https://www.linkedin.com/in/mark-kanko-a750b3177/'>{this.props.link_1}</a></p>
                         <p><a href='https://github.com/MKanko'>{this.props.link_2}</a></p>
                     </Segment>
+                    <Segment>
+                        <EmailNew createEmail={this.props.createEmail} />
+                    </Segment>
                 </Grid.Column>
             </Grid>
         )
@@ -43,7 +46,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {getContact: () => {dispatch(getContact())}}
+    return {
+        getContact: () => {dispatch(getContact())},
+        createEmail: (email, next) => {dispatch(createEmail(email, next))}
+    }
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact)
