@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid, Header, Segment, Transition, List} from 'semantic-ui-react'
 
 const ProjectShow = (props) => {
-// console.log('show props:', props)
+console.log('show props:', props)
 
     const techDetailList = props.location.query.project.technical_details.map(techDetail => <List.Item>{techDetail}</List.Item>)
 
@@ -20,6 +20,9 @@ const ProjectShow = (props) => {
                         <List>
                             {techDetailList}
                         </List>                           
+                    </Segment>
+                    <Segment inverted secondary>
+                        <a href={props.location.query.project.project_link}>View Site</a>
                     </Segment>
                 </Grid.Column>
             </Transition>

@@ -9,7 +9,8 @@ class EditProject extends Component {
             name: props.location.query.project.name,
             description: props.location.query.project.description,
             technical_details: props.location.query.project.technical_details,
-            image: props.location.query.project.image
+            image: props.location.query.project.image,
+            project_link: props.location.query.project.project_link
         }
     }
 
@@ -52,6 +53,7 @@ class EditProject extends Component {
             description: this.state.description,
             technical_details: this.state.technical_details,
             image: this.state.image,
+            project_link: this.state.project_link,
             id: this.props.location.query.project.id 
         }
         let next = {
@@ -101,7 +103,15 @@ class EditProject extends Component {
                                     name='image'
                                     value={this.state.image}
                                     onChange={this.handleOnChange} 
-                                />                              
+                                /> 
+                                <Form.Input
+                                    fluid
+                                    label='Project Link'
+                                    placeholder='Project Link'
+                                    name='project_link'
+                                    value={this.state.project_link}
+                                    onChange={this.handleOnChange} 
+                                />                             
                             <Form.TextArea 
                                 label='Description'
                                 placeholder='Project page content...'

@@ -7,28 +7,29 @@ const SkillDetail = (props) => {
     opacity: 0.8
   };
 
+  console.log(props)
   return (
     <Grid.Column textAlign="center" verticalAlign="middle">
       <Popup
         trigger={
             <picture>
-            <source type="image/webp" srcSet={props.imageWeb} />
+            <source type="image/webp" srcSet={props.skill.attributes.image_web} />
                 <source
                     className="background-image"
                     type="image/jpg"
-                    srcSet={props.image}
+                    srcSet={props.skill.attributes.image}
                 />
                 <Image
                     circular={props.circular}
-                    alt={props.name}
+                    alt={props.skill.attributes.name}
                     size="small"
                     verticalAlign="middle"
-                    src={props.image}
+                    src={props.skill.attributes.image}
                 />
             </picture>
         }
-        header={props.name}
-        content={props.description}
+        header={props.skill.attributes.name}
+        content={props.skill.attributes.description}
         style={style}
         size="mini"
         position="top center"

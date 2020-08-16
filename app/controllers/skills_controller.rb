@@ -1,7 +1,7 @@
 class SkillsController < ApplicationController
 
     def index 
-        skills = Skills.all
+        skills = Skill.all
         render json: SkillSerializer.new(skills) 
     end 
 
@@ -41,5 +41,5 @@ class SkillsController < ApplicationController
     def skill_params 
         params.require(:skill).permit(:name, :image, :image_web, :description)
     end 
-    
+
 end
