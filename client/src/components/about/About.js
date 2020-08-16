@@ -13,7 +13,7 @@ class About extends Component {
     render() {
         return (
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 900 }}>
+                <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h1' color='green' textAlign='center'>
                         {this.props.title}
                     </Header>

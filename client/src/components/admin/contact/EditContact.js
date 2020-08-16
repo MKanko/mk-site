@@ -46,7 +46,7 @@ class EditContact extends Component {
                             Edit Contact Data
                         </Header>
                         <Form onSubmit={this.handleSubmit}>
-                            <Form.Group widths='equal'>
+                            {/* <Form.Group widths='equal'> */}
                                 <Form.Input
                                     fluid
                                     label='Title'
@@ -95,7 +95,7 @@ class EditContact extends Component {
                                     value={this.state.link_2}
                                     onChange={this.handleOnChange} 
                                 />
-                            </Form.Group>                         
+                            {/* </Form.Group>                          */}
                             <Form.Button>Submit Edits</Form.Button>
                         </Form>
                     </Grid.Column>

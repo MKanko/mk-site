@@ -71,7 +71,7 @@ class EmailNew extends Component {
                     value={this.state.message}
                     onChange={this.handleOnChange}
                 />
-                <Form.Button>Submit Edits</Form.Button>
+                <Form.Button>Send</Form.Button>
             </Form>
         )
     }
