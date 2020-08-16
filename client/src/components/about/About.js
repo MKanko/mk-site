@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, Grid, Segment, Image } from 'semantic-ui-react'
 
-import { getAbout } from '../../actions'
+import { getAbout, getSkills } from '../../actions'
+import SkillIndex from '../skill/SkillIndex'
 
 class About extends Component {
 
@@ -24,6 +25,7 @@ class About extends Component {
                         {this.props.text_content}
                     </Segment>
                 </Grid.Column>
+                <SkillIndex getSkills={this.props.getSkills} skills={this.props.skills} />
             </Grid>
         )
     }
@@ -35,12 +37,16 @@ const mapStateToProps = (state) => {
     return {
         title: state.manageAbout.about.title,
         text_content: state.manageAbout.about.text_content,
-        image: state.manageAbout.about.image 
+        image: state.manageAbout.about.image, 
+        skills: state.manageSkills.skills
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {getAbout: () => {dispatch(getAbout())}}
+    return {
+        getAbout: () => {dispatch(getAbout())},
+        getSkills: () => {dispatch(getSkills())}
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(About)
