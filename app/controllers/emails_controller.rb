@@ -11,11 +11,11 @@ class EmailsController < ApplicationController
             # EmailsMailer.general_message(email).deliver
             EmailMailer.general_message(@email).deliver
             render json: {
-                :thanks
+                # status 200 message to user that email was sent successfully
             }
         else 
             render json: {
-                :new 
+                # status 500 message with pointing to error - try again 
             }
         end 
     end 
