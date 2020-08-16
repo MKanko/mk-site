@@ -154,6 +154,12 @@ export const createEmail = (email, next) => async (dispatch) => {
     }
 }
 
+export const getSkills = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/skills')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_SKILLS', payload: response.data.data})
+}
+
 
 
 
