@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Container, Grid } from 'semantic-ui-react'
 
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
 
 class AdminHome extends Component {
 
@@ -11,6 +11,11 @@ class AdminHome extends Component {
         this.props.getProjects()
         this.props.getPosts()
         this.props.getCategories()
+        this.props.getSkills()
+    }
+
+    genSkillEdit = () => {
+        return this.props.skills.map(skill => <Button key={skill.id}><Link to={{pathname: '/skill/edit', query: {skill: skill, editSkill: this.props.editSkill}}}>Edit {skill.attributes.name}</Link></Button>)
     }
 
     genPostEdit = () => {
@@ -54,7 +59,8 @@ class AdminHome extends Component {
                                 {this.props.manageAdmin.isLoggedIn ? this.genPostEdit() : null} 
                                 {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}><p>Edit Resume</p></Link></Button> : null}
                                 {this.props.manageAdmin.isLoggedIn ? this.genCatEdit() : null}
-                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}><p>Edit Contact</p></Link></Button> : null}                    
+                                {this.props.manageAdmin.isLoggedIn ? <Button><Link to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}><p>Edit Contact</p></Link></Button> : null}
+                                {this.props.manageAdmin.isLoggedIn ? this.genSkillEdit() : null}
                                 {this.props.manageAdmin.isLoggedIn ? <Button onClick={this.handleClick}><p>Log Out</p></Button> : null}
                             </Button.Group>
                         </Container>
@@ -70,7 +76,8 @@ const mapStateToProps = (state) => {
         manageAdmin: state.manageAdmin,
         projects: state.manageProjects.projects,
         posts: state.managePosts.posts,
-        categories: state.manageCategories.categories  
+        categories: state.manageCategories.categories,
+        skills: state.manageSkills.skills   
     }
 }
 
@@ -87,8 +94,13 @@ const mapStateToProps = (state) => {
 //         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
 //         getPosts: () => {dispatch(getPosts())},
 //         editPost: (post, next) => {dispatch(editPost(post, next))},
-//         editResume: (resume, next) => {dispatch(editResume(resume, next))}
+//         editResume: (resume, next) => {dispatch(editResume(resume, next))},
+//         getCategories: () => {dispatch(getCategories())},
+//         editCategory: (category, next) => {dispatch(editCategory(category, next))},
+//         editContact: (contact, next) => {dispatch(editContact(contact, next))},
+//         getSkills: () => {dispatch(getSkills())},
+//         editSkill: (skill next) => {dispatch(editSkill(skill, next))}
 //     }
 // }
 
-export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact })(AdminHome)
+export default connect(mapStateToProps, { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact,getSkills, editSkill })(AdminHome)

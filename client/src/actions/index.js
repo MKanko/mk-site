@@ -154,6 +154,20 @@ export const createEmail = (email, next) => async (dispatch) => {
     }
 }
 
+export const getSkills = () => async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/skills')
+    // console.log('response: ', response)
+    dispatch({type: 'GET_SKILLS', payload: response.data.data})
+}
+
+export const editSkill = (skill, next) => async (dispatch) => {
+    // console.log(post)
+    const response = await axios.patch(`http://localhost:3001/skills/${skill.id}`, {skill})
+    // console.log('proj response:', response)
+    dispatch({type: 'EDIT_SKILL', payload: response.data.data})
+    next.redirect()
+}
+
 
 
 
