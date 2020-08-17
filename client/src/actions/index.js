@@ -160,6 +160,14 @@ export const getSkills = () => async (dispatch) => {
     dispatch({type: 'GET_SKILLS', payload: response.data.data})
 }
 
+export const editSkill = (skill, next) => async (dispatch) => {
+    // console.log(post)
+    const response = await axios.patch(`http://localhost:3001/categories/${skill.id}`, {skill})
+    // console.log('proj response:', response)
+    dispatch({type: 'EDIT_SKILL', payload: response.data.data})
+    next.redirect()
+}
+
 
 
 
