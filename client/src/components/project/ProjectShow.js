@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { getProject } from '../actions'
+import { getProject } from '../../actions'
+
 import {Grid, Header, Segment, Transition, List} from 'semantic-ui-react'
 
 class ProjectShow extends Component {
+
+    componentDidMount() {
+        getProject(this.props.location.pathName.replace('/projects/', ''))
+    }
 
     techDetailList = () => {
         return this.props.project.technical_details.map(techDetail => <List.Item>{techDetail}</List.Item>)
@@ -23,7 +28,7 @@ class ProjectShow extends Component {
                         </Segment>
                         <Segment inverted secondary>
                             <List>
-                                {techDetailList()}
+                                {this.techDetailList()}
                             </List>                           
                         </Segment>
                         <Segment inverted secondary>
