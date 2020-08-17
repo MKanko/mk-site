@@ -15,7 +15,7 @@ class AdminHome extends Component {
     }
 
     genSkillEdit = () => {
-        return this.props.skills.map(skill => <Button key={skill.id}><Link to={{pathname: '/skill/edit', query: {skill: skill.attributes, editSkill: this.props.editSkill}}}>Edit {skill.attributes.name}</Link></Button>)
+        return this.props.skills.map(skill => <Button key={skill.id}><Link to={{pathname: '/skill/edit', query: {skill: skill, editSkill: this.props.editSkill}}}>Edit {skill.attributes.name}</Link></Button>)
     }
 
     genPostEdit = () => {

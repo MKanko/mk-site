@@ -25,12 +25,13 @@ class EditSkill extends Component {
             name: this.state.name,
             image: this.state.image,
             image_web: this.state.image_web,
-            description: this.state.description
+            description: this.state.description,
+            id: this.props.location.query.skill.id       
         }
         let next = {
             redirect: () => this.props.history.push('/about')
         }
-        this.props.location.query.getSkills(skill, next)
+        this.props.location.query.editSkill(skill, next)
     }
 
     render() {
@@ -69,10 +70,10 @@ class EditSkill extends Component {
                                 />
                             </Form.Group>                         
                             <Form.TextArea 
-                                label='Content'
-                                placeholder='Porfolio page content...'
-                                name='text_content'
-                                value={this.state.text_content}
+                                label='Description'
+                                placeholder='Description'
+                                name='description'
+                                value={this.state.description}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>

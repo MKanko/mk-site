@@ -28,9 +28,9 @@ class About extends Component {
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
-                <Grid.Row>
-                    <SkillIndex getSkills={this.props.getSkills} skills={this.props.skills} />
-                </Grid.Row>
+                    <Grid.Row>                     
+                        <SkillIndex getSkills={this.props.getSkills} skills={this.props.skills} />  
+                    </Grid.Row>               
             </Grid>
         )
     }

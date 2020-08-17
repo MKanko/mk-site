@@ -25,7 +25,7 @@ import EditContact from './components/admin/contact/EditContact'
 import PageEffect from './components/transition/PageEffect'
 import EmailNew from './components/email/EmailNew'
 import SkillIndex from './components/skill/SkillIndex'
-import EditSkill from './components/skill/EditSkill'
+import EditSkill from './components/admin/skill/EditSkill'
 
 class App extends Component { 
 
