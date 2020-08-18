@@ -52,7 +52,7 @@ export const editAbout = (about, next) => async (dispatch) => {
 
 export const getPortfolio = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/portfolio')
-    // console.log('response: ', response)
+    console.log('response: ', response)
     dispatch({type: 'GET_PORTFOLIO', payload: response.data.data.attributes})
 }
 
@@ -74,9 +74,14 @@ export const editProject = (project, next) => async (dispatch) => {
     delete project.id 
     const response = await axios.patch(`http://localhost:3001/projects/${projectId}`, {project})
     // console.log('proj response:', response)
-
     dispatch({type: 'EDIT_PROJECT', payload: response.data.data})
     next.redirect()
+}
+
+export const getProject = (id) => async (dispatch) => {
+    const response = await axios.get(`http://localhost:3001/projects/${id}`)
+    console.log('project response: ', response)
+    dispatch({type: 'GET_PROJECT', payload: response.data.data.attributes})
 }
 
 export const getBlog = () => async (dispatch) => {
