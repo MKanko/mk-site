@@ -17,7 +17,7 @@ class About extends Component {
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Row>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='green' textAlign='center'>
+                        <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>
                             {this.props.title}
                         </Header>
                         {/* <Card centered style={{backgroundColor: 'grey' }}> */}
@@ -28,9 +28,10 @@ class About extends Component {
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
-                    <Grid.Row>                     
-                        <SkillIndex getSkills={this.props.getSkills} skills={this.props.skills} />  
-                    </Grid.Row>               
+                <Grid.Row>                    
+                    {/* <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>Skills</Header>                       */}
+                    <SkillIndex getSkills={this.props.getSkills} skills={this.props.skills} />                                                          
+                </Grid.Row>               
             </Grid>
         )
     }

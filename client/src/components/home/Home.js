@@ -14,7 +14,7 @@ class Home extends Component {
         return (
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h1' color='green' textAlign='center'>
+                    <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>
                         {this.props.title}
                     </Header>
                     {/* <Card centered style={{backgroundColor: 'grey' }}> */}

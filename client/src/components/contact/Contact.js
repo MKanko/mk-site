@@ -12,18 +12,17 @@ class Contact extends Component {
     }
 
     render() {
+
         return (
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 800 }}>
-                    <Header as='h1' color='green' textAlign='center'>
+                    <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>
                         {this.props.title}
                     </Header>
                     <Segment inverted secondary>
                         <p>{this.props.name}</p>
                         <p>{this.props.phone}</p>
                         <p>{this.props.email}</p>
-                        <p><a href='https://www.linkedin.com/in/mark-kanko-a750b3177/'>{this.props.link_1}</a></p>
-                        <p><a href='https://github.com/MKanko'>{this.props.link_2}</a></p>
                     </Segment>
                     <Segment inverted secondary>
                         <EmailNew createEmail={this.props.createEmail} history={this.props.history} formStatus={this.props.formStatus} />

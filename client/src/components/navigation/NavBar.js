@@ -1,66 +1,71 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom' 
 
 class NavBar extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeItem: 'home'
-        }
-    }
+    render() { 
 
-    handleItemClick = (event, { name }) => this.setState({ activeItem: name })
+        const linkedin = 'https://www.linkedin.com/in/mark-kanko'
+        const github = 'https://github.com/MKanko'
+        const resume = '/images/MKanko Resume.pdf'
+        const facebook = 'https://www.facebook.com/mark.kanko.9'
 
-    render() {
-        const { activeItem } = this.state 
         return (
             <div>
                 <Menu inverted text>
-                    {/* <Menu.Item header>Mark Kanko</Menu.Item> */}
                     <Menu.Item
                         as={Link}
                         to='/'
                         name='home'
-                        active={activeItem === 'home'}
-                        onClick={this.handleItemClick}
                     />
                     <Menu.Item
                         as={Link}
                         to='/about'
                         name='about'
-                        active={activeItem === 'about'}
-                        onClick={this.handleItemClick}
                     />
                     <Menu.Item
                         as={Link}
                         to='/portfolio'
                         name='portfolio'
-                        active={activeItem === 'portfolio'}
-                        onClick={this.handleItemClick}
                     />
                     <Menu.Item
                         as={Link}
                         to='/blog'
                         name='blog'
-                        active={activeItem === 'blog'}
-                        onClick={this.handleItemClick}
                     />
                     <Menu.Item
                         as={Link}
                         to='/resume'
                         name='resume'
-                        active={activeItem === 'resume'}
-                        onClick={this.handleItemClick}
                     />
                     <Menu.Item
                         as={Link}
                         to='/contact'
                         name='contact'
-                        active={activeItem === 'contact'}
-                        onClick={this.handleItemClick}
                     />
+                    <Menu.Menu position='right'>
+                        <Menu.Item floated='right' title='LinkedIn'>
+                            <a href={linkedin} target='_blank' rel="noopener noreferrer">
+                                <Icon color='grey' name='linkedin' size='large' />
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item floated='right' title='Github'>
+                            <a href={github} target='_blank' rel="noopener noreferrer">
+                                <Icon color='grey' name='github' size='large' />
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item floated='right' title='Facebook'>
+                            <a href={facebook} target='_blank' rel="noopener noreferrer">
+                                <Icon color='grey' name='facebook' size='large' />
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item floated='right' title='Resume'>
+                            <a href={resume} target='_blank' rel="noopener noreferrer">
+                                <Icon color='grey' name='file' size='large' />
+                            </a>
+                        </Menu.Item>
+                    </Menu.Menu>
                 </Menu>
             </div>
         )
