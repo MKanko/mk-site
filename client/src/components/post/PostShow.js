@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react'
+import { connect } from 'react-redux'
 import {Grid, Header, Segment, Transition} from 'semantic-ui-react'
 
 import { getPost } from '../../actions'
@@ -7,7 +7,7 @@ import { getPost } from '../../actions'
 class PostShow extends Component {
 
     componentDidMount() {
-        this.props.getProject(this.props.location.pathname.replace('/projects/', ''))
+        this.props.getPost(this.props.location.pathname.replace('/posts/', ''))
     }
 
     render() {

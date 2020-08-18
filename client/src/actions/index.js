@@ -110,6 +110,11 @@ export const editPost = (post, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getPost = (id) => async (dispatch) => {
+    const response = await axios.get(`http://localhost:3001/posts/${id}`)
+    dispatch({type: 'GET_POST', payload: response.data.data.attributes})
+}
+
 export const getResume = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/resume')
     // console.log('response: ', response)

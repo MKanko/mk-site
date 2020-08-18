@@ -1,4 +1,4 @@
-export default function managePosts(state = {posts: []}, action) {
+export default function managePosts(state = {posts: [], post: {}}, action) {
     // console.log('action: ', action)
     switch (action.type) {
         case 'GET_POSTS':      
@@ -6,6 +6,8 @@ export default function managePosts(state = {posts: []}, action) {
         case 'EDIT_POST':
             const postIndex = state.posts.findIndex((post) => post.id === action.payload.id)
             return { ...state, posts: [...state.posts.slice(0, postIndex), action.payload, ...state.posts.slice(postIndex + 1)] }
+        case 'GET_POST':
+            return { ...state, post: action.payload }
 
         default:
             return state 
