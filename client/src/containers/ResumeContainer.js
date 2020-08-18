@@ -12,17 +12,20 @@ class ResumeContainer extends Component {
     }
 
     render() {
+
+        const resume = '/images/MKanko Resume.pdf'
+
         return (
             <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='blue' textAlign='center'>
+                        <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>
                             {this.props.title}
                         </Header>
                         <Segment inverted secondary>
                             {this.props.text_content}
                         </Segment>
-                        <Button style={{textAlign: 'center'}} size='mini'color='grey' href='/images/MKanko Resume.pdf'>Resume</Button>
+                        <Button style={{textAlign: 'center'}} size='mini'color='grey' href={resume} target='_blank' rel='noopener noreferrer'>Resume</Button>
                     </Grid.Column>           
                 </Grid.Row>                 
                 <CategoryIndex categories={this.props.categories} /> 
