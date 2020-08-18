@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Grid, Header, Segment, Transition} from 'semantic-ui-react'
 
-import { getPost } from '../../actions'
+import { getCategory } from '../../actions'
 
-class PostShow extends Component {
+
+class CategoryShow extends Component {
 
     componentDidMount() {
-        this.props.getPost(this.props.location.pathname.replace('/posts/', ''))
+        this.props.getCategory(this.props.location.pathname.replace('/categories/', ''))
     }
 
     render() {
         return (
-            <div>
+            <div>          
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Transition animation={'drop'} duration={2000} transitionOnMount>
                         <Grid.Column style={{ maxWidth: 600 }}>
@@ -29,20 +29,18 @@ class PostShow extends Component {
         )
     }
 
-
 }
 
 const mapStateToProps = (state) => {
     return {
-        title: state.managePosts.post.title,
-        text_content: state.managePosts.post.text_content,
-        image: state.managePosts.post.image
+        title: state.manageCategories.category.title,
+        text_content: state.manageCategories.category.text_content,
+        image: state.manageCategories.category.image
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {getPost: (id) => {dispatch(getPost(id))}}
+    return {getCategory: (id) => {dispatch(getCategory(id))}}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostShow)
-
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryShow)
