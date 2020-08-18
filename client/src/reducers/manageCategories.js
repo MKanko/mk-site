@@ -1,4 +1,4 @@
-export default function manageCategories(state = {categories: []}, action) {
+export default function manageCategories(state = {categories: [], category: {}}, action) {
     // console.log('action: ', action)
     switch (action.type) {
         case 'GET_CATEGORIES':      
@@ -6,6 +6,8 @@ export default function manageCategories(state = {categories: []}, action) {
         case 'EDIT_CATEGORY':
             const categoryIndex = state.categories.findIndex((category) => category.id === action.payload.id)
             return { ...state, categories: [...state.categories.slice(0, categoryIndex), action.payload, ...state.categories.slice(categoryIndex + 1)] }
+        case 'GET_CATEGORY':
+            return { ...state, category: action.payload}
 
         default:
             return state 

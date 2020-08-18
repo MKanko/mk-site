@@ -26,6 +26,7 @@ import PageEffect from './components/transition/PageEffect'
 import EmailNew from './components/email/EmailNew'
 import SkillIndex from './components/skill/SkillIndex'
 import EditSkill from './components/admin/skill/EditSkill'
+import CategoryShow from './components/category/CategoryShow'
 
 class App extends Component { 
 
@@ -66,6 +67,9 @@ class App extends Component {
                         )} />
                         <Route exact path='/contact' render={(props) => (
                             this.renderWithEffect(props, Contact)
+                        )} />
+                        <Route path='/categories/:category' render={(props) => (
+                            this.renderWithEffect(props, CategoryShow, 'horizontal flip', 1500)
                         )} />
                                          
                         <Route exact path='/admin/home' component={AdminHome} />                                                      

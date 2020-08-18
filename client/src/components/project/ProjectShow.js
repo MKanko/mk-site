@@ -35,7 +35,7 @@ class ProjectShow extends Component {
                         </Segment>
                     </Grid.Column>
                 </Transition>
-                </Grid>      
+            </Grid>      
         )
     }
 

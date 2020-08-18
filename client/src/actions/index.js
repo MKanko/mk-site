@@ -141,6 +141,12 @@ export const editCategory = (category, next) => async (dispatch) => {
     next.redirect()
 }
 
+export const getCategory = (id) => async (dispatch) => {
+    const response = await axios.get(`http://localhost:3001/categories/${id}`)
+    console.log('project response: ', response)
+    dispatch({type: 'GET_CATEGORY', payload: response.data.data.attributes})
+}
+
 export const getContact = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/contact')
     // console.log('response: ', response)
