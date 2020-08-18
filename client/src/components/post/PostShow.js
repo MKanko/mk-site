@@ -6,6 +6,10 @@ import { getPost } from '../../actions'
 
 class PostShow extends Component {
 
+    componentDidMount() {
+        this.props.getProject(this.props.location.pathname.replace('/projects/', ''))
+    }
+
     render() {
         return (
             <div>

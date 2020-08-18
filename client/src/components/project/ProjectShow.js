@@ -7,7 +7,6 @@ import { getProject } from '../../actions'
 class ProjectShow extends Component {
 
     componentDidMount() {
-        console.log(this.props.location)
         this.props.getProject(this.props.location.pathname.replace('/projects/', ''))
     }
 
