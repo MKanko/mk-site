@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Grid, Transition, Header, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { getCategory } from '../../actions'
