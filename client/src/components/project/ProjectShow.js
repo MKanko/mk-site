@@ -31,7 +31,7 @@ class ProjectShow extends Component {
                             </List>                           
                         </Segment>
                         <Segment inverted secondary>
-                            <a href={this.props.project_link}>View Site</a>
+                            <a href={this.props.project_link} target='_blank' rel='noopener noreferrer'>View Site</a>
                         </Segment>
                     </Grid.Column>
                 </Transition>
