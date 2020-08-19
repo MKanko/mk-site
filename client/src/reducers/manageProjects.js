@@ -6,7 +6,6 @@ export default function manageProjects(state = {projects: [], project: {technica
         case 'EDIT_PROJECT':
             const projectIndex = state.projects.findIndex((project) => project.id === action.payload.id)
             return { ...state, projects: [...state.projects.slice(0, projectIndex), action.payload, ...state.projects.slice(projectIndex + 1)] }
-
         case 'GET_PROJECT':
             return { ...state, project: action.payload }
 
