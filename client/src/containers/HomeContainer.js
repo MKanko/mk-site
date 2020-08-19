@@ -11,7 +11,7 @@ class HomeContainer extends Component {
 
     render() {
         return (
-            <div></div>
+            <HomeDetail home={this.props.home} />
         )
     }
 
