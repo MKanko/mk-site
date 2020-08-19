@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { getHome } from '../actions'
+import HomeDetail from '../components/home/HomeDetail'
 
 class HomeContainer extends Component {
 
