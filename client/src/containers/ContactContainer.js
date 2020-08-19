@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapStateToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         getContact: () => {dispatch(getContact())},
         createEmail: (email, next) => {dispatch(createEmail(email, next))}
