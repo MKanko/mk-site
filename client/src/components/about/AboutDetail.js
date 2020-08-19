@@ -1,6 +1,8 @@
 import React from 'react' 
 import { Grid, Header, Image, Segment } from 'semantic-ui-react'
 
+import SkillIndex from '../skill/SkillIndex'
+
 const AboutDetail = (props) => {
 
     return (
@@ -20,7 +22,7 @@ const AboutDetail = (props) => {
             </Grid.Row>
             <Grid.Row>                    
                 {/* <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>Skills</Header>                       */}
-                <SkillIndex getSkills={props.skills.getSkills} skills={props.skills.skills} />                                                          
+                <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />                                                          
             </Grid.Row>               
         </Grid> 
     )
