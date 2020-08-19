@@ -2,12 +2,12 @@ import React from "react";
 import { Grid, Popup, Image } from "semantic-ui-react";
 
 const SkillDetail = (props) => {
+
   const style = {
     borderRadius: "10px",
     opacity: 0.8
-  };
+  }
 
-  console.log(props)
   return (
     <Grid.Column textAlign="center" verticalAlign="middle">
       <Popup
