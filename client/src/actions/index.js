@@ -27,8 +27,9 @@ export const logout = (next) => async (dispatch) => {
 }
 
 export const getHome = () => async (dispatch) => {
+    console.log('hit')
     const response = await axios.get('http://localhost:3001/home')
-    // console.log('response: ', response)
+    console.log('response: ', response)
     dispatch({type: 'GET_HOME', payload: response.data.data.attributes})
 }
 
@@ -52,7 +53,7 @@ export const editAbout = (about, next) => async (dispatch) => {
 
 export const getPortfolio = () => async (dispatch) => {
     const response = await axios.get('http://localhost:3001/portfolio')
-    console.log('response: ', response)
+    // console.log('response: ', response)
     dispatch({type: 'GET_PORTFOLIO', payload: response.data.data.attributes})
 }
 
@@ -80,7 +81,7 @@ export const editProject = (project, next) => async (dispatch) => {
 
 export const getProject = (id) => async (dispatch) => {
     const response = await axios.get(`http://localhost:3001/projects/${id}`)
-    console.log('project response: ', response)
+    // console.log('project response: ', response)
     dispatch({type: 'GET_PROJECT', payload: response.data.data.attributes})
 }
 
@@ -143,7 +144,7 @@ export const editCategory = (category, next) => async (dispatch) => {
 
 export const getCategory = (id) => async (dispatch) => {
     const response = await axios.get(`http://localhost:3001/categories/${id}`)
-    console.log('project response: ', response)
+    // console.log('project response: ', response)
     dispatch({type: 'GET_CATEGORY', payload: response.data.data.attributes})
 }
 

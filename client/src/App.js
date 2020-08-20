@@ -54,13 +54,13 @@ class App extends Component {
                             this.renderWithEffect(props, PortfolioContainer)
                         )} />
                         <Route path='/projects/:project' render={(props) => (
-                            this.renderWithEffect(props, ProjectShow, 'horizontal flip', 1500)
+                            this.renderWithEffect(props, ProjectShow, 'horizontal flip', 2500)
                         )} />
                         <Route exact path='/blog' render={(props) => (
                             this.renderWithEffect(props, BlogContainer)
                         )} />
                         <Route path='/posts/:post' render={(props) => (
-                            this.renderWithEffect(props, PostShow, 'horizontal flip', 1500)
+                            this.renderWithEffect(props, PostShow, 'horizontal flip', 2500)
                         )} />
                         <Route exact path='/resume' render={(props) => (
                             this.renderWithEffect(props, ResumeContainer)
@@ -69,7 +69,7 @@ class App extends Component {
                             this.renderWithEffect(props, Contact)
                         )} />
                         <Route path='/categories/:category' render={(props) => (
-                            this.renderWithEffect(props, CategoryShow, 'horizontal flip', 1500)
+                            this.renderWithEffect(props, CategoryShow, 'horizontal flip', 2500)
                         )} />
                                          
                         <Route exact path='/admin/home' component={AdminHome} />                                                      

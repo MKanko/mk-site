@@ -11,10 +11,12 @@ class PortfolioContainer extends Component {
         this.props.getPortfolio()
     }
 
+    // container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'
+
     render() {
         // console.log('props:', this.props)
         return (
-            <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid divided='vertically' textAlign='center'>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>

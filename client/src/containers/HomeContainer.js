@@ -11,6 +11,7 @@ class HomeContainer extends Component {
     }
 
     render() {
+        console.log('container render:', this.props.home.display_phrases)
         return (
             <HomeDetail home={this.props.home} />
         )
@@ -19,6 +20,7 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log('container:', state)
     return {home: state.manageHome.home}
 }
 
