@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Header, Segment } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 
 import { getPortfolio } from '../actions'
 import ProjectIndex from '../components/project/ProjectIndex'
@@ -11,22 +11,21 @@ class PortfolioContainer extends Component {
         this.props.getPortfolio()
     }
 
-    // container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'
+    // <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
 
     render() {
-        // console.log('props:', this.props)
-        return (
-            <Grid divided='vertically' textAlign='center'>
+        return (         
+            <Grid divided='vertically' textAlign='center' style={{padding: '200px'}}>
                 <Grid.Row columns={1}>
-                    <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' style={{color: '#0E15FA'}} textAlign='center'>
+                    <Grid.Column style={{ maxWidth: 1000 }}>
+                        <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        <Segment inverted secondary>
-                            {this.props.text_content}
-                        </Segment>
+                        {/* <Segment inverted secondary></Segment> */}
+                            <h4 style={{color: 'white'}}>{this.props.text_content}</h4>
+                        
                     </Grid.Column>
-                </Grid.Row>                  
+                </Grid.Row>                 
                 <Grid.Row columns={3}>
                     <ProjectIndex projects={this.props.projects} />
                 </Grid.Row> 

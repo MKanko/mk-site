@@ -11,7 +11,6 @@ class HomeContainer extends Component {
     }
 
     render() {
-        console.log('container render:', this.props.home.display_phrases)
         return (
             <HomeDetail home={this.props.home} />
         )

@@ -42,8 +42,8 @@ class Login extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='black' textAlign='center'>
-                         Log-in to your account
+                    <Header as='h2' style={{color: '#0E15FA'}} textAlign='center'>
+                         Admin Login
                     </Header>
                     <Form size='large' onSubmit={this.handleSubmit}>
                         <Segment stacked>
@@ -72,7 +72,7 @@ class Login extends Component {
                         </Segment>
                     </Form>
                     <Message>
-                        <Link to='/signup'>sign up</Link>
+                        <Link to='/signup'>Sign up</Link>
                     </Message>
                     </Grid.Column>
                 </Grid>

@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 
-import { Transition, Header } from 'semantic-ui-react'
+import { Transition, Header, Container } from 'semantic-ui-react'
 
 class Carousel extends Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
-            displayPhrase: 'Full Stack Software Developer',
-            index: 0
+            displayPhrase: 'Passion',
+            index: 0,
+            visible: true,
         }
-        
     }
 
     switchPhrase = () => {
@@ -19,14 +20,25 @@ class Carousel extends Component {
         
         this.setState({
             displayPhrase: this.props.displayPhrases[index],
-            index: index  
+            index: index,
+            visible: true 
         })
     }
 
-    componentDidMount() {
-        this.interval = setInterval(() => {
-            this.switchPhrase() 
+    visibilityOff = () => {
+        setTimeout(() => {
+            this.setState({
+                ...this.state, visible: false 
+            })
         }, 3000)
+    }
+
+    componentDidMount() {
+        this.visibilityOff()
+        this.interval = setInterval(() => {
+            this.switchPhrase()
+            this.visibilityOff() 
+        }, 5000)
     }
 
     componentWillUnmount() {
@@ -34,12 +46,14 @@ class Carousel extends Component {
     }
 
     render() {
-        return ( 
-            <Transition animation={'horizontal flip'} duration={2500}>         
-                <Header as='h1' color='green' textAlign='center'>                   
-                    {this.state.displayPhrase}                  
-                </Header>
-            </Transition>        
+        return (
+            <Container> 
+                <Transition animation={'horizontal flip'} duration={2000} visible={this.state.visible}>                                              
+                        <Header as='h1' style={{color: 'white'}} textAlign='center'>                   
+                            {this.state.displayPhrase}                  
+                        </Header>                  
+                </Transition>
+            </Container>                         
         )
     }
 
