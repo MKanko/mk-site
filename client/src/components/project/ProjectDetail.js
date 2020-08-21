@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const ProjectDetail = (props) => {
 
     return (
+     
         <Grid.Column>
             <Card as={Link} to={{pathname: '/projects/' + props.project.id}} style={{backgroundColor: 'grey' }}>
                 <Image src={process.env.PUBLIC_URL + props.project.image} />
@@ -13,8 +14,8 @@ const ProjectDetail = (props) => {
                 </Card.Content>
             </Card>
         </Grid.Column>
+        
     )
-
 }
 
 export default ProjectDetail

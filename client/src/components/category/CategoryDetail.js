@@ -5,7 +5,7 @@ import { Grid, Card, Image } from 'semantic-ui-react'
 const CategoryDetail = (props) => {
 
     return (
-        <Grid.Column width={8}>
+        <Grid.Column width={5}>
             <Card centered as={Link} to={{pathname: '/categories/' + props.category.id}} style={{backgroundColor: 'grey'}}>
                 <Image src={process.env.PUBLIC_URL + props.category.image} />
                 <Card.Content>

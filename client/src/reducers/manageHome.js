@@ -1,4 +1,4 @@
-export default function manageHome(state = {home: {}}, action) {
+export default function manageHome(state = {home: {display_phrases: []}}, action) {
     // console.log('action: ', action)
     switch (action.type) {
         case 'GET_HOME':      
