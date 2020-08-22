@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { Grid, Header } from 'semantic-ui-react'
 
 import { getPortfolio } from '../actions'
-import ProjectIndex from '../components/project/ProjectIndex'
+// import ProjectIndex from '../components/project/ProjectIndex'
+import ResourceIndex from '../components/common/ResourceIndex'
+import ProjectDetail from '../components/project/ProjectDetail'
 
 class PortfolioContainer extends Component {
 
@@ -26,9 +28,12 @@ class PortfolioContainer extends Component {
                         
                     </Grid.Column>
                 </Grid.Row>                 
-                <Grid.Row columns={3}>
+                {/* <Grid.Row columns={3}>
                     <ProjectIndex projects={this.props.projects} />
-                </Grid.Row> 
+                </Grid.Row>  */}
+                <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
+                    <ProjectDetail />
+                </ResourceIndex>
             </Grid>       
         )
     }

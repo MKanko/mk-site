@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { Grid, Header } from 'semantic-ui-react'
 
 import { getBlog } from '../actions'
-import PostIndex from '../components/post/PostIndex'
+import ResourceIndex from '../components/common/ResourceIndex'
+import PostDetail from '../components/post/PostDetail'
+// import PostIndex from '../components/post/PostIndex'
 
 class BlogContainer extends Component {
 
@@ -27,9 +29,12 @@ class BlogContainer extends Component {
                         
                     </Grid.Column>
                 </Grid.Row>                      
-                <Grid.Row columns={3}>
+                {/* <Grid.Row columns={3}>
                     <PostIndex posts={this.props.posts} />
-                </Grid.Row>
+                </Grid.Row> */}
+                <ResourceIndex resourceList={this.props.posts} resourceName='post' rowSize={3}>
+                    <PostDetail />
+                </ResourceIndex>
             </Grid>
         )
     }

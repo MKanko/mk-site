@@ -15,7 +15,7 @@ class PostShow extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Transition animation={'drop'} duration={2000} transitionOnMount>
-                        <Grid.Column style={{ maxWidth: 600 }}>
+                        <Grid.Column style={{ maxWidth: 1000 }}>
                             <Header as='h1' color='green' textAlign='center'>
                                 {this.props.title}
                             </Header>
