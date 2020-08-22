@@ -6,9 +6,9 @@ import SkillIndex from '../skill/SkillIndex'
 const AboutDetail = (props) => {
 
     return (
-        <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid container textAlign='center' verticalAlign='middle' style={{marginTop: "8vh"}}>
             <Grid.Row>
-                <Grid.Column style={{ maxWidth: 500 }}>
+                <Grid.Column style={{ maxWidth: 700 }}>
                     <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                         {props.about.title}
                     </Header>
@@ -17,19 +17,25 @@ const AboutDetail = (props) => {
                     </Card>
                                       
                     {/* <Segment inverted secondary></Segment> */}
-                    <h4 style={{color: 'white'}}>{props.about.text_content}</h4>                   
+                    <h4 style={{color: 'white', height: '34vh'}}>
+                        {props.about.text_content}                 
+                    </h4>                   
                 </Grid.Column>
             </Grid.Row>
             {/* <Grid.Row as={Header} style={{color: '#DBCE07', margin: 0, padding: 0, height: '30px'}}> 
                 Skills                   
             </Grid.Row> */}
-            {/* <Grid.Row as={Container} textAlign={'center'}>                   
-                    <Header as={'h2'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>
-                    <Grid container textAlign={'center'} verticalAlign={'middle'}>                     
-                        <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
+            <Grid.Row textAlign={'center'}>                   
+                    <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '8vw'}}> 
+                        <Grid.Row style={{height: '3vw'}}>
+                            <Header as={'h3'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>  
+                        </Grid.Row>     
+                        <Grid.Row style={{height: '5vw'}}>
+                            <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
+                        </Grid.Row>            
                     </Grid>                                                           
-            </Grid.Row> */}
-             <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
+            </Grid.Row>
+             {/* <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} /> */}
         </Grid> 
     )
 

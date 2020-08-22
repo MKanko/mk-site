@@ -1,15 +1,15 @@
-import React from 'react'
+// import React from 'react'
 
-import PostDetail from './PostDetail'
+// import PostDetail from './PostDetail'
 
-const PostIndex = (props) => {
+// const PostIndex = (props) => {
 
-    const genPosts = props.posts.map(post => <PostDetail key={post.id} post={post} />)
+//     const genPosts = props.posts.map(post => <PostDetail key={post.id} post={post} />)
 
-    return (      
-        <>{genPosts}</>
-    )
+//     return (      
+//         <>{genPosts}</>
+//     )
 
-}
+// }
 
-export default PostIndex 
+// export default PostIndex 

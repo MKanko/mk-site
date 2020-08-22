@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const PostDetail = (props) => {
 
     return (
-        <Grid.Column>
+        <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/posts/' + props.post.id}} style={{backgroundColor: 'grey'}}>
             <Image src={process.env.PUBLIC_URL + props.post.image} />
                 <Card.Content>

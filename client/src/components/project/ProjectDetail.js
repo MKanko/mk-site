@@ -6,7 +6,7 @@ const ProjectDetail = (props) => {
 
     return (
      
-        <Grid.Column>
+        <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/projects/' + props.project.id}} style={{backgroundColor: 'grey' }}>
                 <Image src={process.env.PUBLIC_URL + props.project.image} />
                 <Card.Content>
