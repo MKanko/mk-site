@@ -14,7 +14,6 @@ const PostDetail = (props) => {
             </Card>
         </Grid.Column>
     )
-
 }
 
 export default PostDetail 
