@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -74,6 +74,15 @@ class AdminContainer extends Component {
                                     </Card.Content>
                                 </Card> 
                             </Grid.Column>                                                           
+                    </Grid.Row>
+                    <Grid.Row columns={3} style={{padding: 0}}>
+                    <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/post/create', query: {createPost: this.props.createPost}}}>
+                                    <Card.Content>
+                                        <Card.Header>Create Post</Card.Header>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
                     </Grid.Row>
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
@@ -146,6 +155,7 @@ const mapDispatchToProps = (dispatch) => {
         editProject: (project, next) => {dispatch(editProject(project, next))},
         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
         getPosts: () => {dispatch(getPosts())},
+        createPost: (post, next) => {dispatch(createPost(post, next))},
         editPost: (post, next) => {dispatch(editPost(post, next))},
         editResume: (resume, next) => {dispatch(editResume(resume, next))},
         getCategories: () => {dispatch(getCategories())},
