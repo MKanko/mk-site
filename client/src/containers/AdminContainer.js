@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Button, Grid, Container, Segment, Card } from 'semantic-ui-react'
+import { Button, Grid, Container, Card } from 'semantic-ui-react'
 
+import ResourceIndex from '../components/common/ResourceIndex'
+import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
+import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
+import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
+import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
 import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
+
 
 class AdminContainer extends Component {
 
@@ -41,57 +47,79 @@ class AdminContainer extends Component {
         }
 
         return (
-            <Grid divided='vertically' textAlign='center' style={{padding: '20px'}}>
-                <Container textAlign='center'>
-                    <Button size='mini' onClick={this.handleClick}><p>Log Out</p></Button>
-                </Container>
-                <Grid.Row columns={3} style={{padding: 0}}> 
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit Home</Card.Header>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit About</Card.Header>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit Portfolio</Card.Header>
-                                </Card.Content>
-                            </Card> 
-                        </Grid.Column>                                                           
-                </Grid.Row>
-                <Grid.Row columns={3} style={{padding: 0}}> 
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit Blog</Card.Header>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit Resume</Card.Header>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
-                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}>
-                                <Card.Content>
-                                    <Card.Header>Edit Contact</Card.Header>
-                                </Card.Content>
-                            </Card> 
-                        </Grid.Column>                                                           
-                </Grid.Row>
-            </Grid>
+            <div>
+                <Grid divided='vertically' textAlign='center' style={{padding: '20px'}}>
+                    <Container textAlign='center'>
+                        <Button size='mini' onClick={this.handleClick}><p>Log Out</p></Button>
+                    </Container>
+                    <Grid.Row columns={3} style={{padding: 0}}> 
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit Home</Card.Header>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit About</Card.Header>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit Portfolio</Card.Header>
+                                    </Card.Content>
+                                </Card> 
+                            </Grid.Column>                                                           
+                    </Grid.Row>
+                    <Grid.Row columns={3} style={{padding: 0}}> 
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit Blog</Card.Header>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit Resume</Card.Header>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                                <Card as={Link} to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}>
+                                    <Card.Content>
+                                        <Card.Header>Edit Contact</Card.Header>
+                                    </Card.Content>
+                                </Card> 
+                            </Grid.Column>                                                           
+                    </Grid.Row>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
+                    <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
+                        <ProjectMenuDetail editProject={this.props.editProject} />
+                    </ResourceIndex>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
+                    <ResourceIndex resourceList={this.props.posts} resourceName='post' rowSize={3}>
+                        <PostMenuDetail editPost={this.props.editPost} />
+                    </ResourceIndex>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
+                    <ResourceIndex resourceList={this.props.categories} resourceName='category' rowSize={3}>
+                        <CategoryMenuDetail editCategory={this.props.editCategory} />
+                    </ResourceIndex>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
+                    <ResourceIndex resourceList={this.props.skills} resourceName='skill' rowSize={3}>
+                        <SkillMenuDetail editSkill={this.props.editSkill} />
+                    </ResourceIndex>
+                </Grid>
+            </div>
         )
     }
 }

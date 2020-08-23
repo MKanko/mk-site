@@ -25,7 +25,7 @@ const ResourceIndex = (props) => {
 
     const genRow = dataList => {
         let columns = dataList.map(data => genResource(data))
-        return <Grid.Row>{columns}</Grid.Row>
+        return <Grid.Row columns={3} style={{padding: 0}}>{columns}</Grid.Row>
     }
 
     const genResource = (data) => {

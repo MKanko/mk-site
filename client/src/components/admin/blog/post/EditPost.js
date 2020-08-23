@@ -4,7 +4,6 @@ import { Form, Grid, Header } from 'semantic-ui-react'
 class EditPost extends Component {
 
     constructor(props) {
-        // console.log('constprops:', props)
         super(props)
         this.state = {
             title: props.location.query.post.title,
@@ -34,7 +33,7 @@ class EditPost extends Component {
     }
 
     render() {
-        // console.log('rendState:', this.state)
+        console.log('rendState:', this.state)
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
