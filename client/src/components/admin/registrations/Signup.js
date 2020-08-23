@@ -9,6 +9,7 @@ class Signup extends Component {
             username: '',
             password: '',
             password_confirmation: '',
+            admin_secret: '',
             errors: ''
         }
     }
@@ -21,13 +22,13 @@ class Signup extends Component {
     }
 
     handleSubmit = (event) => {
-        // console.log(this.props)
         event.preventDefault()
-        const { username, password, password_confirmation } = this.state
+        const { username, password, password_confirmation, admin_secret } = this.state
         let user = {
             username: username,
             password: password,
-            password_confirmation: password_confirmation
+            password_confirmation: password_confirmation,
+            admin_secret: admin_secret
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
@@ -36,7 +37,7 @@ class Signup extends Component {
     }
 
     render() {
-        const { username, password, password_confirmation } = this.state 
+        const { username, password, password_confirmation, admin_secret } = this.state 
 
         return (
             <div>
@@ -74,6 +75,16 @@ class Signup extends Component {
                                     placeholder='Password Confirmation'
                                     name='password_confirmation'
                                     value={password_confirmation}
+                                    onChange={this.handleChange}
+                                />
+                                <Form.Input
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    type='admin secret'
+                                    placeholder='Admin Secret'
+                                    name='admin_secret'
+                                    value={admin_secret}
                                     onChange={this.handleChange}
                                 />
                                 <Button color='grey' fluid size='large'>
