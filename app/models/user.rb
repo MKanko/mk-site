@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validate :confirm_admin_secret
 
     def confirm_admin_secret
-        if self.confirm_admin != ENV['ADMIN_SECRET']
+        if self.admin_secret != ENV['ADMIN_SECRET']
             errors.add(:admin, "Admin secret is incorrect.")
         end          
     end
