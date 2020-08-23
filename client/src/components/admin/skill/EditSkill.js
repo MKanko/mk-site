@@ -20,6 +20,7 @@ class EditSkill extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log('editSkill submit:', this.props)
         event.preventDefault()
         let skill = {
             name: this.state.name,

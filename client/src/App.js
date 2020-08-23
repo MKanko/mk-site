@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import AdminHome from './containers/AdminHomeContainer'
+import AdminContainer from './containers/AdminContainer'
 import Login from './components/admin/registrations/Login'
 import Signup from './components/admin/registrations/Signup'
 import NavBar from './components/navigation/NavBar'
@@ -72,7 +72,7 @@ class App extends Component {
                             this.renderWithEffect(props, CategoryShow, 'horizontal flip', 2500)
                         )} />
                                          
-                        <Route exact path='/admin/home' component={AdminHome} />                                                      
+                        <Route exact path='/admin/home' component={AdminContainer} />                                                      
                         <Route exact path='/signup' component={Signup} />
                         <Route exact path='/login' component={Login} />
 

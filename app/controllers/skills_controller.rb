@@ -24,7 +24,7 @@ class SkillsController < ApplicationController
         render json: SkillSerializer.new(skill)
     end 
 
-    def update 
+    def update
         skill = Skill.find_by(id: params[:id])
         skill.update(skill_params)
         skill.save 

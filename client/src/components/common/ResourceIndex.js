@@ -11,7 +11,7 @@ const ResourceIndex = (props) => {
         for (let i = 0; i < resources.length + props.rowSize; i++ ) {
             if (dataList) {
                 if (i % props.rowSize === 0) {
-                    let row = generateRow(dataList)
+                    let row = genRow(dataList)
                     rows.push(row)
                     dataList = []
                 }
@@ -23,12 +23,12 @@ const ResourceIndex = (props) => {
         return rows   
     }
 
-    const generateRow = dataList => {
-        let columns = dataList.map(data => generateResource(data))
-        return <Grid.Row>{columns}</Grid.Row>
+    const genRow = dataList => {
+        let columns = dataList.map(data => genResource(data))
+        return <Grid.Row columns={3} style={{padding: 0}}>{columns}</Grid.Row>
     }
 
-    const generateResource = (data) => {
+    const genResource = (data) => {
         let column = null
         if (data){
             column = React.cloneElement(props.children, {[props.resourceName]: data})

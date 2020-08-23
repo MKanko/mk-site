@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Transition, Container } from 'semantic-ui-react'
 
 class PageEffect extends Component {
-
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -25,8 +25,6 @@ class PageEffect extends Component {
             </Transition>
         )
     }
-
-
 }
 
 PageEffect.defaultProps = {
