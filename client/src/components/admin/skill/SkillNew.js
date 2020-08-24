@@ -24,7 +24,7 @@ class SkillNew extends Component {
         console.log('Create Post Submit:', this.props)
         event.preventDefault()
         const { name, image, image_web, description } = this.state 
-        let post = {
+        let skill = {
             name: name,
             image: image,
             image_web: image_web,

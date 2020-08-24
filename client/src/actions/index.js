@@ -184,6 +184,15 @@ export const getSkills = () => async (dispatch) => {
     dispatch({type: 'GET_SKILLS', payload: response.data.data})
 }
 
+export const createSkill = (skill, next) => async (dispatch) => {
+    const response = await axios.post('http://localhost:3001/skills', {skill})
+    if (response.data.errors) {
+    } else {
+        dispatch({type: 'CREATE_SKILL', payload: response.data.data})
+        next.redirect()
+    }   
+}
+
 export const editSkill = (skill, next) => async (dispatch) => {
     const response = await axios.patch(`http://localhost:3001/skills/${skill.id}`, {skill})
     dispatch({type: 'EDIT_SKILL', payload: response.data.data})

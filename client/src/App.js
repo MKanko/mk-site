@@ -26,6 +26,7 @@ import EditContact from './components/admin/contact/EditContact'
 import PageEffect from './components/transition/PageEffect'
 import EmailNew from './components/email/EmailNew'
 import SkillIndex from './components/skill/SkillIndex'
+import SkillNew from './components/admin/skill/SkillNew'
 import EditSkill from './components/admin/skill/EditSkill'
 import CategoryNew from './components/admin/resume/category/CategoryNew'
 import EditCategory from './components/admin/resume/category/EditCategory'
@@ -65,6 +66,7 @@ class App extends Component {
                         <Route exact path='/contact/edit' component={EditContact} />
                         <Route exact path='/emails' component={EmailNew} />
                         <Route exact path='/skills' component={SkillIndex} />
+                        <Route exact path='/skills/create' component={SkillNew} />
                         <Route exact path='/skill/edit' component={EditSkill} />
 
                         <Route exact path='/' render={(props) => (
