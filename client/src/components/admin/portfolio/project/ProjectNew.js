@@ -8,7 +8,7 @@ class ProjectNew extends Component {
         this.state = {
             name: '',
             description: '',
-            technical_details: '',
+            technical_details: [],
             image: '',
             project_link: ''
         }
@@ -65,6 +65,7 @@ class ProjectNew extends Component {
     }
 
     render() {
+        console.log(this.state)
         const { name, image, project_link, description} = this.state
         return (
             <div>

@@ -13,6 +13,7 @@ import ResumeContainer from './containers/ResumeContainer'
 import EditHome from './components/admin/home/EditHome'
 import EditAbout from './components/admin/about/EditAbout'
 import EditPortfolio from './components/admin/portfolio/EditPortfolio'
+import ProjectNew from './components/admin/portfolio/project/ProjectNew'
 import EditProject from './components/admin/portfolio/project/EditProject'
 import ProjectShow from './components/project/ProjectShow'
 import PostShow from './components/post/PostShow'
@@ -52,6 +53,7 @@ class App extends Component {
                         <Route exact path='/home/edit' component={EditHome} />
                         <Route exact path='/about/edit' component={EditAbout} />
                         <Route exact path='/portfolio/edit' component={EditPortfolio} />
+                        <Route exact path='/projects/create' component={ProjectNew} />
                         <Route exact path='/project/edit' component={EditProject} />
                         <Route exact path='/blog/edit' component={EditBlog} />
                         <Route exact path='/posts/create' component={PostNew} />

@@ -7,7 +7,7 @@ const CategoryDetail = (props) => {
     return (
         <Grid.Column width={5}>
             <Card centered as={Link} to={{pathname: '/categories/' + props.category.id}} style={{backgroundColor: 'grey'}}>
-                <Image src={process.env.PUBLIC_URL + props.category.image} />
+                <Image fluid src={process.env.PUBLIC_URL + props.category.image} size='medium' style={{objectFit: 'cover', height: '15em'}} />
                 <Card.Content>
                     <Card.Header>{props.category.title}</Card.Header>
                     <Card.Description>{props.category.text_content}</Card.Description>

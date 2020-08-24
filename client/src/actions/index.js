@@ -64,6 +64,15 @@ export const getProjects = () => async (dispatch) => {
     dispatch({type: 'GET_PROJECTS', payload: response.data.data})
 }
 
+export const createProject = (project, next) => async (dispatch) => {
+    const response = await axios.post('http://localhost:3001/projects', {project})
+    if (response.data.errors) {
+    } else {
+        dispatch({type: 'CREATE_PROJECT', payload: response.data.data})
+        next.redirect()
+    }   
+}
+
 export const editProject = (project, next) => async (dispatch) => {
     const projectId = project.id 
     delete project.id 

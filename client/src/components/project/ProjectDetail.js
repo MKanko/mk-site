@@ -8,7 +8,7 @@ const ProjectDetail = (props) => {
      
         <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/projects/' + props.project.id}} style={{backgroundColor: 'grey' }}>
-                <Image src={process.env.PUBLIC_URL + props.project.image} />
+                <Image fluid src={process.env.PUBLIC_URL + props.project.image} size='medium' style={{objectFit: 'cover', height: '8em'}} />
                 <Card.Content>
                     <Card.Header>{props.project.name}</Card.Header>
                 </Card.Content>
