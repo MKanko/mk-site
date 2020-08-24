@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     end 
 
     def create 
-        project = Project.create(project_params)
+        project = Portfolio.first.projects.create(project_params)
         render json: ProjectSerializer.new(project)
     end 
 
