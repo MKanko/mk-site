@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -90,9 +90,16 @@ class AdminContainer extends Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/categories/create', query: {createCategory: this.props.createCategory}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Category</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
                     </Grid.Row>
 
-                    
+
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                                 <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
@@ -169,6 +176,7 @@ const mapDispatchToProps = (dispatch) => {
         editPost: (post, next) => {dispatch(editPost(post, next))},
         editResume: (resume, next) => {dispatch(editResume(resume, next))},
         getCategories: () => {dispatch(getCategories())},
+        createCategory: (category, next) => {dispatch(createCategory(category, next))},
         editCategory: (category, next) => {dispatch(editCategory(category, next))},
         editContact: (contact, next) => {dispatch(editContact(contact, next))},
         getSkills: () => {dispatch(getSkills())},
