@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, editSkill } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -132,6 +132,17 @@ class AdminContainer extends Component {
                         </Grid.Column>                                                                                    
                     </Grid.Row>                   
                 </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
+                    <Grid.Row columns={1} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/skills/create', query: {createSkill: this.props.createSkill}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Skill</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
                 <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
                     <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
                         <ProjectMenuDetail editProject={this.props.editProject} />
@@ -188,6 +199,7 @@ const mapDispatchToProps = (dispatch) => {
         editCategory: (category, next) => {dispatch(editCategory(category, next))},
         editContact: (contact, next) => {dispatch(editContact(contact, next))},
         getSkills: () => {dispatch(getSkills())},
+        createSkill: (skill, next) => {dispatch(createSkill(skill, next))},
         editSkill: (skill, next) => {dispatch(editSkill(skill, next))}
     }
 }
