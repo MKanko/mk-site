@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -76,14 +76,23 @@ class AdminContainer extends Component {
                             </Grid.Column>                                                           
                     </Grid.Row>
                     <Grid.Row columns={3} style={{padding: 0}}>
-                    <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
-                                    <Card.Content>
-                                        <Card.Header>Create Post</Card.Header>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Post</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/projects/create', query: {createProject: this.props.createProject}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Project</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
                     </Grid.Row>
+
+                    
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                                 <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
@@ -151,7 +160,8 @@ const mapDispatchToProps = (dispatch) => {
         editHome: (home, next) => {dispatch(editHome(home, next))},
         editAbout: (about, next) => {dispatch(editAbout(about, next))},
         editPortfolio: (portfolio, next) => {dispatch(editPortfolio(portfolio, next))},
-        getProjects: () => {dispatch(getProjects())}, 
+        getProjects: () => {dispatch(getProjects())},
+        createProject: (project, next) => {dispatch(createProject(project, next))}, 
         editProject: (project, next) => {dispatch(editProject(project, next))},
         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
         getPosts: () => {dispatch(getPosts())},
