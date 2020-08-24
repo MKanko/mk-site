@@ -3,7 +3,6 @@ import { Grid, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const SkillMenuDetail = (props) => {
-console.log('smd props:', props)
     return (
         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
             <Card as={Link} to={{pathname: '/skill/edit', query: {skill: props.skill.attributes, editSkill: props.editSkill}}}>

@@ -13,19 +13,23 @@ import ResumeContainer from './containers/ResumeContainer'
 import EditHome from './components/admin/home/EditHome'
 import EditAbout from './components/admin/about/EditAbout'
 import EditPortfolio from './components/admin/portfolio/EditPortfolio'
+import ProjectNew from './components/admin/portfolio/project/ProjectNew'
 import EditProject from './components/admin/portfolio/project/EditProject'
 import ProjectShow from './components/project/ProjectShow'
 import PostShow from './components/post/PostShow'
 import EditBlog from './components/admin/blog/EditBlog'
+import PostNew from './components/admin/blog/post/PostNew'
 import EditPost from './components/admin/blog/post/EditPost'
 import EditResume from './components/admin/resume/EditResume'
-import EditCategory from './components/admin/resume/category/EditCategory'
 import Contact from './containers/ContactContainer'
 import EditContact from './components/admin/contact/EditContact'
 import PageEffect from './components/transition/PageEffect'
 import EmailNew from './components/email/EmailNew'
 import SkillIndex from './components/skill/SkillIndex'
+import SkillNew from './components/admin/skill/SkillNew'
 import EditSkill from './components/admin/skill/EditSkill'
+import CategoryNew from './components/admin/resume/category/CategoryNew'
+import EditCategory from './components/admin/resume/category/EditCategory'
 import CategoryShow from './components/category/CategoryShow'
 
 class App extends Component { 
@@ -44,6 +48,27 @@ class App extends Component {
                 <Router>
                     <NavBar />
                     <Switch>
+                        <Route exact path='/admin/home' component={AdminContainer} />                                                      
+                        <Route exact path='/signup' component={Signup} />
+                        <Route exact path='/login' component={Login} />
+
+                        <Route exact path='/home/edit' component={EditHome} />
+                        <Route exact path='/about/edit' component={EditAbout} />
+                        <Route exact path='/portfolio/edit' component={EditPortfolio} />
+                        <Route exact path='/projects/create' component={ProjectNew} />
+                        <Route exact path='/project/edit' component={EditProject} />
+                        <Route exact path='/blog/edit' component={EditBlog} />
+                        <Route exact path='/posts/create' component={PostNew} />
+                        <Route exact path='/post/edit' component={EditPost} />
+                        <Route exact path='/resume/edit' component={EditResume} />
+                        <Route exact path='/categories/create' component={CategoryNew} />
+                        <Route exact path='/category/edit' component={EditCategory}/>
+                        <Route exact path='/contact/edit' component={EditContact} />
+                        <Route exact path='/emails' component={EmailNew} />
+                        <Route exact path='/skills' component={SkillIndex} />
+                        <Route exact path='/skills/create' component={SkillNew} />
+                        <Route exact path='/skill/edit' component={EditSkill} />
+
                         <Route exact path='/' render={(props) => (
                             this.renderWithEffect(props, Home)
                         )} />
@@ -70,24 +95,7 @@ class App extends Component {
                         )} />
                         <Route path='/categories/:category' render={(props) => (
                             this.renderWithEffect(props, CategoryShow, 'horizontal flip', 2500)
-                        )} />
-                                         
-                        <Route exact path='/admin/home' component={AdminContainer} />                                                      
-                        <Route exact path='/signup' component={Signup} />
-                        <Route exact path='/login' component={Login} />
-
-                        <Route exact path='/home/edit' component={EditHome} />
-                        <Route exact path='/about/edit' component={EditAbout} />
-                        <Route exact path='/portfolio/edit' component={EditPortfolio} />
-                        <Route exact path='/project/edit' component={EditProject} />
-                        <Route exact path='/blog/edit' component={EditBlog} />
-                        <Route exact path='/post/edit' component={EditPost} />
-                        <Route exact path='/resume/edit' component={EditResume} />
-                        <Route exact path='/category/edit' component={EditCategory}/>
-                        <Route exact path='/contact/edit' component={EditContact} />
-                        <Route exact path='/emails' component={EmailNew} />
-                        <Route exact path='/skills' component={SkillIndex} />
-                        <Route exact path='/skill/edit' component={EditSkill} />                            
+                        )} />                           
                     </Switch>
                 </Router>
             </div>

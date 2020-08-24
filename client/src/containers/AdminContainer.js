@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, editProject, editBlog, getPosts, editPost, editResume, getCategories, editCategory, editContact, getSkills, editSkill } from '../actions'
+import { signup, login, logout, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -48,10 +48,12 @@ class AdminContainer extends Component {
 
         return (
             <div>
-                <Grid divided='vertically' textAlign='center' style={{padding: '20px'}}>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Container textAlign='center'>
                         <Button size='mini' onClick={this.handleClick}><p>Log Out</p></Button>
                     </Container>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                                 <Card as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}>
@@ -68,35 +70,77 @@ class AdminContainer extends Component {
                                 </Card>
                             </Grid.Column>
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Portfolio</Card.Header>
-                                    </Card.Content>
-                                </Card> 
-                            </Grid.Column>                                                           
-                    </Grid.Row>
-                    <Grid.Row columns={3} style={{padding: 0}}> 
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Blog</Card.Header>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Resume</Card.Header>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                                 <Card as={Link} to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}>
                                     <Card.Content>
                                         <Card.Header>Edit Contact</Card.Header>
                                     </Card.Content>
                                 </Card> 
-                            </Grid.Column>                                                           
+                            </Grid.Column>                                                                                       
+                    </Grid.Row>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
+                    <Grid.Row columns={2} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
+                                <Card.Content>
+                                    <Card.Header>Edit Portfolio</Card.Header>
+                                </Card.Content>
+                            </Card> 
+                        </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/projects/create', query: {createProject: this.props.createProject}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Project</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                    </Grid.Row> 
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                                
+                    <Grid.Row columns={2} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
+                                <Card.Content>
+                                    <Card.Header>Edit Blog</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Post</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                    </Grid.Row> 
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                 
+                    <Grid.Row columns={2} style={{padding: 0}}>                         
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
+                                <Card.Content>
+                                    <Card.Header>Edit Resume</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/categories/create', query: {createCategory: this.props.createCategory}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Category</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>                                                                                    
+                    </Grid.Row>                   
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
+                    <Grid.Row columns={1} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/skills/create', query: {createSkill: this.props.createSkill}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Skill</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
                     </Grid.Row>
                 </Grid>
                 <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
@@ -118,7 +162,7 @@ class AdminContainer extends Component {
                     <ResourceIndex resourceList={this.props.skills} resourceName='skill' rowSize={3}>
                         <SkillMenuDetail editSkill={this.props.editSkill} />
                     </ResourceIndex>
-                </Grid>
+                </Grid>              
             </div>
         )
     }
@@ -142,16 +186,20 @@ const mapDispatchToProps = (dispatch) => {
         editHome: (home, next) => {dispatch(editHome(home, next))},
         editAbout: (about, next) => {dispatch(editAbout(about, next))},
         editPortfolio: (portfolio, next) => {dispatch(editPortfolio(portfolio, next))},
-        getProjects: () => {dispatch(getProjects())}, 
+        getProjects: () => {dispatch(getProjects())},
+        createProject: (project, next) => {dispatch(createProject(project, next))}, 
         editProject: (project, next) => {dispatch(editProject(project, next))},
         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
         getPosts: () => {dispatch(getPosts())},
+        createPost: (post, next) => {dispatch(createPost(post, next))},
         editPost: (post, next) => {dispatch(editPost(post, next))},
         editResume: (resume, next) => {dispatch(editResume(resume, next))},
         getCategories: () => {dispatch(getCategories())},
+        createCategory: (category, next) => {dispatch(createCategory(category, next))},
         editCategory: (category, next) => {dispatch(editCategory(category, next))},
         editContact: (contact, next) => {dispatch(editContact(contact, next))},
         getSkills: () => {dispatch(getSkills())},
+        createSkill: (skill, next) => {dispatch(createSkill(skill, next))},
         editSkill: (skill, next) => {dispatch(editSkill(skill, next))}
     }
 }

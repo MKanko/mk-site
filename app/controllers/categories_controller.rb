@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
     end 
 
     def create 
-        category = Category.create(category_params)
+        category = Resume.first.categories.create(category_params)
         render json: CategorySerializer.new(category)
     end 
 
