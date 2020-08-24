@@ -22,9 +22,9 @@ class ResumeContainer extends Component {
         const aws = 'https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2020-02-17&ci=AWS01231487'
 
         return (
-            <Grid container textAlign='center' style={{ height: '100vh', padding: '50px' }} verticalAlign='middle'>
+            <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
                 <Grid.Row columns={1}>
-                    <Grid.Column >
+                    <Grid.Column style={{ maxWidth: 1000 }}>
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
@@ -41,7 +41,6 @@ class ResumeContainer extends Component {
             </Grid>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {

@@ -21,13 +21,14 @@ import EditBlog from './components/admin/blog/EditBlog'
 import PostNew from './components/admin/blog/post/PostNew'
 import EditPost from './components/admin/blog/post/EditPost'
 import EditResume from './components/admin/resume/EditResume'
-import EditCategory from './components/admin/resume/category/EditCategory'
 import Contact from './containers/ContactContainer'
 import EditContact from './components/admin/contact/EditContact'
 import PageEffect from './components/transition/PageEffect'
 import EmailNew from './components/email/EmailNew'
 import SkillIndex from './components/skill/SkillIndex'
 import EditSkill from './components/admin/skill/EditSkill'
+import CategoryNew from './components/admin/resume/category/CategoryNew'
+import EditCategory from './components/admin/resume/category/EditCategory'
 import CategoryShow from './components/category/CategoryShow'
 
 class App extends Component { 
@@ -59,6 +60,7 @@ class App extends Component {
                         <Route exact path='/posts/create' component={PostNew} />
                         <Route exact path='/post/edit' component={EditPost} />
                         <Route exact path='/resume/edit' component={EditResume} />
+                        <Route exact path='/categories/create' component={CategoryNew} />
                         <Route exact path='/category/edit' component={EditCategory}/>
                         <Route exact path='/contact/edit' component={EditContact} />
                         <Route exact path='/emails' component={EmailNew} />

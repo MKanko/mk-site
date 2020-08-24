@@ -138,6 +138,15 @@ export const getCategories = () => async (dispatch) => {
     dispatch({type: 'GET_CATEGORIES', payload: response.data.data})
 }
 
+export const createCategory = (category, next) => async (dispatch) => {
+    const response = await axios.post('http://localhost:3001/categories', {category})
+    if (response.data.errors) {
+    } else {
+        dispatch({type: 'CREATE_CATEGORY', payload: response.data.data})
+        next.redirect()
+    }   
+}
+
 export const editCategory = (category, next) => async (dispatch) => {
     const response = await axios.patch(`http://localhost:3001/categories/${category.id}`, {category})
     dispatch({type: 'EDIT_CATEGORY', payload: response.data.data})

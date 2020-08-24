@@ -48,10 +48,12 @@ class AdminContainer extends Component {
 
         return (
             <div>
-                <Grid divided='vertically' textAlign='center' style={{padding: '20px'}}>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Container textAlign='center'>
                         <Button size='mini' onClick={this.handleClick}><p>Log Out</p></Button>
                     </Container>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                                 <Card as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome}}}>
@@ -68,14 +70,41 @@ class AdminContainer extends Component {
                                 </Card>
                             </Grid.Column>
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
+                                <Card as={Link} to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}>
                                     <Card.Content>
-                                        <Card.Header>Edit Portfolio</Card.Header>
+                                        <Card.Header>Edit Contact</Card.Header>
                                     </Card.Content>
                                 </Card> 
-                            </Grid.Column>                                                           
+                            </Grid.Column>                                                                                       
                     </Grid.Row>
-                    <Grid.Row columns={3} style={{padding: 0}}>
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
+                    <Grid.Row columns={2} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}}>
+                                <Card.Content>
+                                    <Card.Header>Edit Portfolio</Card.Header>
+                                </Card.Content>
+                            </Card> 
+                        </Grid.Column>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/projects/create', query: {createProject: this.props.createProject}}}>
+                                <Card.Content>
+                                    <Card.Header>Create Project</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                    </Grid.Row> 
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                                
+                    <Grid.Row columns={2} style={{padding: 0}}>
+                        <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
+                            <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
+                                <Card.Content>
+                                    <Card.Header>Edit Blog</Card.Header>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
                             <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
                                 <Card.Content>
@@ -83,10 +112,14 @@ class AdminContainer extends Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
+                    </Grid.Row> 
+                </Grid>
+                <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                 
+                    <Grid.Row columns={2} style={{padding: 0}}>                         
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/projects/create', query: {createProject: this.props.createProject}}}>
+                            <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
                                 <Card.Content>
-                                    <Card.Header>Create Project</Card.Header>
+                                    <Card.Header>Edit Resume</Card.Header>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
@@ -96,33 +129,8 @@ class AdminContainer extends Component {
                                     <Card.Header>Create Category</Card.Header>
                                 </Card.Content>
                             </Card>
-                        </Grid.Column>
-                    </Grid.Row>
-
-
-                    <Grid.Row columns={3} style={{padding: 0}}> 
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Blog</Card.Header>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Resume</Card.Header>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                            <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/contact/edit', query: {editContact: this.props.editContact}}}>
-                                    <Card.Content>
-                                        <Card.Header>Edit Contact</Card.Header>
-                                    </Card.Content>
-                                </Card> 
-                            </Grid.Column>                                                           
-                    </Grid.Row>
+                        </Grid.Column>                                                                                    
+                    </Grid.Row>                   
                 </Grid>
                 <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
                     <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
@@ -143,7 +151,7 @@ class AdminContainer extends Component {
                     <ResourceIndex resourceList={this.props.skills} resourceName='skill' rowSize={3}>
                         <SkillMenuDetail editSkill={this.props.editSkill} />
                     </ResourceIndex>
-                </Grid>
+                </Grid>              
             </div>
         )
     }

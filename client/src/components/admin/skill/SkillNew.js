@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { Form, Grid, Header } from 'semantic-ui-react'
 
-class CategoryNew extends Component {
+class SkillNew extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            title: '',
-            text_content: '',
-            image: ''
+            name: '',
+            image: '',
+            image_web: '',
+            description: ''
         }
     }
 
@@ -20,37 +21,39 @@ class CategoryNew extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log('Create Post Submit:', this.props)
         event.preventDefault()
-        const { title, text_content, image } = this.state 
+        const { name, image, image_web, description } = this.state 
         let post = {
-            title: title,
-            text_content: text_content,
+            name: name,
             image: image,
+            image_web: image_web,
+            description: description
             // id: this.props.location.query.post.id 
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
         }
-        this.props.location.query.createCategory(post, next)
+        this.props.location.query.createSkill(skill, next)
     }
 
     render() {
-        const { title, text_content, image } = this.state
+        const { name, image, image_web, description } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h2' color='green' textAlign='center'>
-                            Create Post
+                            Create Skill
                         </Header>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group widths='equal'>
                                 <Form.Input
                                     fluid
-                                    label='Title'
-                                    placeholder='Title'
-                                    name='title'
-                                    value={title}
+                                    label='Name'
+                                    placeholder='Name'
+                                    name='name'
+                                    value={name}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input
@@ -61,12 +64,20 @@ class CategoryNew extends Component {
                                     value={image}
                                     onChange={this.handleOnChange} 
                                 />
+                                <Form.Input
+                                    fluid
+                                    label='Image Web'
+                                    placeholder='Image Web'
+                                    name='image_web'
+                                    value={image_web}
+                                    onChange={this.handleOnChange} 
+                                />
                             </Form.Group>                         
                             <Form.TextArea 
-                                label='Content'
-                                placeholder='Post content...'
-                                name='text_content'
-                                value={text_content}
+                                label='Description'
+                                placeholder='Description content...'
+                                name='description'
+                                value={description}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Post</Form.Button>
@@ -79,4 +90,4 @@ class CategoryNew extends Component {
 
 }
 
-export default CategoryNew 
+export default SkillNew
