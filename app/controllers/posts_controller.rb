@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     end 
 
     def create 
-        post = Post.create(post_params)
+        post = Blog.first.posts.create(post_params)
         render json: PostSerializer.new(post)
     end 
 

@@ -7,9 +7,9 @@ const PostDetail = (props) => {
     return (
         <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/posts/' + props.post.id}} style={{backgroundColor: 'grey'}}>
-            <Image src={process.env.PUBLIC_URL + props.post.image} />
+            <Image fluid src={process.env.PUBLIC_URL + props.post.image} size='small' style={{objectFit: 'cover', height: '8em'}} />
                 <Card.Content>
-                    <Card.Header>{props.post.title}</Card.Header>
+                    <Card.Description>{props.post.title}</Card.Description>
                 </Card.Content>
             </Card>
         </Grid.Column>

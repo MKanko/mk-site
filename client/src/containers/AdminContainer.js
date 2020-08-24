@@ -77,7 +77,7 @@ class AdminContainer extends Component {
                     </Grid.Row>
                     <Grid.Row columns={3} style={{padding: 0}}>
                     <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/post/create', query: {createPost: this.props.createPost}}}>
+                                <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
                                     <Card.Content>
                                         <Card.Header>Create Post</Card.Header>
                                     </Card.Content>
