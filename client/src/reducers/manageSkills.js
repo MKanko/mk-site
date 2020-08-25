@@ -1,5 +1,4 @@
 export default function manageSkills(state = {skills: []}, action) {
-    // console.log('action: ', action)
     switch (action.type) {
         case 'GET_SKILLS':      
             return { ...state, skills: action.payload}

@@ -1,5 +1,4 @@
 export default function manageCategories(state = {categories: [], category: {}}, action) {
-    // console.log('action: ', action)
     switch (action.type) {
         case 'GET_CATEGORIES':      
             return { ...state, categories: action.payload}

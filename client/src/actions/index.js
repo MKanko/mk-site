@@ -169,8 +169,8 @@ export const editContact = (contact, next) => async (dispatch) => {
     next.redirect()
 }
 
-export const createEmail = (email, next) => async (dispatch) => {
-    const response = await axios.post('http://localhost:3001/emails', {email})
+export const createEmail = (mail, next) => async (dispatch) => {
+    const response = await axios.post('http://localhost:3001/emails', {mail})
     if (response.data.errors) {
         console.log(response.data.errors)
     } else {

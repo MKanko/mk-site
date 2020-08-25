@@ -1,5 +1,4 @@
 export default function managePosts(state = {posts: [], post: {}}, action) {
-    // console.log('action: ', action)
     switch (action.type) {
         case 'GET_POSTS':      
             return { ...state, posts: action.payload}

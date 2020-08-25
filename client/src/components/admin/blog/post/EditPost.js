@@ -13,17 +13,19 @@ class EditPost extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target
         this.setState({
-            [event.target.name]: event.target.value 
+            [name]: value 
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const { title, text_content, image } = this.state
         let post = {
-            title: this.state.title,
-            text_content: this.state.text_content,
-            image: this.state.image,
+            title: title,
+            text_content: text_content,
+            image: image,
             id: this.props.location.query.post.id 
         }
         let next = {
@@ -33,6 +35,7 @@ class EditPost extends Component {
     }
 
     render() {
+        const { title, text_content, image } = this.state 
         console.log('rendState:', this.state)
         return (
             <div>
@@ -48,7 +51,7 @@ class EditPost extends Component {
                                     label='Title'
                                     placeholder='Title'
                                     name='title'
-                                    value={this.state.title}
+                                    value={title}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input
@@ -56,7 +59,7 @@ class EditPost extends Component {
                                     label='Image'
                                     placeholder='Image'
                                     name='image'
-                                    value={this.state.image}
+                                    value={image}
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
@@ -64,7 +67,7 @@ class EditPost extends Component {
                                 label='Content'
                                 placeholder='Post page content...'
                                 name='text_content'
-                                value={this.state.text_content}
+                                value={text_content}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>

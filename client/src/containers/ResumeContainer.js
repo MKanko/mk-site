@@ -28,7 +28,6 @@ class ResumeContainer extends Component {
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        {/* <Segment inverted secondary></Segment> */}
                         <h4 style={{color: 'white'}}>{this.props.text_content}</h4>                       
                         <Button style={{textAlign: 'center'}} size='mini'color='grey' href={resume} target='_blank' rel='noopener noreferrer'>Download Resume</Button>
                         <Button style={{textAlign: 'center'}} size='mini'color='grey' href={cert} target='_blank' rel='noopener noreferrer'>Flatiron Certification</Button>

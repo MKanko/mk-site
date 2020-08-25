@@ -14,18 +14,20 @@ class EditSkill extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target 
         this.setState({
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const { name, image, image_web, description } = this.state 
         let skill = {
-            name: this.state.name,
-            image: this.state.image,
-            image_web: this.state.image_web,
-            description: this.state.description,
+            name: name,
+            image: image,
+            image_web: image_web,
+            description: description,
             id: this.props.location.query.skill.id       
         }
         let next = {
@@ -35,6 +37,7 @@ class EditSkill extends Component {
     }
 
     render() {
+        const { name, image, image_web, description } = this.state 
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -49,7 +52,7 @@ class EditSkill extends Component {
                                     label='Name'
                                     placeholder='Name'
                                     name='name'
-                                    value={this.state.name}
+                                    value={name}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input
@@ -57,7 +60,7 @@ class EditSkill extends Component {
                                     label='Image'
                                     placeholder='Image'
                                     name='image'
-                                    value={this.state.image}
+                                    value={image}
                                     onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
@@ -65,7 +68,7 @@ class EditSkill extends Component {
                                     label='Image Web'
                                     placeholder='Image Web'
                                     name='image_web'
-                                    value={this.state.image_web}
+                                    value={image_web}
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
@@ -73,7 +76,7 @@ class EditSkill extends Component {
                                 label='Description'
                                 placeholder='Description'
                                 name='description'
-                                value={this.state.description}
+                                value={description}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>

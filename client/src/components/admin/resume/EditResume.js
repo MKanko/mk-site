@@ -12,17 +12,18 @@ class EditResume extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target 
         this.setState({
-            [event.target.name]: event.target.value 
+            [name]: value 
         })
     }
 
     handleSubmit = (event) => {
-        console.log('submit props:', this.props)
         event.preventDefault()
+        const { title, text_content } = this.state 
         let resume = {
-            title: this.state.title, 
-            text_content: this.state.text_content
+            title: title, 
+            text_content: text_content
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
@@ -31,6 +32,7 @@ class EditResume extends Component {
     }
 
     render() {
+        const { title, text_content } = this.state 
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -45,7 +47,7 @@ class EditResume extends Component {
                                     label='Title'
                                     placeholder='Title'
                                     name='title'
-                                    value={this.state.title}
+                                    value={title}
                                     onChange={this.handleOnChange}
                                 />
                             </Form.Group>                         
@@ -53,7 +55,7 @@ class EditResume extends Component {
                                 label='Content'
                                 placeholder='Resume page content...'
                                 name='text_content'
-                                value={this.state.text_content}
+                                value={text_content}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button>Submit Update</Form.Button>

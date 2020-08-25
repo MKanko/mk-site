@@ -6,7 +6,6 @@ class Carousel extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             displayPhrase: 'Passion',
             index: 0,
