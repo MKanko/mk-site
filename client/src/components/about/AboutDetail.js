@@ -15,16 +15,11 @@ const AboutDetail = (props) => {
                     <Card centered style={{backgroundColor: 'grey' }}>
                         <Image src={process.env.PUBLIC_URL + props.about.image} />
                     </Card>
-                                      
-                    {/* <Segment inverted secondary></Segment> */}
                     <h4 style={{color: 'white', height: '34vh'}}>
                         {props.about.text_content}                 
                     </h4>                   
                 </Grid.Column>
             </Grid.Row>
-            {/* <Grid.Row as={Header} style={{color: '#DBCE07', margin: 0, padding: 0, height: '30px'}}> 
-                Skills                   
-            </Grid.Row> */}
             <Grid.Row textAlign={'center'}>                   
                     <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '8vw'}}> 
                         <Grid.Row style={{height: '3vw'}}>
@@ -35,7 +30,6 @@ const AboutDetail = (props) => {
                         </Grid.Row>            
                     </Grid>                                                           
             </Grid.Row>
-             {/* <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} /> */}
         </Grid> 
     )
 

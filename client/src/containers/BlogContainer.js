@@ -23,15 +23,9 @@ class BlogContainer extends Component {
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        {/* <Segment inverted secondary></Segment> */}
-                        <h4 style={{color: 'white'}}>{this.props.text_content}</h4>
-                            
-                        
+                        <h4 style={{color: 'white'}}>{this.props.text_content}</h4>                
                     </Grid.Column>
                 </Grid.Row>                      
-                {/* <Grid.Row columns={3}>
-                    <PostIndex posts={this.props.posts} />
-                </Grid.Row> */}
                 <ResourceIndex resourceList={this.props.posts} resourceName='post' rowSize={3}>
                     <PostDetail />
                 </ResourceIndex>

@@ -15,8 +15,9 @@ class EditProject extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target 
         this.setState({
-            [event.target.name]: event.target.value 
+            [name]: value 
         })
     }
 
@@ -48,12 +49,13 @@ class EditProject extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const { name, description, technical_details, image, project_link } = this.state 
         let project = {
-            name: this.state.name,
-            description: this.state.description,
-            technical_details: this.state.technical_details,
-            image: this.state.image,
-            project_link: this.state.project_link,
+            name: name,
+            description: description,
+            technical_details: technical_details,
+            image: image,
+            project_link: project_link,
             id: this.props.location.query.project.id 
         }
         let next = {
@@ -63,6 +65,7 @@ class EditProject extends Component {
     }
 
     render() {
+        const { name, image, project_link, description } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -76,7 +79,7 @@ class EditProject extends Component {
                                     label='Name'
                                     placeholder='Name'
                                     name='name'
-                                    value={this.state.name}
+                                    value={name}
                                     onChange={this.handleOnChange}
                                 />
                                 {this.state.technical_details.map((techDetail, index) => (
@@ -101,7 +104,7 @@ class EditProject extends Component {
                                     label='Image'
                                     placeholder='Image'
                                     name='image'
-                                    value={this.state.image}
+                                    value={image}
                                     onChange={this.handleOnChange} 
                                 /> 
                                 <Form.Input
@@ -109,14 +112,14 @@ class EditProject extends Component {
                                     label='Project Link'
                                     placeholder='Project Link'
                                     name='project_link'
-                                    value={this.state.project_link}
+                                    value={project_link}
                                     onChange={this.handleOnChange} 
                                 />                             
                             <Form.TextArea 
                                 label='Description'
                                 placeholder='Project page content...'
                                 name='description'
-                                value={this.state.description}
+                                value={description}
                                 onChange={this.handleOnChange}
                             />
                             <Form.Button size='mini'>Submit Update</Form.Button>

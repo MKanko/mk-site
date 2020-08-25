@@ -19,7 +19,6 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log('container:', state)
     return {home: state.manageHome.home}
 }
 

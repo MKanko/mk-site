@@ -1,5 +1,4 @@
 export default function manageProjects(state = {projects: [], project: {technical_details: []}}, action) {
-    // console.log('project action: ', action)
     switch (action.type) {
         case 'GET_PROJECTS':      
             return { ...state, projects: action.payload }

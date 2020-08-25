@@ -7,34 +7,36 @@ class EditHome extends Component {
         super(props)
         this.state = {
             title: '',
+            secondary_title: '',
             text_content: '',
             image: ''
         }
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target
         this.setState({
-          [event.target.name]: event.target.value  
+          [name]: value  
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { title, text_content, image } = this.state
+        const { title, secondary_title, text_content, image } = this.state
         let home = {
             title: title,
+            secondary_title: secondary_title,
             text_content: text_content,
             image: image 
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
         }       
-        this.props.location.query.editHome(home, next) 
-        
+        this.props.location.query.editHome(home, next)   
     }
 
     render() {
-        const { title, text_content, image } = this.state 
+        const { title, secondary_title, text_content, image } = this.state 
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -50,6 +52,14 @@ class EditHome extends Component {
                                     placeholder='Title'
                                     name='title'
                                     value={title}
+                                    onChange={this.handleOnChange}
+                                />
+                                <Form.Input
+                                    fluid
+                                    label='Secondary Title'
+                                    placeholder='Secondary Title'
+                                    name='secondary_title'
+                                    value={secondary_title}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input

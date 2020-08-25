@@ -15,27 +15,29 @@ class EmailNew extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target 
         this.setState({
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
 
     handleSubmit = (event) => {
-        console.log('emailProps:', this.props)
         event.preventDefault()
-        let email = {
-            name: this.state.name,
-            subject: this.state.subject,
-            email: this.state.email,
-            message: this.state.message
+        const { name, subject, email, message } = this.state 
+        let mail = {
+            name: name,
+            subject: subject,
+            email: email,
+            message: message
         }
         let next = {
             redirect: () => this.props.history.push('/contact')
         }
-        this.props.createEmail(email, next)
+        this.props.createEmail(mail, next)
     }
 
     render() {
+        const { name, subject, email, message } = this.state 
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group widths='equal'>
@@ -44,7 +46,7 @@ class EmailNew extends Component {
                         label='Name'
                         placeholder='Name'
                         name='name'
-                        value={this.state.name}
+                        value={name}
                         onChange={this.handleOnChange}
                     />
                     <Form.Input
@@ -52,7 +54,7 @@ class EmailNew extends Component {
                         label='Subject'
                         placeholder='Subject'
                         name='subject'
-                        value={this.state.subject}
+                        value={subject}
                         onChange={this.handleOnChange}
                     />
                     <Form.Input
@@ -60,7 +62,7 @@ class EmailNew extends Component {
                         label='Email'
                         placeholder='Email'
                         name='email'
-                        value={this.state.email}
+                        value={email}
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
@@ -68,7 +70,7 @@ class EmailNew extends Component {
                     label='Message'
                     placeholder='Message'
                     name='message'
-                    value={this.state.message}
+                    value={message}
                     onChange={this.handleOnChange}
                 />
                 <Form.Button>Send</Form.Button>

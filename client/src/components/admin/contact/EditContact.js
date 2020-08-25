@@ -16,20 +16,22 @@ class EditContact extends Component {
     }
 
     handleOnChange = (event) => {
+        const { name, value } = event.target
         this.setState({
-            [event.target.name]: event.target.value 
+            [name]: value 
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const { title, name, phone, email, link_1, link_2 } = this.state
         let contact = {
-            title: this.state.title,
-            name: this.state.name,
-            phone: this.state.phone,
-            email: this.state.email,
-            link_1: this.state.link_1,
-            link_2: this.state.link_2
+            title: title,
+            name: name,
+            phone: phone,
+            email: email,
+            link_1: link_1,
+            link_2: link_2
         }
         let next = {
             redirect: () => this.props.history.push('/admin/home')
@@ -38,6 +40,7 @@ class EditContact extends Component {
     }
 
     render() {
+        const { title, name, phone, email, link_1, link_2 } = this.state 
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -52,7 +55,7 @@ class EditContact extends Component {
                                     label='Title'
                                     placeholder='Title'
                                     name='title'
-                                    value={this.state.title}
+                                    value={title}
                                     onChange={this.handleOnChange}
                                 />
                                 <Form.Input
@@ -60,7 +63,7 @@ class EditContact extends Component {
                                     label='Name'
                                     placeholder='Name'
                                     name='name'
-                                    value={this.state.name}
+                                    value={name}
                                     onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
@@ -68,7 +71,7 @@ class EditContact extends Component {
                                     label='Phone'
                                     placeholder='Phone'
                                     name='phone'
-                                    value={this.state.phone}
+                                    value={phone}
                                     onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
@@ -76,7 +79,7 @@ class EditContact extends Component {
                                     label='Email'
                                     placeholder='Email'
                                     name='email'
-                                    value={this.state.email}
+                                    value={email}
                                     onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
@@ -84,7 +87,7 @@ class EditContact extends Component {
                                     label='Link'
                                     placeholder='Link'
                                     name='link_1'
-                                    value={this.state.link_1}
+                                    value={link_1}
                                     onChange={this.handleOnChange} 
                                 />
                                 <Form.Input
@@ -92,10 +95,9 @@ class EditContact extends Component {
                                     label='Link'
                                     placeholder='Link'
                                     name='link_2'
-                                    value={this.state.link_2}
+                                    value={link_2}
                                     onChange={this.handleOnChange} 
                                 />
-                            {/* </Form.Group>                          */}
                             <Form.Button>Submit Edits</Form.Button>
                         </Form>
                     </Grid.Column>
