@@ -88,7 +88,7 @@ class AdminContainer extends Component {
                             </Card> 
                         </Grid.Column>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/projects/create', query: {createProject: this.props.createProject}}}>
+                            <Card as={Link} to={{pathname: '/projects/new', query: {createProject: this.props.createProject}}}>
                                 <Card.Content>
                                     <Card.Header>Create Project</Card.Header>
                                 </Card.Content>
@@ -106,7 +106,7 @@ class AdminContainer extends Component {
                             </Card>
                         </Grid.Column>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/posts/create', query: {createPost: this.props.createPost}}}>
+                            <Card as={Link} to={{pathname: '/posts/new', query: {createPost: this.props.createPost}}}>
                                 <Card.Content>
                                     <Card.Header>Create Post</Card.Header>
                                 </Card.Content>
@@ -124,7 +124,7 @@ class AdminContainer extends Component {
                             </Card>
                         </Grid.Column>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/categories/create', query: {createCategory: this.props.createCategory}}}>
+                            <Card as={Link} to={{pathname: '/categories/new', query: {createCategory: this.props.createCategory}}}>
                                 <Card.Content>
                                     <Card.Header>Create Category</Card.Header>
                                 </Card.Content>
@@ -135,7 +135,7 @@ class AdminContainer extends Component {
                 <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Grid.Row columns={1} style={{padding: 0}}>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/skills/create', query: {createSkill: this.props.createSkill}}}>
+                            <Card as={Link} to={{pathname: '/skills/new', query: {createSkill: this.props.createSkill}}}>
                                 <Card.Content>
                                     <Card.Header>Create Skill</Card.Header>
                                 </Card.Content>
