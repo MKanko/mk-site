@@ -43,7 +43,7 @@ class Signup extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h2' style={{color: '#0E15FA'}} textAlign='center'>
+                        <Header as='h2' color='green' textAlign='center'>
                             Signup
                         </Header>
                         <Form size='large' onSubmit={this.handleSubmit}>
