@@ -15,6 +15,7 @@ class PortfolioContainer extends Component {
     // <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
 
     render() {
+        console.log('portcont:', this.props)
         return (         
             <Grid divided='vertically' textAlign='center' style={{padding: '200px'}}>
                 <Grid.Row columns={1}>

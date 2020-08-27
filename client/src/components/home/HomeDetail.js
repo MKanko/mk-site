@@ -1,9 +1,7 @@
 import React from 'react'
-import { Grid, Header, Container } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 
 import Carousel from './Carousel'
-
-{/* <Grid container textAlign='center' style={{ height: '100vh', maxWidth: 2000 }} verticalAlign='middle'></Grid> */}
 
 const HomeDetail = (props) => {
 
@@ -27,8 +25,7 @@ const HomeDetail = (props) => {
                     <Grid.Row style={{height: '5vw', color: 'grey', marginTop: '30vh'}}>
                         <Grid.Column>
                             {props.home.text_content}
-                        </Grid.Column>
-                        
+                        </Grid.Column>                       
                     </Grid.Row>            
                 </Grid>                                                           
             </Grid.Row>                   
