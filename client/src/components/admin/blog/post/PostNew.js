@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Grid, Header } from 'semantic-ui-react'
+import { EditorState } from 'draft-js'
+import { Editor } from 'react-draft-wysiwyg'
 
 class PostNew extends Component {
 
@@ -8,25 +10,28 @@ class PostNew extends Component {
         this.state = {
             title: '',
             text_content: '',
-            image: ''
+            image: '',
+            editorState: EditorState.createEmpty()
         }
     }
 
-    handleOnChange = (event) => {
+    handleOnChange = (event, editorState) => {
         const { name, value } = event.target 
         this.setState({
-            [name]: value 
+            [name]: value,
+            editorState: editorState 
         })
     }
 
     handleSubmit = (event) => {
         console.log('Create Post Submit:', this.props)
         event.preventDefault()
-        const { title, text_content, image } = this.state 
+        const { title, text_content, image, editorState } = this.state 
         let post = {
             title: title,
             text_content: text_content,
             image: image,
+            editorState: editorState
             // id: this.props.location.query.post.id 
         }
         let next = {
@@ -36,7 +41,7 @@ class PostNew extends Component {
     }
 
     render() {
-        const { title, text_content, image } = this.state
+        const { title, text_content, image, editorState } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -62,14 +67,22 @@ class PostNew extends Component {
                                     value={image}
                                     onChange={this.handleOnChange} 
                                 />
-                            </Form.Group>                         
-                            <Form.TextArea 
+                            </Form.Group> 
+
+                            <Editor 
+                                editorState={editorState}
+                                wrapperClassName='rich-editor demo-wrapper'
+                                editorClassName='demo-editor'
+                                onChange={this.handleOnChange}
+                            />
+                            
+                            {/* <Form.TextArea 
                                 label='Content'
                                 placeholder='Post content...'
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}
-                            />
+                            /> */}
                             <Form.Button>Submit Post</Form.Button>
                         </Form>
                     </Grid.Column>

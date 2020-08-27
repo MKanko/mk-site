@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import TextEditor from './components/common/TextEditor'
+import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import './App.css'
+
 import AdminContainer from './containers/AdminContainer'
 import Login from './components/admin/registrations/Login'
 import Signup from './components/admin/registrations/Signup'
@@ -18,7 +22,7 @@ import EditProject from './components/admin/portfolio/project/ProjectEdit'
 import ProjectShow from './components/project/ProjectShow'
 import PostShow from './components/post/PostShow'
 import EditBlog from './components/admin/blog/BlogEdit'
-import PostNew from './components/admin/blog/post/PostNew'
+// import PostNew from './components/admin/blog/post/PostNew'
 import EditPost from './components/admin/blog/post/PostEdit'
 import EditResume from './components/admin/resume/ResumeEdit'
 import Contact from './containers/ContactContainer'
@@ -58,7 +62,7 @@ class App extends Component {
                         <Route exact path='/projects/new' component={ProjectNew} />
                         <Route exact path='/project/edit' component={EditProject} />
                         <Route exact path='/blog/edit' component={EditBlog} />
-                        <Route exact path='/posts/new' component={PostNew} />
+                        <Route exact path='/posts/new' component={TextEditor} />
                         <Route exact path='/post/edit' component={EditPost} />
                         <Route exact path='/resume/edit' component={EditResume} />
                         <Route exact path='/categories/new' component={CategoryNew} />
