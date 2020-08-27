@@ -32,9 +32,9 @@ class ProjectShow extends Component {
                             </List>                           
                         </Segment>
                         <Segment inverted secondary>
-                            <Button.Group basic widths='3'>
+                            <Button.Group basic widths='3' style={{color: 'yellow'}}>
                                 <Button as={Link} to={{pathname: '/portfolio'}}>Back</Button>
-                                <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: 'black'}}>View Site</a></Button>
+                                <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: '#DBCE07'}}>View Site</a></Button>
                                 <Button>Github</Button> 
                             </Button.Group>
                         </Segment>
