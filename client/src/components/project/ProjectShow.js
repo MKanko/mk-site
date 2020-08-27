@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import {Grid, Header, Segment, Transition, List} from 'semantic-ui-react'
+import {Grid, Header, Segment, Transition, List, Button} from 'semantic-ui-react'
 import { getProject } from '../../actions'
 
 class ProjectShow extends Component {
@@ -19,7 +20,7 @@ class ProjectShow extends Component {
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Transition animation={'drop'} duration={2000} transitionOnMount>
                     <Grid.Column style={{ maxWidth: 600 }}>
-                        <Header as='h1' color='green' textAlign='center'>
+                        <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.name}
                         </Header>
                         <Segment inverted secondary>
@@ -31,7 +32,11 @@ class ProjectShow extends Component {
                             </List>                           
                         </Segment>
                         <Segment inverted secondary>
-                            <a href={this.props.project_link} target='_blank' rel='noopener noreferrer'>View Site</a>
+                            <Button.Group basic widths='3' style={{color: 'yellow'}}>
+                                <Button as={Link} to={{pathname: '/portfolio'}}>Back</Button>
+                                <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: '#DBCE07'}}>View Site</a></Button>
+                                <Button>Github</Button> 
+                            </Button.Group>
                         </Segment>
                     </Grid.Column>
                 </Transition>
@@ -42,7 +47,6 @@ class ProjectShow extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         name: state.manageProjects.project.name,
         description: state.manageProjects.project.description,

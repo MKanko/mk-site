@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Grid, Transition, Header, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Grid, Transition, Header, Segment, Button, } from 'semantic-ui-react'
 
 import { getCategory } from '../../actions'
 
@@ -17,12 +18,13 @@ class CategoryShow extends Component {
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Transition animation={'drop'} duration={2000} transitionOnMount>
                         <Grid.Column style={{ maxWidth: 600 }}>
-                            <Header as='h1' color='green' textAlign='center'>
+                            <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                                 {this.props.title}
                             </Header>
                             <Segment inverted secondary>
                                 {this.props.text_content}
                             </Segment>
+                            <Button inverted as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
                     </Transition>
                 </Grid>

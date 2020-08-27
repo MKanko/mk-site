@@ -42,7 +42,7 @@ class Login extends Component {
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' style={{color: '#0E15FA'}} textAlign='center'>
+                    <Header as='h2' color='green' textAlign='center'>
                          Admin Login
                     </Header>
                     <Form size='large' onSubmit={this.handleSubmit}>
@@ -72,7 +72,7 @@ class Login extends Component {
                         </Segment>
                     </Form>
                     <Message>
-                        <Link to='/signup'>Sign up</Link>
+                        <Link to='/signup' style={{color: 'green'}}>Sign up</Link>
                     </Message>
                     </Grid.Column>
                 </Grid>

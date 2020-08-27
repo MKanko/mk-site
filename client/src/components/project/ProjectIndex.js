@@ -1,15 +1,14 @@
-import React from 'react'
-// import { Transition } from 'semantic-ui-react'
+// import React from 'react'
 
-import ProjectDetail from './ProjectDetail'
+// import ProjectDetail from './ProjectDetail'
 
-const ProjectIndex = (props) => {
+// const ProjectIndex = (props) => {
 
-    const genProjects = props.projects.map(project => <ProjectDetail key={project.id} project={project} />)
+//     const genProjects = props.projects.map(project => <ProjectDetail key={project.id} project={project} />)
 
-    return (
-        <>{genProjects}</>                
-    )
-}
+//     return (
+//         <>{genProjects}</>                
+//     )
+// }
 
-export default ProjectIndex 
+// export default ProjectIndex 
