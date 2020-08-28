@@ -7,10 +7,26 @@ class Carousel extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            displayPhrase: 'Passion',
+            displayPhrase: 'Site Content Under Construction',
             index: 0,
             visible: true,
         }
+    }
+
+    componentDidMount() {
+        this.visibilityOff()
+        this.interval = setInterval(() => {
+            this.switchPhrase()
+            this.visibilityOff() 
+        }, 5000)
+    }
+
+    visibilityOff = () => {
+        setTimeout(() => {
+            this.setState({
+                ...this.state, visible: false 
+            })
+        }, 3000)
     }
 
     switchPhrase = () => {
@@ -22,22 +38,6 @@ class Carousel extends Component {
             index: index,
             visible: true 
         })
-    }
-
-    visibilityOff = () => {
-        setTimeout(() => {
-            this.setState({
-                ...this.state, visible: false 
-            })
-        }, 3000)
-    }
-
-    componentDidMount() {
-        this.visibilityOff()
-        this.interval = setInterval(() => {
-            this.switchPhrase()
-            this.visibilityOff() 
-        }, 5000)
     }
 
     componentWillUnmount() {

@@ -1,5 +1,7 @@
 import axios from 'axios'
 
-export default axios.create({baseURL: 'http://api.markkanko.com'})
+const URL = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? 'http://localhost:3001' : 'http://api.markkanko.com'
 
-// export default axios.create({baseURL: 'http://localhost:3001'})
+
+export default axios.create({baseURL: URL})
+
