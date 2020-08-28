@@ -22,7 +22,7 @@ const HomeDetail = (props) => {
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   
                 <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '8vw'}}>      
-                    <Grid.Row style={{height: '5vw', color: 'grey', marginTop: '30vh'}}>
+                    <Grid.Row style={{height: '5vw', color: 'grey', marginTop: '10vh'}}>
                         <Grid.Column>
                             {props.home.text_content}
                         </Grid.Column>                       

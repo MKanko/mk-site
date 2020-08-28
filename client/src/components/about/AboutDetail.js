@@ -15,13 +15,13 @@ const AboutDetail = (props) => {
                     <Card centered style={{backgroundColor: 'grey' }}>
                         <Image src={process.env.PUBLIC_URL + props.about.image} />
                     </Card>
-                    <h4 style={{color: 'white', height: '34vh'}}>
+                    <h4 style={{color: 'white'}}>
                         {props.about.text_content}                 
                     </h4>                   
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   
-                    <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '8vw'}}> 
+                    <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '5vw'}}> 
                         <Grid.Row style={{height: '3vw'}}>
                             <Header as={'h3'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>  
                         </Grid.Row>     
