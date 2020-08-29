@@ -16,6 +16,7 @@ class ProjectShow extends Component {
     } 
 
     render() {
+        console.log('projshow:', this.props)
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Transition animation={'drop'} duration={2000} transitionOnMount>
@@ -33,9 +34,9 @@ class ProjectShow extends Component {
                         </Segment>
                         <Segment inverted secondary>
                             <Button.Group basic widths='3' style={{color: 'yellow'}}>
-                                <Button as={Link} to={{pathname: '/portfolio'}}>Back</Button>
+                                <Button as={Link} to={{pathname: '/portfolio'}} style={{color: 'black'}}>Back</Button>
                                 <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: '#DBCE07'}}>View Site</a></Button>
-                                <Button>Github</Button> 
+                                <Button><a href={this.props.github_link} target='_blank' rel='noopener noreferrer' style={{color: 'black'}}>Github</a></Button> 
                             </Button.Group>
                         </Segment>
                     </Grid.Column>
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => {
         description: state.manageProjects.project.description,
         image: state.manageProjects.project.image,
         technical_details: state.manageProjects.project.technical_details,
-        project_link: state.manageProjects.project.project_link 
+        project_link: state.manageProjects.project.project_link,
+        github_link: state.manageProjects.project.github_link 
     }
 }
 
