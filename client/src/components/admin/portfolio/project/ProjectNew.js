@@ -10,7 +10,8 @@ class ProjectNew extends Component {
             description: '',
             technical_details: [],
             image: '',
-            project_link: ''
+            project_link: '',
+            github_link: ''
         }
     }
 
@@ -49,13 +50,14 @@ class ProjectNew extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { name, description, technical_details, image, project_link} = this.state
+        const { name, description, technical_details, image, project_link, github_link} = this.state
         let project = {
             name: name,
             description: description,
             technical_details: technical_details,
             image: image,
             project_link: project_link,
+            github_link: github_link
             // id: this.props.location.query.project.id 
         }
         let next = {
@@ -66,7 +68,7 @@ class ProjectNew extends Component {
 
     render() {
         console.log(this.state)
-        const { name, image, project_link, description} = this.state
+        const { name, image, project_link, description, github_link} = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -115,7 +117,15 @@ class ProjectNew extends Component {
                                     name='project_link'
                                     value={project_link}
                                     onChange={this.handleOnChange} 
-                                />                             
+                                /> 
+                                <Form.Input
+                                    fluid
+                                    label='Github Link'
+                                    placeholder='Github Link'
+                                    name='github_link'
+                                    value={github_link}
+                                    onChange={this.handleOnChange} 
+                                />                            
                             <Form.TextArea 
                                 label='Description'
                                 placeholder='Project page content...'
