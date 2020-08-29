@@ -12,12 +12,12 @@ const HomeDetail = (props) => {
                         <Header as='h1' size='huge' style={{color: '#DBCE07', fontSize: '3vw'}} textAlign='center'>
                             {props.home.title}
                         </Header>
-                        <h3 style={{ color: 'grey' }}>
-                            {props.home.secondary_title}
-                        </h3>
                         <Header>
                             <Carousel displayPhrases={props.home.display_phrases} /> 
-                        </Header>                     
+                        </Header> 
+                        <h3 style={{ color: 'grey' }}>
+                            {props.home.secondary_title}
+                        </h3>                    
                 </Grid.Column> 
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   
