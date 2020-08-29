@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import {Grid, Header, Segment, Transition, List, Button} from 'semantic-ui-react'
+
 import { getProject } from '../../actions'
 
 class ProjectShow extends Component {
@@ -13,7 +13,15 @@ class ProjectShow extends Component {
 
     techDetailList = () => {
         return this.props.technical_details.map(techDetail => <List.Item>{techDetail}</List.Item>)
-    } 
+    }
+    
+    viewSite = () => {
+        if (this.props.project_link) {
+            return (
+                <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: '#DBCE07'}}>View Site</a></Button>
+            )         
+        }
+    }
 
     render() {
         console.log('projshow:', this.props)
@@ -34,9 +42,9 @@ class ProjectShow extends Component {
                         </Segment>
                         <Segment inverted secondary>
                             <Button.Group basic widths='3' style={{color: 'yellow'}}>
-                                <Button as={Link} to={{pathname: '/portfolio'}} style={{color: 'black'}}>Back</Button>
-                                <Button><a href={this.props.project_link} target='_blank' rel='noopener noreferrer' style={{color: '#DBCE07'}}>View Site</a></Button>
-                                <Button><a href={this.props.github_link} target='_blank' rel='noopener noreferrer' style={{color: 'black'}}>Github</a></Button> 
+                                <Button as={Link} to={{pathname: '/portfolio'}} style={{color: 'black'}}>Back</Button> 
+                                {this.viewSite()}                          
+                                <Button><a href={this.props.github_link} target='_blank' rel='noopener noreferrer' style={{color: 'black'}}>Github</a></Button>              
                             </Button.Group>
                         </Segment>
                     </Grid.Column>
@@ -48,13 +56,14 @@ class ProjectShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const {name, description, image, technical_details, project_link, github_link} = state.manageProjects.project 
     return {
-        name: state.manageProjects.project.name,
-        description: state.manageProjects.project.description,
-        image: state.manageProjects.project.image,
-        technical_details: state.manageProjects.project.technical_details,
-        project_link: state.manageProjects.project.project_link,
-        github_link: state.manageProjects.project.github_link 
+        name: name,
+        description: description,
+        image: image,
+        technical_details: technical_details,
+        project_link: project_link,
+        github_link: github_link 
     }
 }
 
