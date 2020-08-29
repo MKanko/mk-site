@@ -5,12 +5,14 @@ class EditProject extends Component {
 
     constructor(props) {
         super(props)
+        const { name, description, technical_details, image, project_link, github_link} = props.location.query.project 
         this.state = {
-            name: props.location.query.project.name,
-            description: props.location.query.project.description,
-            technical_details: props.location.query.project.technical_details,
-            image: props.location.query.project.image,
-            project_link: props.location.query.project.project_link
+            name: name,
+            description: description,
+            technical_details: technical_details,
+            image: image,
+            project_link: project_link,
+            github_link: github_link
         }
     }
 
@@ -49,13 +51,14 @@ class EditProject extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { name, description, technical_details, image, project_link } = this.state 
+        const { name, description, technical_details, image, project_link, github_link } = this.state 
         let project = {
             name: name,
             description: description,
             technical_details: technical_details,
             image: image,
             project_link: project_link,
+            github_link: github_link,
             id: this.props.location.query.project.id 
         }
         let next = {
@@ -65,7 +68,7 @@ class EditProject extends Component {
     }
 
     render() {
-        const { name, image, project_link, description } = this.state
+        const { name, description, image, project_link, github_link } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -113,6 +116,14 @@ class EditProject extends Component {
                                     placeholder='Project Link'
                                     name='project_link'
                                     value={project_link}
+                                    onChange={this.handleOnChange} 
+                                />
+                                <Form.Input
+                                    fluid
+                                    label='Github Link'
+                                    placeholder='Github Link'
+                                    name='github_link'
+                                    value={github_link}
                                     onChange={this.handleOnChange} 
                                 />                             
                             <Form.TextArea 
