@@ -22,11 +22,16 @@ const HomeDetail = (props) => {
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   
                 <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '8vw'}}>      
-                    <Grid.Row style={{height: '5vw', color: 'grey', marginTop: '5vh'}}>
+                    <Grid.Row style={{height: '5vw', color: 'grey', marginTop: '0vh'}}>
                         <Grid.Column style={{maxWidth: 500}}>
                             {props.home.text_content}
                         </Grid.Column>                       
-                    </Grid.Row>            
+                    </Grid.Row> 
+                    <Grid.Row>
+                        <Grid.Column>
+                        <h3 style={{color: '#DBCE07'}}>Bring It All!</h3>
+                        </Grid.Column>
+                    </Grid.Row>           
                 </Grid>                                                           
             </Grid.Row>                   
         </Grid>
