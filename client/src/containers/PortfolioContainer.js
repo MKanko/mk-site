@@ -17,7 +17,7 @@ class PortfolioContainer extends Component {
     render() {
         console.log('portcont:', this.props)
         return (         
-            <Grid divided='vertically' textAlign='center' style={{padding: '200px'}}>
+            <Grid divided='vertically' textAlign='center' style={{padding: '100px'}}>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 1000 }}>
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
