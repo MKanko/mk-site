@@ -167,8 +167,8 @@ export const editContact = (contact, next) => async (dispatch) => {
     next.redirect()
 }
 
-export const createEmail = (mail, next) => async (dispatch) => {
-    const response = await backend.post('/emails', {mail})
+export const createEmail = (email, next) => async (dispatch) => {
+    const response = await backend.post('/emails', {email})
     if (response.data.errors) {
         console.log(response.data.errors)
     } else {
