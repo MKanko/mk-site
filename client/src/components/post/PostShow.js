@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import MDEditor from '@uiw/react-md-editor'
 import { Grid, Header, Segment, Transition, Button } from 'semantic-ui-react'
 
 import { getPost } from '../../actions'
@@ -21,7 +22,7 @@ class PostShow extends Component {
                                 {this.props.title}
                             </Header>
                             <Segment inverted secondary>
-                                {this.props.text_content}
+                                <MDEditor.Markdown source={this.props.text_content} />
                             </Segment>
                             <Button inverted as={Link} to={{pathname: '/blog'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 class EditPost extends Component {
 
     constructor(props) {
         super(props)
+        const { title, text_content, image } = props.location.query.post
         this.state = {
-            title: props.location.query.post.title,
-            text_content: props.location.query.post.text_content,
-            image: props.location.query.post.image
+            title: title,
+            text_content: text_content,
+            image: image
         }
     }
 
@@ -17,6 +19,13 @@ class EditPost extends Component {
         this.setState({
             [name]: value 
         })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({
+            text_content: content 
+        })
+        console.log(this.state)
     }
 
     handleSubmit = (event) => {
@@ -62,16 +71,23 @@ class EditPost extends Component {
                                     value={image}
                                     onChange={this.handleOnChange} 
                                 />
-                            </Form.Group>                         
-                            <Form.TextArea 
+                            </Form.Group>  
+                                                  
+                            {/* <Form.TextArea 
                                 label='Content'
                                 placeholder='Post page content...'
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}
-                            />
-                            <Form.Button>Submit Update</Form.Button>
+                            /> */}
+                            
                         </Form>
+                        <MDEditor
+                            name='text_content'
+                            value={text_content}
+                            onChange={this.handleEditorChange}
+                        /> 
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>
