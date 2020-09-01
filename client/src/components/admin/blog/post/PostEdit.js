@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { Form, Grid, Header, Button } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
-class EditPost extends Component {
+class PostEdit extends Component {
 
     constructor(props) {
-        console.log('EditPost constructor:', props)
         super(props)
         const { title, text_content, image } = props.location.query.post
         this.state = {
@@ -78,8 +77,7 @@ class EditPost extends Component {
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}
-                            /> */}
-                            
+                            /> */}                      
                         </Form>
                         <MDEditor
                             name='text_content'
@@ -95,4 +93,4 @@ class EditPost extends Component {
 
 }
 
-export default EditPost 
+export default PostEdit 

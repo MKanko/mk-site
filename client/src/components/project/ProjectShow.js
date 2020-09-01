@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {Grid, Header, Segment, Transition, List, Button} from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 import { getProject } from '../../actions'
 
@@ -33,7 +34,7 @@ class ProjectShow extends Component {
                             {this.props.name}
                         </Header>
                         <Segment inverted secondary>
-                            {this.props.description}
+                            <MDEditor.Markdown source={this.props.description} />
                         </Segment>
                         <Segment inverted secondary>
                             <List>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import MDEditor from '@uiw/react-md-editor'
 import { Grid, Header, Segment, Transition, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 import { getPost } from '../../actions'
 

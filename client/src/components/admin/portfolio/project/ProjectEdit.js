@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
-class EditProject extends Component {
+class ProjectEdit extends Component {
 
     constructor(props) {
         super(props)
@@ -20,6 +21,12 @@ class EditProject extends Component {
         const { name, value } = event.target 
         this.setState({
             [name]: value 
+        })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({
+            description: content 
         })
     }
 
@@ -126,15 +133,21 @@ class EditProject extends Component {
                                     value={github_link}
                                     onChange={this.handleOnChange} 
                                 />                             
-                            <Form.TextArea 
+                            {/* <Form.TextArea 
                                 label='Description'
                                 placeholder='Project page content...'
                                 name='description'
                                 value={description}
                                 onChange={this.handleOnChange}
                             />
-                            <Form.Button size='mini'>Submit Update</Form.Button>
-                        </Form>
+                            <Form.Button size='mini'>Submit Update</Form.Button> */}
+                        </Form><br></br>
+                        <MDEditor
+                            name='description'
+                            value={description}
+                            onChange={this.handleEditorChange}
+                        /><br></br>
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>
@@ -143,4 +156,4 @@ class EditProject extends Component {
 
 }
 
-export default EditProject
+export default ProjectEdit
