@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { Form, Grid, Header } from 'semantic-ui-react'
 
-class EditPortfolio extends Component {
+class PortfolioEdit extends Component {
 
     constructor(props) {
         super(props)
+        const { title, text_content, image } = props.location.query.portfolio 
         this.state = {
-            title: '',
-            text_content: '',
-            image: ''
+            title: title,
+            text_content: text_content,
+            image: image 
         }
     }
 
@@ -78,4 +79,4 @@ class EditPortfolio extends Component {
 
 }
 
-export default EditPortfolio
+export default PortfolioEdit

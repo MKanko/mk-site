@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, getHome, editHome, getAbout, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
+import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -20,6 +20,7 @@ class AdminContainer extends Component {
         this.props.getSkills()
         this.props.getHome()
         this.props.getAbout()
+        this.props.getPortfolio()
     }
 
     renderAdminAccess = () => {
@@ -83,7 +84,7 @@ class AdminContainer extends Component {
                 <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Grid.Row columns={2} style={{padding: 0}}>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio}}} style={{backgroundColor: 'grey'}}>
+                            <Card as={Link} to={{pathname: '/portfolio/edit', query: {editPortfolio: this.props.editPortfolio, portfolio: this.props.portfolio}}} style={{backgroundColor: 'grey'}}>
                                 <Card.Content>
                                     <Card.Header>Edit Portfolio</Card.Header>
                                 </Card.Content>
@@ -178,7 +179,8 @@ const mapStateToProps = (state) => {
         categories: state.manageCategories.categories,
         skills: state.manageSkills.skills,
         home: state.manageHome.home,
-        about: state.manageAbout.about    
+        about: state.manageAbout.about,
+        portfolio: state.managePortfolio.portfolio     
     }
 }
 
@@ -191,6 +193,7 @@ const mapDispatchToProps = (dispatch) => {
         editHome: (home, next) => {dispatch(editHome(home, next))},
         getAbout: () => {dispatch(getAbout())},
         editAbout: (about, next) => {dispatch(editAbout(about, next))},
+        getPortfolio: () => {dispatch(getPortfolio())},
         editPortfolio: (portfolio, next) => {dispatch(editPortfolio(portfolio, next))},
         getProjects: () => {dispatch(getProjects())},
         createProject: (project, next) => {dispatch(createProject(project, next))}, 

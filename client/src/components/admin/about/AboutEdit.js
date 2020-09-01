@@ -3,7 +3,7 @@ import { Form, Grid, Header, Button } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
 
-class EditAbout extends Component {
+class AboutEdit extends Component {
 
     constructor(props) {
         super(props)
@@ -93,4 +93,4 @@ class EditAbout extends Component {
 
 }
 
-export default EditAbout
+export default AboutEdit
