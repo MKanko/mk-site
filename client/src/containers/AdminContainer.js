@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, getHome, editHome, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
+import { signup, login, logout, getHome, editHome, getAbout, editAbout, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -19,6 +19,7 @@ class AdminContainer extends Component {
         this.props.getCategories()
         this.props.getSkills()
         this.props.getHome()
+        this.props.getAbout()
     }
 
     renderAdminAccess = () => {
@@ -57,14 +58,14 @@ class AdminContainer extends Component {
                 <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>
                     <Grid.Row columns={3} style={{padding: 0}}> 
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card inverted as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome, home: this.props.home} }} style={{backgroundColor: 'grey'}}>
+                                <Card inverted as={Link} to={{pathname: '/home/edit', query: {editHome: this.props.editHome, home: this.props.home}}} style={{backgroundColor: 'grey'}}>
                                     <Card.Content>
                                         <Card.Header>Edit Home</Card.Header>
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
                             <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                                <Card as={Link} to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout}}} style={{backgroundColor: 'grey'}}>
+                                <Card as={Link} to={{pathname: '/about/edit', query: {editAbout: this.props.editAbout, about: this.props.about}}} style={{backgroundColor: 'grey'}}>
                                     <Card.Content>
                                         <Card.Header>Edit About</Card.Header>
                                     </Card.Content>
@@ -176,7 +177,8 @@ const mapStateToProps = (state) => {
         posts: state.managePosts.posts,
         categories: state.manageCategories.categories,
         skills: state.manageSkills.skills,
-        home: state.manageHome.home   
+        home: state.manageHome.home,
+        about: state.manageAbout.about    
     }
 }
 
@@ -185,7 +187,9 @@ const mapDispatchToProps = (dispatch) => {
         signup: (user, next) => {dispatch(signup(user, next))},
         login: (user, next) => {dispatch(login(user, next))},
         logout: (user) => {dispatch(logout(user))},
+        getHome: () => {dispatch(getHome())},
         editHome: (home, next) => {dispatch(editHome(home, next))},
+        getAbout: () => {dispatch(getAbout())},
         editAbout: (about, next) => {dispatch(editAbout(about, next))},
         editPortfolio: (portfolio, next) => {dispatch(editPortfolio(portfolio, next))},
         getProjects: () => {dispatch(getProjects())},
@@ -203,7 +207,7 @@ const mapDispatchToProps = (dispatch) => {
         getSkills: () => {dispatch(getSkills())},
         createSkill: (skill, next) => {dispatch(createSkill(skill, next))},
         editSkill: (skill, next) => {dispatch(editSkill(skill, next))},
-        getHome: () => {dispatch(getHome())}
+        
     }
 }
 
