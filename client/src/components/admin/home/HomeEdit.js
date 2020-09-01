@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
-class EditHome extends Component {
+class HomeEdit extends Component {
 
     constructor(props) {
-        super(props)
+        console.log('HomeEdit const:', props)
+        const { title, secondary_title, text_content, image } = props.location.query.home 
+        super(props)      
         this.state = {
-            title: '',
-            secondary_title: '',
-            text_content: '',
-            image: ''
+            title: title,
+            secondary_title: secondary_title,
+            text_content: text_content,
+            image: image
         }
     }
 
     handleOnChange = (event) => {
         const { name, value } = event.target
-        this.setState({
-          [name]: value  
+        this.setState({     
+            [name]: value   
+        })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({ 
+            text_content: content         
         })
     }
 
@@ -37,6 +46,7 @@ class EditHome extends Component {
 
     render() {
         const { title, secondary_title, text_content, image } = this.state 
+        console.log(this.state)
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -71,15 +81,21 @@ class EditHome extends Component {
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
-                            <Form.TextArea 
+                            {/* <Form.TextArea 
                                 label='Content'
                                 placeholder='Home page content...'
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}
                             />
-                            <Form.Button>Submit Edits</Form.Button>
+                            <Form.Button>Submit Edits</Form.Button> */}
                         </Form>
+                        <MDEditor
+                            name='text_content'
+                            value={text_content}
+                            onChange={this.handleEditorChange}
+                        /><br></br>
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>
@@ -88,4 +104,4 @@ class EditHome extends Component {
 
 }
 
-export default EditHome
+export default HomeEdit

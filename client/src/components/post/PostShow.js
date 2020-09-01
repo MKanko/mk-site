@@ -36,10 +36,11 @@ class PostShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { title, text_content, image } = state.managePosts.post 
     return {
-        title: state.managePosts.post.title,
-        text_content: state.managePosts.post.text_content,
-        image: state.managePosts.post.image
+        title: title,
+        text_content: text_content,
+        image: image
     }
 }
 

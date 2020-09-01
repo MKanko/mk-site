@@ -5,6 +5,7 @@ import MDEditor from '@uiw/react-md-editor'
 class EditPost extends Component {
 
     constructor(props) {
+        console.log('EditPost constructor:', props)
         super(props)
         const { title, text_content, image } = props.location.query.post
         this.state = {
@@ -25,7 +26,6 @@ class EditPost extends Component {
         this.setState({
             text_content: content 
         })
-        console.log(this.state)
     }
 
     handleSubmit = (event) => {
@@ -45,7 +45,6 @@ class EditPost extends Component {
 
     render() {
         const { title, text_content, image } = this.state 
-        console.log('rendState:', this.state)
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -86,7 +85,7 @@ class EditPost extends Component {
                             name='text_content'
                             value={text_content}
                             onChange={this.handleEditorChange}
-                        /> 
+                        /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
