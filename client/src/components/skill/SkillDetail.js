@@ -1,11 +1,13 @@
-import React from "react";
-import { Grid, Popup, Image } from "semantic-ui-react";
+import React from "react"
+import { Grid, Popup, Image } from "semantic-ui-react"
+import MDEditor from '@uiw/react-md-editor'
+
 
 const SkillDetail = (props) => {
 
   const style = {
     borderRadius: "10px",
-    opacity: 0.8
+    // opacity: 0.8
   }
 
   return (
@@ -29,7 +31,7 @@ const SkillDetail = (props) => {
             </picture>
         }
         header={props.skill.attributes.name}
-        content={props.skill.attributes.description}
+        content={<MDEditor.Markdown source={props.skill.attributes.description} />}
         style={style}
         size="mini"
         position="top center"

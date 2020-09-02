@@ -1,5 +1,6 @@
 import React from 'react' 
 import { Grid, Header, Image, Card } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 import SkillIndex from '../skill/SkillIndex'
 
@@ -15,9 +16,7 @@ const AboutDetail = (props) => {
                     <Card centered style={{backgroundColor: 'grey' }}>
                         <Image src={process.env.PUBLIC_URL + props.about.image} />
                     </Card>
-                    <h4 style={{color: 'white'}}>
-                        {props.about.text_content}                 
-                    </h4>                   
+                    <MDEditor.Markdown source={props.about.text_content} style={{color:'white'}} />                                                  
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   

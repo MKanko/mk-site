@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Header } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
-import { getPortfolio } from '../actions'
 import ResourceIndex from '../components/common/ResourceIndex'
 import ProjectDetail from '../components/project/ProjectDetail'
+import { getPortfolio } from '../actions'
+
 
 class PortfolioContainer extends Component {
 
@@ -22,7 +24,7 @@ class PortfolioContainer extends Component {
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        <h4 style={{color: 'white'}}>{this.props.text_content}</h4>                      
+                        <MDEditor.Markdown source={this.props.text_content} style={{color: 'white'}} />                                                
                     </Grid.Column>
                 </Grid.Row>                 
                 <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
@@ -35,11 +37,12 @@ class PortfolioContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { title, text_content, image, projects } = state.managePortfolio.portfolio
     return {
-        title: state.managePortfolio.portfolio.title,
-        text_content: state.managePortfolio.portfolio.text_content,
-        image: state.managePortfolio.portfolio.image,
-        projects: state.managePortfolio.portfolio.projects
+        title: title,
+        text_content: text_content,
+        image: image,
+        projects: projects
     }
 }
 

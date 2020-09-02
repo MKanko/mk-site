@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Grid, Header, Segment, Transition, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 import { getPost } from '../../actions'
 
@@ -21,7 +22,7 @@ class PostShow extends Component {
                                 {this.props.title}
                             </Header>
                             <Segment inverted secondary>
-                                {this.props.text_content}
+                                <MDEditor.Markdown source={this.props.text_content} />
                             </Segment>
                             <Button inverted as={Link} to={{pathname: '/blog'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
@@ -35,10 +36,11 @@ class PostShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { title, text_content, image } = state.managePosts.post 
     return {
-        title: state.managePosts.post.title,
-        text_content: state.managePosts.post.text_content,
-        image: state.managePosts.post.image
+        title: title,
+        text_content: text_content,
+        image: image
     }
 }
 

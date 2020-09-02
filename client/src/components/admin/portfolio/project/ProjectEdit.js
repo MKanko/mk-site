@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
-class EditProject extends Component {
+class ProjectEdit extends Component {
 
     constructor(props) {
         super(props)
@@ -20,6 +21,12 @@ class EditProject extends Component {
         const { name, value } = event.target 
         this.setState({
             [name]: value 
+        })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({
+            description: content 
         })
     }
 
@@ -77,64 +84,62 @@ class EditProject extends Component {
                             Edit Project Data
                         </Header>
                         <Form onSubmit={this.handleSubmit}>                         
-                                <Form.Input
-                                    fluid
-                                    label='Name'
-                                    placeholder='Name'
-                                    name='name'
-                                    value={name}
-                                    onChange={this.handleOnChange}
-                                />
-                                {this.state.technical_details.map((techDetail, index) => (
-                                    <Form.Group widths={'equal'}> 
-                                        <Form.Input 
-                                            fluid
-                                            placeholder='Technical Detail'
-                                            name='technical_details'
-                                            value={techDetail}
-                                            onChange={this.handleOnTechDetailChange(index)} 
-                                        />
-                                        <Form.Button size='mini' onClick={this.handleRemoveTechDetail(index)}>
-                                            Remove Detail
-                                        </Form.Button>
-                                    </Form.Group>
-                                ))}
-                                <Form.Button size='mini' onClick={this.handleAddTechDetail}>
-                                    Add Detail 
-                                </Form.Button>
-                                <Form.Input
-                                    fluid
-                                    label='Image'
-                                    placeholder='Image'
-                                    name='image'
-                                    value={image}
-                                    onChange={this.handleOnChange} 
-                                /> 
-                                <Form.Input
-                                    fluid
-                                    label='Project Link'
-                                    placeholder='Project Link'
-                                    name='project_link'
-                                    value={project_link}
-                                    onChange={this.handleOnChange} 
-                                />
-                                <Form.Input
-                                    fluid
-                                    label='Github Link'
-                                    placeholder='Github Link'
-                                    name='github_link'
-                                    value={github_link}
-                                    onChange={this.handleOnChange} 
-                                />                             
-                            <Form.TextArea 
-                                label='Description'
-                                placeholder='Project page content...'
-                                name='description'
-                                value={description}
+                            <Form.Input
+                                fluid
+                                label='Name'
+                                placeholder='Name'
+                                name='name'
+                                value={name}
                                 onChange={this.handleOnChange}
                             />
-                            <Form.Button size='mini'>Submit Update</Form.Button>
-                        </Form>
+                            {this.state.technical_details.map((techDetail, index) => (
+                                <Form.Group widths={'equal'}> 
+                                    <Form.Input 
+                                        fluid
+                                        placeholder='Technical Detail'
+                                        name='technical_details'
+                                        value={techDetail}
+                                        onChange={this.handleOnTechDetailChange(index)} 
+                                    />
+                                    <Form.Button size='mini' onClick={this.handleRemoveTechDetail(index)}>
+                                        Remove Detail
+                                    </Form.Button>
+                                </Form.Group>
+                            ))}
+                            <Form.Button size='mini' onClick={this.handleAddTechDetail}>
+                                Add Detail 
+                            </Form.Button>
+                            <Form.Input
+                                fluid
+                                label='Image'
+                                placeholder='Image'
+                                name='image'
+                                value={image}
+                                onChange={this.handleOnChange} 
+                            /> 
+                            <Form.Input
+                                fluid
+                                label='Project Link'
+                                placeholder='Project Link'
+                                name='project_link'
+                                value={project_link}
+                                onChange={this.handleOnChange} 
+                            />
+                            <Form.Input
+                                fluid
+                                label='Github Link'
+                                placeholder='Github Link'
+                                name='github_link'
+                                value={github_link}
+                                onChange={this.handleOnChange} 
+                            />                             
+                        </Form><br></br>
+                        <MDEditor
+                            name='description'
+                            value={description}
+                            onChange={this.handleEditorChange}
+                        /><br></br>
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>
@@ -143,4 +148,4 @@ class EditProject extends Component {
 
 }
 
-export default EditProject
+export default ProjectEdit
