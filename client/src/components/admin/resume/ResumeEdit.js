@@ -59,14 +59,6 @@ class ResumeEdit extends Component {
                                     onChange={this.handleOnChange}
                                 />
                             </Form.Group>                         
-                            {/* <Form.TextArea 
-                                label='Content'
-                                placeholder='Resume page content...'
-                                name='text_content'
-                                value={text_content}
-                                onChange={this.handleOnChange}
-                            />
-                            <Form.Button>Submit Update</Form.Button> */}
                         </Form>
                         <MDEditor
                             name='text_content'

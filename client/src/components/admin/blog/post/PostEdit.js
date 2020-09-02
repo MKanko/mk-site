@@ -69,15 +69,7 @@ class PostEdit extends Component {
                                     value={image}
                                     onChange={this.handleOnChange} 
                                 />
-                            </Form.Group>  
-                                                  
-                            {/* <Form.TextArea 
-                                label='Content'
-                                placeholder='Post page content...'
-                                name='text_content'
-                                value={text_content}
-                                onChange={this.handleOnChange}
-                            /> */}                      
+                            </Form.Group>                       
                         </Form>
                         <MDEditor
                             name='text_content'

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
+
 
 class SkillNew extends Component {
 
@@ -17,6 +19,12 @@ class SkillNew extends Component {
         const { name, value } = event.target 
         this.setState({
             [name]: value 
+        })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({
+            description: content 
         })
     }
 
@@ -73,15 +81,13 @@ class SkillNew extends Component {
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
-                            <Form.TextArea 
-                                label='Description'
-                                placeholder='Description content...'
-                                name='description'
-                                value={description}
-                                onChange={this.handleOnChange}
-                            />
-                            <Form.Button>Submit Post</Form.Button>
                         </Form>
+                        <MDEditor
+                            name='description'
+                            value={description}
+                            onChange={this.handleEditorChange}
+                        /><br></br>
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>

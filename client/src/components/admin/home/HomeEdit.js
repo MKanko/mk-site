@@ -81,14 +81,6 @@ class HomeEdit extends Component {
                                     onChange={this.handleOnChange} 
                                 />
                             </Form.Group>                         
-                            {/* <Form.TextArea 
-                                label='Content'
-                                placeholder='Home page content...'
-                                name='text_content'
-                                value={text_content}
-                                onChange={this.handleOnChange}
-                            />
-                            <Form.Button>Submit Edits</Form.Button> */}
                         </Form>
                         <MDEditor
                             name='text_content'
