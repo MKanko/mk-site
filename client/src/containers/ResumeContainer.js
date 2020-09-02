@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, Grid, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 import CategoryDetail from '../components/category/CategoryDetail'
 import ResourceIndex from '../components/common/ResourceIndex'
 import { getResume } from '../actions'
-// import CategoryIndex from '../components/category/CategoryIndex'
 
 class ResumeContainer extends Component {
 
     componentDidMount() {
         this.props.getResume()
     }
-
-    // <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'></Grid>
 
     render() {
 
@@ -22,13 +20,13 @@ class ResumeContainer extends Component {
         const aws = 'https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2020-02-17&ci=AWS01231487'
 
         return (
-            <Grid divided='vertically' textAlign='center' style={{padding: '50px'}}>
+            <Grid divided='vertically' textAlign='center' style={{padding: '40px'}}>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 1000 }}>
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        <h4 style={{color: 'white'}}>{this.props.text_content}</h4>                       
+                        <MDEditor.Markdown source={this.props.text_content} style={{color: 'white'}} /><br></br>                                                                       
                         <Button style={{textAlign: 'center'}} size='mini'color='grey' href={resume} target='_blank' rel='noopener noreferrer'>Download Resume</Button>
                         <Button style={{textAlign: 'center'}} size='mini'color='grey' href={cert} target='_blank' rel='noopener noreferrer'>Flatiron Certification</Button>
                         <Button style={{textAlign: 'center'}} size='mini'color='grey' href={aws} target='_blank' rel='noopener noreferrer'>AWS Certification</Button>
@@ -43,11 +41,11 @@ class ResumeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    const { title, text_content, categories } = state.manageResume.resume 
     return {
-        title: state.manageResume.resume.title,
-        text_content: state.manageResume.resume.text_content,
-        categories: state.manageResume.resume.categories
+        title: title,
+        text_content: text_content,
+        categories: categories
     }
 }
 

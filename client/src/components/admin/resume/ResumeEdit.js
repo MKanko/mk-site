@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Form, Grid, Header } from 'semantic-ui-react'
+import { Form, Grid, Header, Button } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
 class EditResume extends Component {
 
@@ -16,6 +17,12 @@ class EditResume extends Component {
         const { name, value } = event.target 
         this.setState({
             [name]: value 
+        })
+    }
+
+    handleEditorChange = (content) => {
+        this.setState({ 
+            text_content: content         
         })
     }
 
@@ -52,15 +59,21 @@ class EditResume extends Component {
                                     onChange={this.handleOnChange}
                                 />
                             </Form.Group>                         
-                            <Form.TextArea 
+                            {/* <Form.TextArea 
                                 label='Content'
                                 placeholder='Resume page content...'
                                 name='text_content'
                                 value={text_content}
                                 onChange={this.handleOnChange}
                             />
-                            <Form.Button>Submit Update</Form.Button>
+                            <Form.Button>Submit Update</Form.Button> */}
                         </Form>
+                        <MDEditor
+                            name='text_content'
+                            value={text_content}
+                            onChange={this.handleEditorChange}
+                        /><br></br>
+                        <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>
                 </Grid>
             </div>
