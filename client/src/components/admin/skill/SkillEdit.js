@@ -5,11 +5,12 @@ class EditSkill extends Component {
 
     constructor(props) {
         super(props)
+        const { name, image, image_web, description } = props.location.query.skill 
         this.state = {
-           name: '', 
-           image: '',
-           image_web: '',
-           description: '' 
+           name: name, 
+           image: image,
+           image_web: image_web,
+           description: description  
         }
     }
 

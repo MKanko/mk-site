@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Grid, Header, Button } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
-class EditResume extends Component {
+class ResumeEdit extends Component {
 
     constructor(props) {
         super(props)
@@ -82,4 +82,4 @@ class EditResume extends Component {
 
 }
 
-export default EditResume 
+export default ResumeEdit 
