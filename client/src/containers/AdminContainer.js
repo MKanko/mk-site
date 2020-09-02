@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, getBlog, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
+import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, getBlog, editBlog, getPosts, createPost, editPost, getResume, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -22,6 +22,7 @@ class AdminContainer extends Component {
         this.props.getAbout()
         this.props.getPortfolio()
         this.props.getBlog()
+        this.props.getResume()
     }
 
     renderAdminAccess = () => {
@@ -121,7 +122,7 @@ class AdminContainer extends Component {
                 <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                 
                     <Grid.Row columns={2} style={{padding: 0}}>                         
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume}}} style={{backgroundColor: 'grey'}}>
+                            <Card as={Link} to={{pathname: '/resume/edit', query: {editResume: this.props.editResume, resume: this.props.resume}}} style={{backgroundColor: 'grey'}}>
                                 <Card.Content>
                                     <Card.Header>Edit Resume</Card.Header>
                                 </Card.Content>
@@ -182,7 +183,8 @@ const mapStateToProps = (state) => {
         home: state.manageHome.home,
         about: state.manageAbout.about,
         portfolio: state.managePortfolio.portfolio,
-        blog: state.manageBlog.blog     
+        blog: state.manageBlog.blog,
+        resume: state.manageResume.resume      
     }
 }
 
@@ -205,6 +207,7 @@ const mapDispatchToProps = (dispatch) => {
         getPosts: () => {dispatch(getPosts())},
         createPost: (post, next) => {dispatch(createPost(post, next))},
         editPost: (post, next) => {dispatch(editPost(post, next))},
+        getResume: () => {dispatch(getResume())},
         editResume: (resume, next) => {dispatch(editResume(resume, next))},
         getCategories: () => {dispatch(getCategories())},
         createCategory: (category, next) => {dispatch(createCategory(category, next))},

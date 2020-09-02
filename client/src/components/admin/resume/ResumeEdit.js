@@ -5,9 +5,10 @@ class EditResume extends Component {
 
     constructor(props) {
         super(props)
+        const { title, text_content } = props.location.query.resume 
         this.state = {
-            title: '',
-            text_content: '' 
+            title: title,
+            text_content: text_content 
         }
     }
 
