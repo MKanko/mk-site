@@ -8,7 +8,7 @@ import ProjectMenuDetail from '../components/admin/adminMenu/ProjectMenuDetail'
 import PostMenuDetail from '../components/admin/adminMenu/PostMenuDetail'
 import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail'
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
-import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
+import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, getBlog, editBlog, getPosts, createPost, editPost, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
 
 class AdminContainer extends Component {
@@ -21,6 +21,7 @@ class AdminContainer extends Component {
         this.props.getHome()
         this.props.getAbout()
         this.props.getPortfolio()
+        this.props.getBlog()
     }
 
     renderAdminAccess = () => {
@@ -102,7 +103,7 @@ class AdminContainer extends Component {
                 <Grid divided='vertically' textAlign='center' style={{padding: '10px'}}>                                
                     <Grid.Row columns={2} style={{padding: 0}}>
                         <Grid.Column style={{maxWidth: 300, padding: 0, margin: 7}}>
-                            <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog}}} style={{backgroundColor: 'grey'}}>
+                            <Card as={Link} to={{pathname: '/blog/edit', query: {editBlog: this.props.editBlog, blog: this.props.blog}}} style={{backgroundColor: 'grey'}}>
                                 <Card.Content>
                                     <Card.Header>Edit Blog</Card.Header>
                                 </Card.Content>
@@ -180,7 +181,8 @@ const mapStateToProps = (state) => {
         skills: state.manageSkills.skills,
         home: state.manageHome.home,
         about: state.manageAbout.about,
-        portfolio: state.managePortfolio.portfolio     
+        portfolio: state.managePortfolio.portfolio,
+        blog: state.manageBlog.blog     
     }
 }
 
@@ -198,6 +200,7 @@ const mapDispatchToProps = (dispatch) => {
         getProjects: () => {dispatch(getProjects())},
         createProject: (project, next) => {dispatch(createProject(project, next))}, 
         editProject: (project, next) => {dispatch(editProject(project, next))},
+        getBlog: () => {dispatch(getBlog())},
         editBlog: (blog, next) => {dispatch(editBlog(blog, next))},
         getPosts: () => {dispatch(getPosts())},
         createPost: (post, next) => {dispatch(createPost(post, next))},

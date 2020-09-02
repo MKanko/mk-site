@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Header } from 'semantic-ui-react'
+import MDEditor from '@uiw/react-md-editor'
 
-import { getBlog } from '../actions'
 import ResourceIndex from '../components/common/ResourceIndex'
 import PostDetail from '../components/post/PostDetail'
-// import PostIndex from '../components/post/PostIndex'
+import { getBlog } from '../actions'
 
 class BlogContainer extends Component {
 
     componentDidMount() {
        this.props.getBlog() 
     }
-
-    // <Grid container textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
 
     render() {
         return (
@@ -23,7 +21,7 @@ class BlogContainer extends Component {
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>
                             {this.props.title}
                         </Header>
-                        <h4 style={{color: 'white'}}>{this.props.text_content}</h4>                
+                        <MDEditor.Markdown source={this.props.text_content} style={{color: 'white'}} />                                                                
                     </Grid.Column>
                 </Grid.Row>                      
                 <ResourceIndex resourceList={this.props.posts} resourceName='post' rowSize={3}>
@@ -36,12 +34,12 @@ class BlogContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    const { title, text_content, image, posts } = state.manageBlog.blog 
     return {
-        title: state.manageBlog.blog.title,
-        text_content: state.manageBlog.blog.text_content,
-        image: state.manageBlog.blog.image,
-        posts: state.manageBlog.blog.posts
+        title: title,
+        text_content: text_content,
+        image: image,
+        posts: posts
     }
 }
 
