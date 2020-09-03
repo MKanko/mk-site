@@ -27,7 +27,7 @@ class PortfolioContainer extends Component {
                         <MDEditor.Markdown source={this.props.text_content} style={{color: 'white'}} />                                                
                     </Grid.Column>
                 </Grid.Row>                 
-                <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={3}>
+                <ResourceIndex resourceList={this.props.projects} resourceName='project' rowSize={2}>
                     <ProjectDetail />
                 </ResourceIndex>
             </Grid>       

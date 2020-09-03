@@ -15,7 +15,7 @@ const HomeDetail = (props) => {
                         </Header>
                         <Header>
                             <Carousel displayPhrases={props.home.display_phrases} /> 
-                        </Header> 
+                        </Header>
                         <h3 style={{ color: 'grey' }}>{props.home.secondary_title}</h3>                    
                 </Grid.Column> 
             </Grid.Row>
@@ -28,7 +28,7 @@ const HomeDetail = (props) => {
                     </Grid.Row> 
                     <Grid.Row>
                         <Grid.Column>
-                        <h3 style={{color: '#DBCE07'}}>Bring It!</h3>
+                        <h3 style={{color: '#DBCE07'}}>Site Content Currently in Development</h3>
                         </Grid.Column>
                     </Grid.Row>           
                 </Grid>                                                           

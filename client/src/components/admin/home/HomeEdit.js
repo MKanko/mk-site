@@ -5,9 +5,8 @@ import MDEditor from '@uiw/react-md-editor'
 class HomeEdit extends Component {
 
     constructor(props) {
-        console.log('HomeEdit const:', props)
-        const { title, secondary_title, text_content, image } = props.location.query.home 
-        super(props)      
+        super(props) 
+        const { title, secondary_title, text_content, image } = props.location.query.home      
         this.state = {
             title: title,
             secondary_title: secondary_title,

@@ -20,14 +20,14 @@ const AboutDetail = (props) => {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row textAlign={'center'}>                   
-                    <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '5vw'}}> 
-                        <Grid.Row style={{height: '3vw'}}>
-                            <Header as={'h3'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>  
-                        </Grid.Row>     
-                        <Grid.Row style={{height: '5vw'}}>
-                            <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
-                        </Grid.Row>            
-                    </Grid>                                                           
+                <Grid container textAlign={'center'} verticalAlign={'middle'} style={{height: '5vw'}}> 
+                    <Grid.Row style={{height: '3vw'}}>
+                        <Header as={'h3'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>  
+                    </Grid.Row>     
+                    <Grid.Row style={{height: '5vw'}}>
+                        <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
+                    </Grid.Row>            
+                </Grid>                                                           
             </Grid.Row>
         </Grid> 
     )

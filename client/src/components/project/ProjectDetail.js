@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const ProjectDetail = (props) => {
     console.log('projdetail:', props)
     return (    
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/projects/' + props.project.id}} style={{backgroundColor: 'grey' }}>
                 <Image src={process.env.PUBLIC_URL + props.project.image} size='medium' style={{objectFit: 'cover', height: '8em'}} />
                 <Card.Content>
