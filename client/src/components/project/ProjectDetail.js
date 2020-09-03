@@ -3,7 +3,6 @@ import { Grid, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const ProjectDetail = (props) => {
-    console.log('projdetail:', props)
     return (    
         <Grid.Column width={5}>
             <Card as={Link} to={{pathname: '/projects/' + props.project.id}} style={{backgroundColor: 'grey' }}>
