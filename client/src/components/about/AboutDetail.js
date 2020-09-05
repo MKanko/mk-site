@@ -7,7 +7,7 @@ import SkillIndex from '../skill/SkillIndex'
 const AboutDetail = (props) => {
 
     return (
-        <Grid container textAlign='center' verticalAlign='middle' style={{marginTop: "12vh"}}>
+        <Grid container textAlign='center' verticalAlign='middle' style={{marginTop: "5vh"}}>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 700 }}>
                     <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>

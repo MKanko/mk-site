@@ -23,7 +23,7 @@ class CategoryShow extends Component {
                                 {this.props.title}
                             </Header>
                             <Segment inverted secondary>
-                                <MDEditor.Markdown source={this.props.text_content} />
+                                <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left'}} />
                             </Segment>
                             <Button inverted as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
