@@ -6,13 +6,19 @@ class CategoryEdit extends Component {
 
     constructor(props) {
         super(props)
-        const { title, description, text_content, secondary_text_content, image } = props.location.query.category 
+        const { title, text_content, image } = props.location.query.category 
         this.state = {
             title: title,
-            description: description,
+            description: '',
             text_content: text_content,
-            secondary_text_content: secondary_text_content,
+            secondary_text_content: this.setString(),
             image: image
+        }
+    }
+
+    setString = () => {
+        if (!this.props.location.query.secondary_text_content) {
+            return ''
         }
     }
 
@@ -23,9 +29,21 @@ class CategoryEdit extends Component {
         })
     }
 
-    handleEditorChange = (content) => {
+    handleEditorDescChange = (content) => {
         this.setState({
-            text_content: content 
+            description: content 
+        })
+    }
+
+    handleEditorTextChange = (content) => {
+        this.setState({
+            text_content: content
+        })
+    }
+
+    handleEditorSecTextChange = (content) => {
+        this.setState({
+            secondary_text_content: content
         })
     }
 
@@ -78,17 +96,17 @@ class CategoryEdit extends Component {
                         <MDEditor
                             name='description'
                             value={description}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorDescChange}
                         /><br></br>
                         <MDEditor
                             name='text_content'
                             value={text_content}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorTextChange}
                         /><br></br>
                         <MDEditor
                             name='secondary_text_content'
                             value={secondary_text_content}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorSecTextChange}
                         /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>

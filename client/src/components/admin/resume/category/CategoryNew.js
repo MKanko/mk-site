@@ -10,7 +10,6 @@ class CategoryNew extends Component {
             title: '',
             description: '',
             text_content: '',
-            secondary_text_content: '',
             image: ''
         }
     }
@@ -22,9 +21,21 @@ class CategoryNew extends Component {
         })
     }
 
+    handleEditorDescChange = (content) => {
+        this.setState({
+            description: content
+        })
+    }
+
     handleEditorChange = (content) => {
         this.setState({
             text_content: content 
+        })
+    }
+
+    handleEditorSecTextChange = (content) => {
+        this.setState({
+            secondary_text_content: content
         })
     }
 
@@ -77,7 +88,7 @@ class CategoryNew extends Component {
                         <MDEditor
                             name='description'
                             value={description}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorDescChange}
                         /><br></br>
                         <MDEditor
                             name='text_content'
@@ -87,7 +98,7 @@ class CategoryNew extends Component {
                         <MDEditor
                             name='secondary_text_content'
                             value={secondary_text_content}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorSecTextChange}
                         /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>

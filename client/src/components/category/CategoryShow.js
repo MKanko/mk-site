@@ -13,6 +13,16 @@ class CategoryShow extends Component {
         this.props.getCategory(this.props.location.pathname.replace('/categories/', ''))
     }
 
+    renderSecondTextContent = () => {
+        if (this.props.secondary_text_content) {
+            return (
+                <Segment inverted secondary>
+                    <MDEditor.Markdown source={this.props.secondary_text_content} style={{textAlign: 'left'}} />
+                </Segment> 
+            )
+        }        
+    }
+
     render() {
         return (
             <div>          
@@ -23,9 +33,13 @@ class CategoryShow extends Component {
                                 {this.props.title}
                             </Header>
                             <Segment inverted secondary>
-                                <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left'}} />
+                                <MDEditor.Markdown source={this.props.description} style={{textAlign: 'left'}} />
                             </Segment>
-                            <Button inverted as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
+                            <Segment inverted secondary>
+                                <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left', color: 'white'}} />
+                            </Segment>
+                            {this.renderSecondTextContent()}
+                            <Button inverted secondary as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
                     </Transition>
                 </Grid>
@@ -36,10 +50,13 @@ class CategoryShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { title, description, text_content, secondary_text_content, image } = state.manageCategories.category
     return {
-        title: state.manageCategories.category.title,
-        text_content: state.manageCategories.category.text_content,
-        image: state.manageCategories.category.image
+        title: title,
+        description: description,
+        text_content: text_content,
+        secondary_text_content: secondary_text_content,
+        image: image
     }
 }
 
