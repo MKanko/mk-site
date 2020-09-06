@@ -41,10 +41,12 @@ class ResumeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { title, text_content, categories } = state.manageResume.resume 
+    const { title, description, text_content, secondary_text_content, categories } = state.manageResume.resume 
     return {
         title: title,
+        description: description,
         text_content: text_content,
+        secondary_text_content: secondary_text_content,
         categories: categories
     }
 }

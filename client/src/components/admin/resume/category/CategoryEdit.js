@@ -9,8 +9,16 @@ class CategoryEdit extends Component {
         const { title, text_content, image } = props.location.query.category 
         this.state = {
             title: title,
+            description: '',
             text_content: text_content,
+            secondary_text_content: this.setString(),
             image: image
+        }
+    }
+
+    setString = () => {
+        if (!this.props.location.query.secondary_text_content) {
+            return ''
         }
     }
 
@@ -21,18 +29,32 @@ class CategoryEdit extends Component {
         })
     }
 
-    handleEditorChange = (content) => {
+    handleEditorDescChange = (content) => {
         this.setState({
-            text_content: content 
+            description: content 
+        })
+    }
+
+    handleEditorTextChange = (content) => {
+        this.setState({
+            text_content: content
+        })
+    }
+
+    handleEditorSecTextChange = (content) => {
+        this.setState({
+            secondary_text_content: content
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { title, text_content, image } = this.state 
+        const { title, description, text_content, secondary_text_content, image } = this.state 
         let category = {
             title: title,
+            description: description,
             text_content: text_content,
+            secondary_text_content: secondary_text_content,
             image: image,
             id: this.props.location.query.category.id 
         }
@@ -43,7 +65,7 @@ class CategoryEdit extends Component {
     }
 
     render() {
-        const { title, text_content, image } = this.state 
+        const { title, description, text_content, secondary_text_content, image } = this.state 
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -72,9 +94,19 @@ class CategoryEdit extends Component {
                             </Form.Group>                         
                         </Form>
                         <MDEditor
+                            name='description'
+                            value={description}
+                            onChange={this.handleEditorDescChange}
+                        /><br></br>
+                        <MDEditor
                             name='text_content'
                             value={text_content}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorTextChange}
+                        /><br></br>
+                        <MDEditor
+                            name='secondary_text_content'
+                            value={secondary_text_content}
+                            onChange={this.handleEditorSecTextChange}
                         /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>

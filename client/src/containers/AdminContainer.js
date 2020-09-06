@@ -10,7 +10,6 @@ import CategoryMenuDetail from '../components/admin/adminMenu/CategoryMenuDetail
 import SkillMenuDetail from '../components/admin/adminMenu/SkillMenuDetail'
 import { signup, login, logout, getHome, editHome, getAbout, editAbout, getPortfolio, editPortfolio, getProjects, createProject, editProject, getBlog, editBlog, getPosts, createPost, editPost, getResume, editResume, getCategories, createCategory, editCategory, editContact, getSkills, createSkill, editSkill } from '../actions'
 
-
 class AdminContainer extends Component {
 
     componentDidMount() {

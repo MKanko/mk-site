@@ -2,9 +2,8 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 
 const ResourceIndex = (props) => {
-
     const genRows = () => {
-        const resources = props.resourceList    
+        const resources = props.resourceList.reverse()    
         let rows = []
         let dataList = null
 

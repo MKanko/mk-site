@@ -8,6 +8,7 @@ class CategoryNew extends Component {
         super(props)
         this.state = {
             title: '',
+            description: '',
             text_content: '',
             image: ''
         }
@@ -20,18 +21,32 @@ class CategoryNew extends Component {
         })
     }
 
+    handleEditorDescChange = (content) => {
+        this.setState({
+            description: content
+        })
+    }
+
     handleEditorChange = (content) => {
         this.setState({
             text_content: content 
         })
     }
 
+    handleEditorSecTextChange = (content) => {
+        this.setState({
+            secondary_text_content: content
+        })
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
-        const { title, text_content, image } = this.state 
+        const { title, description, text_content, secondary_text_content, image } = this.state 
         let post = {
             title: title,
+            description: description,
             text_content: text_content,
+            secondary_text_content: secondary_text_content,
             image: image,
             // id: this.props.location.query.post.id 
         }
@@ -42,7 +57,7 @@ class CategoryNew extends Component {
     }
 
     render() {
-        const { title, text_content, image } = this.state
+        const { title, description, text_content, secondary_text_content, image } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -71,9 +86,19 @@ class CategoryNew extends Component {
                             </Form.Group>                         
                         </Form>
                         <MDEditor
+                            name='description'
+                            value={description}
+                            onChange={this.handleEditorDescChange}
+                        /><br></br>
+                        <MDEditor
                             name='text_content'
                             value={text_content}
                             onChange={this.handleEditorChange}
+                        /><br></br>
+                        <MDEditor
+                            name='secondary_text_content'
+                            value={secondary_text_content}
+                            onChange={this.handleEditorSecTextChange}
                         /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>

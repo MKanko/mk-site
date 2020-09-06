@@ -25,7 +25,6 @@ class ProjectShow extends Component {
     }
 
     render() {
-        console.log('projshow:', this.props)
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Transition animation={'drop'} duration={2000} transitionOnMount>
