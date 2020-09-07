@@ -6,10 +6,10 @@ class CategoryEdit extends Component {
 
     constructor(props) {
         super(props)
-        const { title, text_content, image } = props.location.query.category 
+        const { title, description, text_content, image } = props.location.query.category 
         this.state = {
             title: title,
-            description: '',
+            description: description,
             text_content: text_content,
             secondary_text_content: this.setString(),
             image: image

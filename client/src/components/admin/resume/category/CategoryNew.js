@@ -63,7 +63,7 @@ class CategoryNew extends Component {
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h2' color='green' textAlign='center'>
-                            Create Post
+                            Create New Category
                         </Header>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group widths='equal'>
