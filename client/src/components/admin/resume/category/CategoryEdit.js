@@ -17,7 +17,10 @@ class CategoryEdit extends Component {
     }
 
     setString = () => {
-        if (!this.props.location.query.secondary_text_content) {
+        const { secondary_text_content } = this.props.location.query.category 
+        if (secondary_text_content) {
+            return secondary_text_content
+        } else {
             return ''
         }
     }

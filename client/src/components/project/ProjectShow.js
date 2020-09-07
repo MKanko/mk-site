@@ -12,6 +12,16 @@ class ProjectShow extends Component {
         this.props.getProject(this.props.location.pathname.replace('/projects/', ''))
     }
 
+    renderTextContent = () => {
+        if (this.props.text_content) {
+            return (
+                <Segment inverted secondary>
+                    <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left'}} />
+                </Segment> 
+            )
+        }        
+    }
+
     techDetailList = () => {
         return this.props.technical_details.map(techDetail => <List.Item>{techDetail}</List.Item>)
     }
@@ -41,9 +51,7 @@ class ProjectShow extends Component {
                                 {this.techDetailList()}
                             </List>                           
                         </Segment>
-                        <Segment inverted secondary>
-                            <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left'}} />
-                        </Segment>
+                        {this.renderTextContent()}
                         <Segment inverted secondary>
                             <Button.Group basic widths='3' style={{color: 'yellow'}}>
                                 <Button as={Link} to={{pathname: '/portfolio'}} style={{color: 'black'}}>Back</Button> 

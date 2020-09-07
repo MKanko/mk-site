@@ -10,7 +10,7 @@ class EmailMailer < ApplicationMailer
         'From: ' + email.name + ' ' + email.email + ' ' + email.message 
     end 
 
-    def gen_subject_line(email) 
-        email.email + ' MK-Site: ' + email.subject 
+    def gen_subject_line(email)
+        'MK-Site: ' + email.email ' ' + email.subject  
     end
 end

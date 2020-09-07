@@ -19,7 +19,10 @@ class ProjectEdit extends Component {
     }
 
     setString = () => {
-        if (!this.props.location.query.text_content) {
+        const { text_content } = this.props.location.query.project 
+        if (text_content) {
+            return text_content
+        } else {
             return ''
         }
     }
