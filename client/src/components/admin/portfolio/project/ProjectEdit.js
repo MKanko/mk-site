@@ -11,9 +11,16 @@ class ProjectEdit extends Component {
             name: name,
             description: description,
             technical_details: technical_details,
+            text_content: this.setString(),
             image: image,
             project_link: project_link,
             github_link: github_link
+        }
+    }
+
+    setString = () => {
+        if (!this.props.location.query.text_content) {
+            return ''
         }
     }
 
@@ -24,9 +31,15 @@ class ProjectEdit extends Component {
         })
     }
 
-    handleEditorChange = (content) => {
+    handleEditorDescChange = (content) => {
         this.setState({
             description: content 
+        })
+    }
+
+    handleEditorTextChange = (content) => {
+        this.setState({
+            text_content: content 
         })
     }
 
@@ -58,11 +71,12 @@ class ProjectEdit extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { name, description, technical_details, image, project_link, github_link } = this.state 
+        const { name, description, technical_details, text_content, image, project_link, github_link } = this.state 
         let project = {
             name: name,
             description: description,
             technical_details: technical_details,
+            text_content: text_content,
             image: image,
             project_link: project_link,
             github_link: github_link,
@@ -75,7 +89,7 @@ class ProjectEdit extends Component {
     }
 
     render() {
-        const { name, description, image, project_link, github_link } = this.state
+        const { name, description, text_content, image, project_link, github_link } = this.state
         return (
             <div>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -137,7 +151,12 @@ class ProjectEdit extends Component {
                         <MDEditor
                             name='description'
                             value={description}
-                            onChange={this.handleEditorChange}
+                            onChange={this.handleEditorDescChange}
+                        /><br></br>
+                        <MDEditor
+                            name='text_content'
+                            value={text_content}
+                            onChange={this.handleEditorTextChange}
                         /><br></br>
                         <Button onClick={this.handleSubmit}>Submit Update</Button>
                     </Grid.Column>

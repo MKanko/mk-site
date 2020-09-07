@@ -33,12 +33,16 @@ class ProjectShow extends Component {
                             {this.props.name}
                         </Header>
                         <Segment inverted secondary>
-                            <MDEditor.Markdown source={this.props.description} />
+                            <MDEditor.Markdown source={this.props.description} style={{textAlign: 'left'}} />
                         </Segment>
                         <Segment inverted secondary>
+                            <h5>Technical Details</h5>
                             <List>
                                 {this.techDetailList()}
                             </List>                           
+                        </Segment>
+                        <Segment inverted secondary>
+                            <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left'}} />
                         </Segment>
                         <Segment inverted secondary>
                             <Button.Group basic widths='3' style={{color: 'yellow'}}>
@@ -56,12 +60,13 @@ class ProjectShow extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {name, description, image, technical_details, project_link, github_link} = state.manageProjects.project 
+    const {name, description, image, technical_details, text_content, project_link, github_link} = state.manageProjects.project 
     return {
         name: name,
         description: description,
         image: image,
         technical_details: technical_details,
+        text_content: text_content,
         project_link: project_link,
         github_link: github_link 
     }

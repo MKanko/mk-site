@@ -11,6 +11,6 @@ class EmailMailer < ApplicationMailer
     end 
 
     def gen_subject_line(email) 
-        email.email + ' Message from website: ' + email.subject 
+        email.email + ' MK-Site: ' + email.subject 
     end
 end
