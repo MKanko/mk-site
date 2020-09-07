@@ -33,9 +33,10 @@ class ProjectShow extends Component {
                             {this.props.name}
                         </Header>
                         <Segment inverted secondary>
-                            <MDEditor.Markdown source={this.props.description} />
+                            <MDEditor.Markdown source={this.props.description} style={{textAlign: 'left'}} />
                         </Segment>
                         <Segment inverted secondary>
+                            <h5>Technical Details</h5>
                             <List>
                                 {this.techDetailList()}
                             </List>                           
