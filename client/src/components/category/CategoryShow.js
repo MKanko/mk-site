@@ -13,6 +13,16 @@ class CategoryShow extends Component {
         this.props.getCategory(this.props.location.pathname.replace('/categories/', ''))
     }
 
+    renderTextContent = () => {
+        if (this.props.text_content) {
+            return (
+                <Segment inverted secondary>
+                    <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left', color: 'white'}} />
+                </Segment>
+            )
+        }
+    }
+
     renderSecondTextContent = () => {
         if (this.props.secondary_text_content) {
             return (
@@ -35,9 +45,7 @@ class CategoryShow extends Component {
                             <Segment inverted secondary>
                                 <MDEditor.Markdown source={this.props.description} style={{textAlign: 'left'}} />
                             </Segment>
-                            <Segment inverted secondary>
-                                <MDEditor.Markdown source={this.props.text_content} style={{textAlign: 'left', color: 'white'}} />
-                            </Segment>
+                            {this.renderTextContent()}
                             {this.renderSecondTextContent()}
                             <Button inverted secondary as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
