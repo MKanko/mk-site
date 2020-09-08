@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 
 const ResourceIndex = (props) => {
+
     const genRows = () => {
         const resources = props.resourceList.reverse()    
         let rows = []
@@ -23,6 +24,7 @@ const ResourceIndex = (props) => {
     }
 
     const genRow = dataList => {
+        console.log(dataList)
         let columns = dataList.map(data => genResource(data))
         return <Grid.Row columns={3} style={{padding: 0}}>{columns}</Grid.Row>
     }
