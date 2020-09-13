@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import './Post.css'
+import '../Component.css'
 
 const PostDetail = (props) => {
 

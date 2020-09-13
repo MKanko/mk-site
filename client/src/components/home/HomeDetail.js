@@ -3,6 +3,7 @@ import { Grid, Header } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
 import Carousel from './Carousel'
+import '../Component.css'
 
 const HomeDetail = (props) => {
 
@@ -10,7 +11,10 @@ const HomeDetail = (props) => {
         <Grid divided='vertically' textAlign='center' style={{ marginTop: '30vh'}}>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 800 }}>               
-                        <Header as='h1' size='huge' style={{color: '#DBCE07', fontSize: '3vw'}} textAlign='center'>
+                        <Header id="desktop" as='h1' size='huge' style={{color: '#DBCE07', fontSize: '3vw'}} textAlign='center'>
+                            {props.home.title}
+                        </Header>
+                        <Header id="mobile" as='h1' size='huge' style={{color: '#DBCE07', fontSize: '8vw'}} textAlign='center'>
                             {props.home.title}
                         </Header>
                         <Header>

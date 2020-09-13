@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Card, Image } from 'semantic-ui-react'
-import './Category.css'
+import '../Component.css'
 
 const CategoryDetail = (props) => {
 
