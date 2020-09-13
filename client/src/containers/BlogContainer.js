@@ -15,7 +15,7 @@ class BlogContainer extends Component {
 
     render() {
         return (
-            <Grid divided='vertically' textAlign='center' style={{padding: '100px'}}>
+            <Grid divided='vertically' textAlign='center' style={{padding: '25px'}}>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 1000 }}>
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>

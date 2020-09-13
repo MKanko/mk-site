@@ -24,9 +24,8 @@ const ResourceIndex = (props) => {
     }
 
     const genRow = dataList => {
-        console.log(dataList)
         let columns = dataList.map(data => genResource(data))
-        return <Grid.Row columns={3} style={{padding: 0}}>{columns}</Grid.Row>
+        return <Grid.Row columns={props.rowSize}>{columns}</Grid.Row>
     }
 
     const genResource = (data) => {
@@ -38,6 +37,7 @@ const ResourceIndex = (props) => {
     }
 
     // cloneElement is to clone a react element which in this case is a react component
+    // 
 
     return (
         <>

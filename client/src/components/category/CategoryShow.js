@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Grid, Transition, Header, Segment, Button, } from 'semantic-ui-react'
+import { Grid, Transition, Header, Segment, Button } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
 import { getCategory } from '../../actions'
@@ -23,7 +23,7 @@ class CategoryShow extends Component {
         }
     }
 
-    renderSecondTextContent = () => {
+    renderSecTextContent = () => {
         if (this.props.secondary_text_content) {
             return (
                 <Segment inverted secondary>
@@ -46,7 +46,7 @@ class CategoryShow extends Component {
                                 <MDEditor.Markdown source={this.props.description} style={{textAlign: 'left'}} />
                             </Segment>
                             {this.renderTextContent()}
-                            {this.renderSecondTextContent()}
+                            {this.renderSecTextContent()}
                             <Button inverted secondary as={Link} to={{pathname: '/resume'}} size='mini' style={{color: '#DBCE07'}}>Back</Button>
                         </Grid.Column>
                     </Transition>

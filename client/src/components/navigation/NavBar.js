@@ -67,6 +67,28 @@ class NavBar extends Component {
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu>
+                {/* <Menu icon inverted secondary>
+                    <Menu.Item floated='right' title='LinkedIn'>
+                        <a href={linkedin} target='_blank' rel="noopener noreferrer">
+                            <Icon color='grey' name='linkedin' size='large' />
+                        </a>
+                    </Menu.Item>
+                    <Menu.Item floated='right' title='Github'>
+                        <a href={github} target='_blank' rel="noopener noreferrer">
+                            <Icon color='grey' name='github' size='large' />
+                        </a>
+                    </Menu.Item>
+                    <Menu.Item floated='right' title='Facebook'>
+                        <a href={facebook} target='_blank' rel="noopener noreferrer">
+                            <Icon color='grey' name='facebook' size='large' />
+                        </a>
+                    </Menu.Item>
+                    <Menu.Item floated='right' title='Resume'>
+                        <a href={resume} target='_blank' rel="noopener noreferrer">
+                            <Icon color='grey' name='file' size='large' />
+                        </a>
+                    </Menu.Item>
+                </Menu> */}
             </div>
         )
     }
