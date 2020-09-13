@@ -26,11 +26,11 @@ const HomeDetail = (props) => {
                             <MDEditor.Markdown source={props.home.text_content} />                           
                         </Grid.Column>                       
                     </Grid.Row> 
-                    <Grid.Row>
+                    {/* <Grid.Row>
                         <Grid.Column>
                         <h3 style={{color: '#DBCE07'}}>Site Content Currently in Development</h3>
                         </Grid.Column>
-                    </Grid.Row>           
+                    </Grid.Row>            */}
                 </Grid>                                                           
             </Grid.Row>                   
         </Grid>
