@@ -11,7 +11,7 @@ const SkillDetail = (props) => {
   }
 
   return (
-    <Grid.Column textAlign="center" verticalAlign="middle">
+    <Grid.Column textAlign="center" verticalAlign="middle" >
       <Popup
         trigger={
             <picture>
@@ -24,7 +24,7 @@ const SkillDetail = (props) => {
                 <Image
                     circular={props.circular}
                     alt={props.skill.attributes.name}
-                    size="small"
+                    size="mini"
                     verticalAlign="middle"
                     src={props.skill.attributes.image}
                 />

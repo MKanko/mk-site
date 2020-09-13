@@ -20,7 +20,7 @@ class ResumeContainer extends Component {
         const aws = 'https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2020-02-17&ci=AWS01231487'
 
         return (
-            <Grid divided='vertically' textAlign='center' style={{padding: '40px'}}>
+            <Grid divided='vertically' textAlign='center' style={{padding: '25px'}}>
                 <Grid.Row columns={1}>
                     <Grid.Column style={{ maxWidth: 1000 }}>
                         <Header as='h1' style={{color: '#DBCE07'}} textAlign='center'>

@@ -7,7 +7,6 @@ import ResourceIndex from '../components/common/ResourceIndex'
 import ProjectDetail from '../components/project/ProjectDetail'
 import { getPortfolio } from '../actions'
 
-
 class PortfolioContainer extends Component {
 
     componentDidMount() {

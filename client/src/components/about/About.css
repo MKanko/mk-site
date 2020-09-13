@@ -1,0 +1,10 @@
+#grid-row {
+    display: initial;
+}
+
+@media only screen and (max-width: 768px) {
+    #grid-row {
+        display: none;
+    }
+    
+}

@@ -3,6 +3,7 @@ import { Grid, Header, Image, Card } from 'semantic-ui-react'
 import MDEditor from '@uiw/react-md-editor'
 
 import SkillIndex from '../skill/SkillIndex'
+import './About.css'
 
 const AboutDetail = (props) => {
 
@@ -24,10 +25,10 @@ const AboutDetail = (props) => {
                     <Grid.Row style={{height: '3vw'}}>
                         <Header as={'h3'} textAlign={'center'} style={{color: '#DBCE07', padding: 0, margin: 0}}>Skills</Header>  
                     </Grid.Row>     
-                    <Grid.Row style={{height: '5vw'}}>
+                    <Grid.Row id="grid-row" style={{height: '5vw'}}>
                         <SkillIndex getSkills={props.skills.getSkills} skills={props.skills} />
                     </Grid.Row>            
-                </Grid>                                                           
+                </Grid>
             </Grid.Row>
         </Grid> 
     )
