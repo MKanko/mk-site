@@ -2,10 +2,6 @@
     display: none;
 }
 
-/* #desktop {
-    display: initial;
-} */
-
 @media only screen and (max-width: 768px) {
     #mobile {
         display: initial;
