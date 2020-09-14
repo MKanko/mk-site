@@ -34,7 +34,7 @@ const HomeDetail = (props) => {
                         <Grid.Column>
                         <h3 style={{color: '#DBCE07'}}>Site Content Currently in Development</h3>
                         </Grid.Column>
-                    </Grid.Row>            */}
+                    </Grid.Row> */}
                 </Grid>                                                           
             </Grid.Row>                   
         </Grid>
