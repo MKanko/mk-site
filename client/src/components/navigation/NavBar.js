@@ -9,7 +9,7 @@ class NavBar extends Component {
         const linkedin = 'https://www.linkedin.com/in/mark-kanko'
         const github = 'https://github.com/MKanko'
         const resume = '/images/MKanko Resume.pdf'
-        const facebook = 'https://www.facebook.com/mark.kanko.9'
+        const facebook = 'https://www.facebook.com/mark.kanko.73'
 
         return (
             <div>
