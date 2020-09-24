@@ -15,7 +15,7 @@ class ResumeContainer extends Component {
 
     render() {
 
-        const resume = '/images/MKanko Resume.pdf'
+        const resume = '/images/Mark Kanko Resume.pdf'
         const cert = '/images/flatiron certification.pdf'
         const aws = 'https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2020-02-17&ci=AWS01231487'
 
