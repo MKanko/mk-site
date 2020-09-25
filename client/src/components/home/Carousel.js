@@ -7,7 +7,7 @@ class Carousel extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            displayPhrase: 'Full Stack Web Dev',
+            displayPhrase: 'Full Stack Web Developer',
             index: 0,
             visible: true,
         }
