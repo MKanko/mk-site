@@ -29,11 +29,11 @@ class NavBar extends Component {
                         to='/portfolio'
                         name='portfolio'
                     />
-                    <Menu.Item
+                    {/* <Menu.Item
                         as={Link}
                         to='/blog'
                         name='blog'
-                    />
+                    /> */}
                     <Menu.Item
                         as={Link}
                         to='/resume'
